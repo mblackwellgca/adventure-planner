@@ -20,13 +20,16 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
+            <Link className="btn btn-lg btn-info m-2" to="/dashboard">
+                Dashboard
+              </Link>
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 Discussions
               </Link>
               <Link className="btn btn-lg btn-info m-2" to="/locations">
                 Destinations
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/mealPlanning">
+              <Link className="btn btn-lg btn-info m-2" to="/MealPlanning">
                 Meal Planning
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
