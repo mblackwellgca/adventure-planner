@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 
 import Locations from './pages/Locations';
 import MealPlanning from './pages/MealPlanning';
+import Dashboard from './pages/Dashboard';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -80,8 +81,12 @@ function App() {
                 element={<Locations />}
               />
               <Route 
-                path="/meals" 
+                path="/mealplanning" 
                 element={<MealPlanning />}
+              />
+               <Route 
+                path="/dashboard" 
+                element={<Dashboard />}
               />
             </Routes>
           </div>
