@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
@@ -20,7 +20,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-            <Link className="btn btn-lg btn-info m-2" to="/dashboard">
+              <Link className="btn btn-lg btn-info m-2" to="/dashboard">
                 Dashboard
               </Link>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -32,12 +32,16 @@ const Header = () => {
               <Link className="btn btn-lg btn-info m-2" to="/MealPlanning">
                 Meal Planning
               </Link>
+
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
+              <Link className="btn btn-lg btn-info m-2" to="/signin">
+                Sign In{" "}
+              </Link>
               <Link className="btn btn-lg btn-info m-2" to="/login">
                 Login
               </Link>
