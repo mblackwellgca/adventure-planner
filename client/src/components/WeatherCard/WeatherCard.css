@@ -19,7 +19,7 @@ body {
   background-image: url("../../assets/warm-weather.png");
 }
 
-main {
+.weather-card {
   min-height: 100vh;
   padding: 25px;
   background-image: linear-gradient(
