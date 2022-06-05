@@ -34,6 +34,7 @@ function Meal(props) {
       <div className="icons">
         {console.log(item)}
         <p
+          style={{ cursor: "pointer" }}
           onClick={() =>
             setEdit({ id: item.id, value: item.text, type: item.type })
           }
@@ -41,7 +42,13 @@ function Meal(props) {
           {" "}
           ✏️
         </p>
-        <p onClick={() => props.removeMealItem(item.id)}> 🗑️</p>
+        <p
+          style={{ cursor: "pointer" }}
+          onClick={() => props.removeMealItem(item.id)}
+        >
+          {" "}
+          🗑️
+        </p>
       </div>
     </div>
   ));
