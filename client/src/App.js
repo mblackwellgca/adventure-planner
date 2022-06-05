@@ -1,4 +1,6 @@
 import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./assets/colorPalette";
 import {
   ApolloClient,
   InMemoryCache,
@@ -46,27 +48,32 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/me" element={<Profile />} />
-              <Route path="/profiles/:username" element={<Profile />} />
-              <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
-              <Route path="/locations" element={<Locations />} />
-              <Route path="/mealplanning" element={<MealPlanning />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <Router>
+          <div className="flex-column justify-flex-start min-100-vh">
+            <Header />
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/me" element={<Profile />} />
+                <Route path="/profiles/:username" element={<Profile />} />
+                <Route
+                  path="/thoughts/:thoughtId"
+                  element={<SingleThought />}
+                />
+                <Route path="/locations" element={<Locations />} />
+                <Route path="/mealplanning" element={<MealPlanning />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </Router>
-    </ApolloProvider>
+        </Router>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 

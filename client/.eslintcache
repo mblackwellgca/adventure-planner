@@ -1,1 +1,604 @@
-[{"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\index.js":"1","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\App.js":"2","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\reportWebVitals.js":"3","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Home.js":"4","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Locations.js":"5","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\MealPlanning.js":"6","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Profile.js":"7","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\SingleThought.js":"8","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Login.js":"9","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Signup.js":"10","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Footer\\index.js":"11","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Header\\index.js":"12","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\auth.js":"13","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\queries.js":"14","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\mutations.js":"15","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtForm\\index.js":"16","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtList\\index.js":"17","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentForm\\index.js":"18","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentList\\index.js":"19","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Dashboard.js":"20","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\WeatherCard\\WeatherCard.js":"21","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ResponsiveDateRangePicker\\ResponsiveDateRangePicker.js":"22"},{"size":852,"mtime":1654447864373,"results":"23","hashOfConfig":"24"},{"size":2399,"mtime":1654447864372,"results":"25","hashOfConfig":"24"},{"size":362,"mtime":1654133927261,"results":"26","hashOfConfig":"24"},{"size":131,"mtime":1654202630166,"results":"27","hashOfConfig":"24"},{"size":218,"mtime":1654203010222,"results":"28","hashOfConfig":"24"},{"size":224,"mtime":1654203010222,"results":"29","hashOfConfig":"24"},{"size":1061,"mtime":1654203010223,"results":"30","hashOfConfig":"24"},{"size":1562,"mtime":1654133927261,"results":"31","hashOfConfig":"24"},{"size":3934,"mtime":1654447864373,"results":"32","hashOfConfig":"24"},{"size":4485,"mtime":1654447864374,"results":"33","hashOfConfig":"24"},{"size":568,"mtime":1654200616942,"results":"34","hashOfConfig":"24"},{"size":1640,"mtime":1654351445643,"results":"35","hashOfConfig":"24"},{"size":1043,"mtime":1654133927262,"results":"36","hashOfConfig":"24"},{"size":908,"mtime":1654133927262,"results":"37","hashOfConfig":"24"},{"size":1077,"mtime":1654133927262,"results":"38","hashOfConfig":"24"},{"size":3074,"mtime":1654200616943,"results":"39","hashOfConfig":"24"},{"size":1502,"mtime":1654133927258,"results":"40","hashOfConfig":"24"},{"size":2410,"mtime":1654133927255,"results":"41","hashOfConfig":"24"},{"size":953,"mtime":1654133927256,"results":"42","hashOfConfig":"24"},{"size":452,"mtime":1654275040901,"results":"43","hashOfConfig":"24"},{"size":2372,"mtime":1654358030038,"results":"44","hashOfConfig":"24"},{"size":1862,"mtime":1654278526263,"results":"45","hashOfConfig":"24"},{"filePath":"46","messages":"47","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},"94ef8q",{"filePath":"48","messages":"49","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"50","messages":"51","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"53","messages":"54","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"55","messages":"56","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"57","messages":"58","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"59","messages":"60","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":"61","usedDeprecatedRules":"52"},{"filePath":"62","messages":"63","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"64","messages":"65","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"66","messages":"67","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"68","messages":"69","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"70","messages":"71","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"72","messages":"73","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"74","messages":"75","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"76","messages":"77","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"78","messages":"79","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":"80","usedDeprecatedRules":"52"},{"filePath":"81","messages":"82","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"83","messages":"84","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":"85","usedDeprecatedRules":"52"},{"filePath":"86","messages":"87","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"88","messages":"89","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"90","messages":"91","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},{"filePath":"92","messages":"93","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"52"},"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\index.js",["94"],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\App.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\reportWebVitals.js",[],["95","96"],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Home.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Locations.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\MealPlanning.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Profile.js",["97","98","99","100","101"],"import React from \"react\";\nimport { Navigate, useParams } from \"react-router-dom\";\nimport { useQuery } from \"@apollo/client\";\n\nimport ThoughtForm from \"../components/ThoughtForm\";\nimport ThoughtList from \"../components/ThoughtList\";\n\nimport { QUERY_USER, QUERY_ME } from \"../utils/queries\";\nimport { QUERY_THOUGHTS } from \"../utils/queries\";\n\nimport Auth from \"../utils/auth\";\n\nconst Profile = () => {\n  const { loading, data } = useQuery(QUERY_THOUGHTS);\n  const thoughts = data?.thoughts || [];\n\n  return (\n    <main>\n      <div className=\"flex-row justify-center\">\n        <div\n          className=\"col-12 col-md-10 mb-3 p-3\"\n          style={{ border: \"1px dotted #1a1a1a\" }}\n        >\n          <ThoughtForm />\n        </div>\n        <div className=\"col-12 col-md-8 mb-3\">\n          {loading ? (\n            <div>Loading...</div>\n          ) : (\n            <ThoughtList\n              thoughts={thoughts}\n              title=\"Some Feed for Thought(s)...\"\n            />\n          )}\n        </div>\n      </div>\n    </main>\n  );\n};\n\nexport default Profile;\n","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\SingleThought.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Login.js",["102"],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Signup.js",["103"],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Footer\\index.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Header\\index.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\auth.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\queries.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\mutations.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtForm\\index.js",["104"],"import React, { useState } from 'react';\nimport { Link } from 'react-router-dom';\nimport { useMutation } from '@apollo/client';\n\nimport { ADD_THOUGHT } from '../../utils/mutations';\nimport { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';\n\nimport Auth from '../../utils/auth';\n\nconst ThoughtForm = () => {\n  const [thoughtText, setThoughtText] = useState('');\n\n  const [characterCount, setCharacterCount] = useState(0);\n\n  const [addThought, { error }] = useMutation(ADD_THOUGHT, {\n    update(cache, { data: { addThought } }) {\n      try {\n        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });\n\n        cache.writeQuery({\n          query: QUERY_THOUGHTS,\n          data: { thoughts: [addThought, ...thoughts] },\n        });\n      } catch (e) {\n        console.error(e);\n      }\n\n      // update me object's cache\n      const { me } = cache.readQuery({ query: QUERY_ME });\n      cache.writeQuery({\n        query: QUERY_ME,\n        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },\n      });\n    },\n  });\n\n  const handleFormSubmit = async (event) => {\n    event.preventDefault();\n\n    try {\n      const { data } = await addThought({\n        variables: {\n          thoughtText,\n          thoughtAuthor: Auth.getProfile().data.username,\n        },\n      });\n\n      setThoughtText('');\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const handleChange = (event) => {\n    const { name, value } = event.target;\n\n    if (name === 'thoughtText' && value.length <= 280) {\n      setThoughtText(value);\n      setCharacterCount(value.length);\n    }\n  };\n\n  return (\n    <div>\n      <h3>What's on your mind?</h3>\n\n      {Auth.loggedIn() ? (\n        <>\n          <p\n            className={`m-0 ${\n              characterCount === 280 || error ? 'text-danger' : ''\n            }`}\n          >\n            Character Count: {characterCount}/280\n          </p>\n          <form\n            className=\"flex-row justify-center justify-space-between-md align-center\"\n            onSubmit={handleFormSubmit}\n          >\n            <div className=\"col-12 col-lg-9\">\n              <textarea\n                name=\"thoughtText\"\n                placeholder=\"Here's a new thought...\"\n                value={thoughtText}\n                className=\"form-input w-100\"\n                style={{ lineHeight: '1.5', resize: 'vertical' }}\n                onChange={handleChange}\n              ></textarea>\n            </div>\n\n            <div className=\"col-12 col-lg-3\">\n              <button className=\"btn btn-primary btn-block py-3\" type=\"submit\">\n                Add Thought\n              </button>\n            </div>\n            {error && (\n              <div className=\"col-12 my-3 bg-danger text-white p-3\">\n                {error.message}\n              </div>\n            )}\n          </form>\n        </>\n      ) : (\n        <p>\n          You need to be logged in to share your thoughts. Please{' '}\n          <Link to=\"/login\">login</Link> or <Link to=\"/signup\">signup.</Link>\n        </p>\n      )}\n    </div>\n  );\n};\n\nexport default ThoughtForm;\n","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtList\\index.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentForm\\index.js",["105"],"import React, { useState } from 'react';\nimport { Link } from 'react-router-dom';\nimport { useMutation } from '@apollo/client';\n\nimport { ADD_COMMENT } from '../../utils/mutations';\n\nimport Auth from '../../utils/auth';\n\nconst CommentForm = ({ thoughtId }) => {\n  const [commentText, setCommentText] = useState('');\n  const [characterCount, setCharacterCount] = useState(0);\n\n  const [addComment, { error }] = useMutation(ADD_COMMENT);\n\n  const handleFormSubmit = async (event) => {\n    event.preventDefault();\n\n    try {\n      const { data } = await addComment({\n        variables: {\n          thoughtId,\n          commentText,\n          commentAuthor: Auth.getProfile().data.username,\n        },\n      });\n\n      setCommentText('');\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const handleChange = (event) => {\n    const { name, value } = event.target;\n\n    if (name === 'commentText' && value.length <= 280) {\n      setCommentText(value);\n      setCharacterCount(value.length);\n    }\n  };\n\n  return (\n    <div>\n      <h4>What are your thoughts on this thought?</h4>\n\n      {Auth.loggedIn() ? (\n        <>\n          <p\n            className={`m-0 ${\n              characterCount === 280 || error ? 'text-danger' : ''\n            }`}\n          >\n            Character Count: {characterCount}/280\n            {error && <span className=\"ml-2\">{error.message}</span>}\n          </p>\n          <form\n            className=\"flex-row justify-center justify-space-between-md align-center\"\n            onSubmit={handleFormSubmit}\n          >\n            <div className=\"col-12 col-lg-9\">\n              <textarea\n                name=\"commentText\"\n                placeholder=\"Add your comment...\"\n                value={commentText}\n                className=\"form-input w-100\"\n                style={{ lineHeight: '1.5', resize: 'vertical' }}\n                onChange={handleChange}\n              ></textarea>\n            </div>\n\n            <div className=\"col-12 col-lg-3\">\n              <button className=\"btn btn-primary btn-block py-3\" type=\"submit\">\n                Add Comment\n              </button>\n            </div>\n          </form>\n        </>\n      ) : (\n        <p>\n          You need to be logged in to share your thoughts. Please{' '}\n          <Link to=\"/login\">login</Link> or <Link to=\"/signup\">signup.</Link>\n        </p>\n      )}\n    </div>\n  );\n};\n\nexport default CommentForm;\n","C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentList\\index.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Dashboard.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\WeatherCard\\WeatherCard.js",[],"C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ResponsiveDateRangePicker\\ResponsiveDateRangePicker.js",[],{"ruleId":"106","severity":1,"message":"107","line":9,"column":7,"nodeType":"108","messageId":"109","endLine":9,"endColumn":12},{"ruleId":"110","replacedBy":"111"},{"ruleId":"112","replacedBy":"113"},{"ruleId":"106","severity":1,"message":"114","line":2,"column":10,"nodeType":"108","messageId":"109","endLine":2,"endColumn":18},{"ruleId":"106","severity":1,"message":"115","line":2,"column":20,"nodeType":"108","messageId":"109","endLine":2,"endColumn":29},{"ruleId":"106","severity":1,"message":"116","line":8,"column":10,"nodeType":"108","messageId":"109","endLine":8,"endColumn":20},{"ruleId":"106","severity":1,"message":"117","line":8,"column":22,"nodeType":"108","messageId":"109","endLine":8,"endColumn":30},{"ruleId":"106","severity":1,"message":"118","line":11,"column":8,"nodeType":"108","messageId":"109","endLine":11,"endColumn":12},{"ruleId":"106","severity":1,"message":"119","line":25,"column":26,"nodeType":"108","messageId":"109","endLine":25,"endColumn":30},{"ruleId":"106","severity":1,"message":"119","line":28,"column":28,"nodeType":"108","messageId":"109","endLine":28,"endColumn":32},{"ruleId":"106","severity":1,"message":"119","line":41,"column":15,"nodeType":"108","messageId":"109","endLine":41,"endColumn":19},{"ruleId":"106","severity":1,"message":"119","line":19,"column":15,"nodeType":"108","messageId":"109","endLine":19,"endColumn":19},"no-unused-vars","'theme' is assigned a value but never used.","Identifier","unusedVar","no-native-reassign",["120"],"no-negated-in-lhs",["121"],"'Navigate' is defined but never used.","'useParams' is defined but never used.","'QUERY_USER' is defined but never used.","'QUERY_ME' is defined but never used.","'Auth' is defined but never used.","'data' is assigned a value but never used.","no-global-assign","no-unsafe-negation"]
+[
+  {
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\index.js": "1",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\App.js": "2",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\reportWebVitals.js": "3",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Home.js": "4",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Locations.js": "5",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\MealPlanning.js": "6",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Profile.js": "7",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\SingleThought.js": "8",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Login.js": "9",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Signup.js": "10",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Footer\\index.js": "11",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Header\\index.js": "12",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\auth.js": "13",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\queries.js": "14",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\mutations.js": "15",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtForm\\index.js": "16",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtList\\index.js": "17",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentForm\\index.js": "18",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentList\\index.js": "19",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Dashboard.js": "20",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\WeatherCard\\WeatherCard.js": "21",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ResponsiveDateRangePicker\\ResponsiveDateRangePicker.js": "22",
+    "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\assets\\colorPalette.js": "23"
+  },
+  {
+    "size": 852,
+    "mtime": 1654447864373,
+    "results": "24",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 2645,
+    "mtime": 1654447882159,
+    "results": "26",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 362,
+    "mtime": 1654133927261,
+    "results": "27",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 131,
+    "mtime": 1654202630166,
+    "results": "28",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 218,
+    "mtime": 1654203010222,
+    "results": "29",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 224,
+    "mtime": 1654203010222,
+    "results": "30",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1061,
+    "mtime": 1654203010223,
+    "results": "31",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1562,
+    "mtime": 1654133927261,
+    "results": "32",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 3629,
+    "mtime": 1654447882161,
+    "results": "33",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 4083,
+    "mtime": 1654447882161,
+    "results": "34",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 568,
+    "mtime": 1654200616942,
+    "results": "35",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1640,
+    "mtime": 1654351445643,
+    "results": "36",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1043,
+    "mtime": 1654133927262,
+    "results": "37",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 908,
+    "mtime": 1654133927262,
+    "results": "38",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1077,
+    "mtime": 1654133927262,
+    "results": "39",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 3074,
+    "mtime": 1654200616943,
+    "results": "40",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1502,
+    "mtime": 1654133927258,
+    "results": "41",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 2410,
+    "mtime": 1654133927255,
+    "results": "42",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 953,
+    "mtime": 1654133927256,
+    "results": "43",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 452,
+    "mtime": 1654275040901,
+    "results": "44",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 2372,
+    "mtime": 1654358030038,
+    "results": "45",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 1862,
+    "mtime": 1654278526263,
+    "results": "46",
+    "hashOfConfig": "25"
+  },
+  {
+    "size": 218,
+    "mtime": 1654447882160,
+    "results": "47",
+    "hashOfConfig": "25"
+  },
+  {
+    "filePath": "48",
+    "messages": "49",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": null
+  },
+  "94ef8q",
+  {
+    "filePath": "50",
+    "messages": "51",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0
+  },
+  {
+    "filePath": "52",
+    "messages": "53",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "55",
+    "messages": "56",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "57",
+    "messages": "58",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "59",
+    "messages": "60",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "61",
+    "messages": "62",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 5,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "63",
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "64",
+    "messages": "65",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "66",
+    "messages": "67",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": null
+  },
+  {
+    "filePath": "68",
+    "messages": "69",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": null
+  },
+  {
+    "filePath": "70",
+    "messages": "71",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "72",
+    "messages": "73",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "74",
+    "messages": "75",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "76",
+    "messages": "77",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "78",
+    "messages": "79",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "80",
+    "messages": "81",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "82",
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "83",
+    "messages": "84",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "85",
+    "messages": "86",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "87",
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "88",
+    "messages": "89",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "90",
+    "messages": "91",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "92",
+    "messages": "93",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "94",
+    "messages": "95",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": "54"
+  },
+  {
+    "filePath": "96",
+    "messages": "97",
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0
+  },
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\index.js",
+  [
+    "98"
+  ],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\App.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\reportWebVitals.js",
+  [],
+  [
+    "99",
+    "100"
+  ],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Home.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Locations.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\MealPlanning.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Profile.js",
+  [
+    "101",
+    "102",
+    "103",
+    "104",
+    "105"
+  ],
+  "import React from \"react\";\nimport { Navigate, useParams } from \"react-router-dom\";\nimport { useQuery } from \"@apollo/client\";\n\nimport ThoughtForm from \"../components/ThoughtForm\";\nimport ThoughtList from \"../components/ThoughtList\";\n\nimport { QUERY_USER, QUERY_ME } from \"../utils/queries\";\nimport { QUERY_THOUGHTS } from \"../utils/queries\";\n\nimport Auth from \"../utils/auth\";\n\nconst Profile = () => {\n  const { loading, data } = useQuery(QUERY_THOUGHTS);\n  const thoughts = data?.thoughts || [];\n\n  return (\n    <main>\n      <div className=\"flex-row justify-center\">\n        <div\n          className=\"col-12 col-md-10 mb-3 p-3\"\n          style={{ border: \"1px dotted #1a1a1a\" }}\n        >\n          <ThoughtForm />\n        </div>\n        <div className=\"col-12 col-md-8 mb-3\">\n          {loading ? (\n            <div>Loading...</div>\n          ) : (\n            <ThoughtList\n              thoughts={thoughts}\n              title=\"Some Feed for Thought(s)...\"\n            />\n          )}\n        </div>\n      </div>\n    </main>\n  );\n};\n\nexport default Profile;\n",
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\SingleThought.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Login.js",
+  [
+    "106"
+  ],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Signup.js",
+  [
+    "107"
+  ],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Footer\\index.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\Header\\index.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\auth.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\queries.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\utils\\mutations.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtForm\\index.js",
+  [
+    "108"
+  ],
+  "import React, { useState } from 'react';\nimport { Link } from 'react-router-dom';\nimport { useMutation } from '@apollo/client';\n\nimport { ADD_THOUGHT } from '../../utils/mutations';\nimport { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';\n\nimport Auth from '../../utils/auth';\n\nconst ThoughtForm = () => {\n  const [thoughtText, setThoughtText] = useState('');\n\n  const [characterCount, setCharacterCount] = useState(0);\n\n  const [addThought, { error }] = useMutation(ADD_THOUGHT, {\n    update(cache, { data: { addThought } }) {\n      try {\n        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });\n\n        cache.writeQuery({\n          query: QUERY_THOUGHTS,\n          data: { thoughts: [addThought, ...thoughts] },\n        });\n      } catch (e) {\n        console.error(e);\n      }\n\n      // update me object's cache\n      const { me } = cache.readQuery({ query: QUERY_ME });\n      cache.writeQuery({\n        query: QUERY_ME,\n        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },\n      });\n    },\n  });\n\n  const handleFormSubmit = async (event) => {\n    event.preventDefault();\n\n    try {\n      const { data } = await addThought({\n        variables: {\n          thoughtText,\n          thoughtAuthor: Auth.getProfile().data.username,\n        },\n      });\n\n      setThoughtText('');\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const handleChange = (event) => {\n    const { name, value } = event.target;\n\n    if (name === 'thoughtText' && value.length <= 280) {\n      setThoughtText(value);\n      setCharacterCount(value.length);\n    }\n  };\n\n  return (\n    <div>\n      <h3>What's on your mind?</h3>\n\n      {Auth.loggedIn() ? (\n        <>\n          <p\n            className={`m-0 ${\n              characterCount === 280 || error ? 'text-danger' : ''\n            }`}\n          >\n            Character Count: {characterCount}/280\n          </p>\n          <form\n            className=\"flex-row justify-center justify-space-between-md align-center\"\n            onSubmit={handleFormSubmit}\n          >\n            <div className=\"col-12 col-lg-9\">\n              <textarea\n                name=\"thoughtText\"\n                placeholder=\"Here's a new thought...\"\n                value={thoughtText}\n                className=\"form-input w-100\"\n                style={{ lineHeight: '1.5', resize: 'vertical' }}\n                onChange={handleChange}\n              ></textarea>\n            </div>\n\n            <div className=\"col-12 col-lg-3\">\n              <button className=\"btn btn-primary btn-block py-3\" type=\"submit\">\n                Add Thought\n              </button>\n            </div>\n            {error && (\n              <div className=\"col-12 my-3 bg-danger text-white p-3\">\n                {error.message}\n              </div>\n            )}\n          </form>\n        </>\n      ) : (\n        <p>\n          You need to be logged in to share your thoughts. Please{' '}\n          <Link to=\"/login\">login</Link> or <Link to=\"/signup\">signup.</Link>\n        </p>\n      )}\n    </div>\n  );\n};\n\nexport default ThoughtForm;\n",
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ThoughtList\\index.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentForm\\index.js",
+  [
+    "109"
+  ],
+  "import React, { useState } from 'react';\nimport { Link } from 'react-router-dom';\nimport { useMutation } from '@apollo/client';\n\nimport { ADD_COMMENT } from '../../utils/mutations';\n\nimport Auth from '../../utils/auth';\n\nconst CommentForm = ({ thoughtId }) => {\n  const [commentText, setCommentText] = useState('');\n  const [characterCount, setCharacterCount] = useState(0);\n\n  const [addComment, { error }] = useMutation(ADD_COMMENT);\n\n  const handleFormSubmit = async (event) => {\n    event.preventDefault();\n\n    try {\n      const { data } = await addComment({\n        variables: {\n          thoughtId,\n          commentText,\n          commentAuthor: Auth.getProfile().data.username,\n        },\n      });\n\n      setCommentText('');\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const handleChange = (event) => {\n    const { name, value } = event.target;\n\n    if (name === 'commentText' && value.length <= 280) {\n      setCommentText(value);\n      setCharacterCount(value.length);\n    }\n  };\n\n  return (\n    <div>\n      <h4>What are your thoughts on this thought?</h4>\n\n      {Auth.loggedIn() ? (\n        <>\n          <p\n            className={`m-0 ${\n              characterCount === 280 || error ? 'text-danger' : ''\n            }`}\n          >\n            Character Count: {characterCount}/280\n            {error && <span className=\"ml-2\">{error.message}</span>}\n          </p>\n          <form\n            className=\"flex-row justify-center justify-space-between-md align-center\"\n            onSubmit={handleFormSubmit}\n          >\n            <div className=\"col-12 col-lg-9\">\n              <textarea\n                name=\"commentText\"\n                placeholder=\"Add your comment...\"\n                value={commentText}\n                className=\"form-input w-100\"\n                style={{ lineHeight: '1.5', resize: 'vertical' }}\n                onChange={handleChange}\n              ></textarea>\n            </div>\n\n            <div className=\"col-12 col-lg-3\">\n              <button className=\"btn btn-primary btn-block py-3\" type=\"submit\">\n                Add Comment\n              </button>\n            </div>\n          </form>\n        </>\n      ) : (\n        <p>\n          You need to be logged in to share your thoughts. Please{' '}\n          <Link to=\"/login\">login</Link> or <Link to=\"/signup\">signup.</Link>\n        </p>\n      )}\n    </div>\n  );\n};\n\nexport default CommentForm;\n",
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\CommentList\\index.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\pages\\Dashboard.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\WeatherCard\\WeatherCard.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\components\\ResponsiveDateRangePicker\\ResponsiveDateRangePicker.js",
+  [],
+  "C:\\Users\\amach\\Documents\\GT\\projects\\adventure-planner\\client\\src\\assets\\colorPalette.js",
+  [],
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "111",
+    "line": 9,
+    "column": 7,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 9,
+    "endColumn": 12
+  },
+  {
+    "ruleId": "114",
+    "replacedBy": "115"
+  },
+  {
+    "ruleId": "116",
+    "replacedBy": "117"
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "118",
+    "line": 2,
+    "column": 10,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 2,
+    "endColumn": 18
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "119",
+    "line": 2,
+    "column": 20,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 2,
+    "endColumn": 29
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "120",
+    "line": 8,
+    "column": 10,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 8,
+    "endColumn": 20
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "121",
+    "line": 8,
+    "column": 22,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 8,
+    "endColumn": 30
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "122",
+    "line": 11,
+    "column": 8,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 11,
+    "endColumn": 12
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "123",
+    "line": 21,
+    "column": 26,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 21,
+    "endColumn": 30
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "123",
+    "line": 25,
+    "column": 28,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 25,
+    "endColumn": 32
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "123",
+    "line": 41,
+    "column": 15,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 41,
+    "endColumn": 19
+  },
+  {
+    "ruleId": "110",
+    "severity": 1,
+    "message": "123",
+    "line": 19,
+    "column": 15,
+    "nodeType": "112",
+    "messageId": "113",
+    "endLine": 19,
+    "endColumn": 19
+  },
+  "no-unused-vars",
+  "'theme' is assigned a value but never used.",
+  "Identifier",
+  "unusedVar",
+  "no-native-reassign",
+  [
+    "124"
+  ],
+  "no-negated-in-lhs",
+  [
+    "125"
+  ],
+  "'Navigate' is defined but never used.",
+  "'useParams' is defined but never used.",
+  "'QUERY_USER' is defined but never used.",
+  "'QUERY_ME' is defined but never used.",
+  "'Auth' is defined but never used.",
+  "'data' is assigned a value but never used.",
+  "no-global-assign",
+  "no-unsafe-negation"
+]
