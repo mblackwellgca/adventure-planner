@@ -9,14 +9,14 @@ body {
 }
 
 .App {
-  background-image: url("../../assets/cool-weather.png");
+  background-image: url("images/cool-weather.png");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s ease-out;
 }
 
 .App.warm {
-  background-image: url("../../assets/warm-weather.png");
+  background-image: url("images/warm-weather.png");
 }
 
 .weather-card {
