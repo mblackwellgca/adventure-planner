@@ -10,7 +10,7 @@ const Home = () => {
      {Auth.loggedIn() ? (
       <>
 
-      <p>if logged in</p>
+      <p></p>
       <Link className="" to="/Destinations">
                 Plan my next trip!
       </Link>
