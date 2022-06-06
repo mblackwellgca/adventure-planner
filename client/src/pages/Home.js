@@ -1,7 +1,5 @@
 import React from 'react';
 import Auth from "../utils/auth";
-
-=======
 import "../assets/css/home.css";
 
 import { Link } from "react-router-dom";
