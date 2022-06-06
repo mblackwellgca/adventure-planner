@@ -71,11 +71,6 @@ function MealForm(props) {
             <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
           </div>
         </div>
-        <Button type="submit" className="meal-Button">
-          Add meal list item
-        </Button>
-      </Box>
-      <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
           <InputLabel id="day-select-label">Day</InputLabel>
           <Select
@@ -94,6 +89,9 @@ function MealForm(props) {
             <MenuItem value={"Sunday"}>Sunday</MenuItem>
           </Select>
         </FormControl>
+        <Button type="submit" className="meal-Button">
+          Add meal list item
+        </Button>
       </Box>
     </Container>
   ) : (
