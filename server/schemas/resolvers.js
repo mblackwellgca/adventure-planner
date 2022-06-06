@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Thought, Trip } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -111,6 +111,39 @@ const resolvers = {
           },
           { new: true }
         );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    addTrip: async (parent, { tripName }, context) => {
+      if (context.user) {
+        const trip = await Trip.create({
+          tripName,
+          attendee: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { trips: trip._id } }
+        );
+
+        return trip;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeTrip: async (parent, { tripId }, context) => {
+      if (context.user) {
+        const trip = await Thought.findOneAndDelete({
+          _id: tripId,
+          tripAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { trips: trip._id } }
+        );
+
+        return trip;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

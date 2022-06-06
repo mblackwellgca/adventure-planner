@@ -1,6 +1,29 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemText from "@mui/material/ListItemText";
+import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import MealForm from "./MealForm";
 import Meal from "./Meal";
+
+function generate(element) {
+  return [0, 1, 2].map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    })
+  );
+}
+
+const Demo = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+}));
 
 function MealList() {
   const [meal, setMeal] = useState([]);
@@ -60,12 +83,131 @@ function MealList() {
     <div>
       <h1>What meal would you like to add to the meal planner?</h1>
       <MealForm onSubmit={addMealItem} />
-      <Meal
-        meal={meal}
-        completeMealItem={completeMealItem}
-        removeMealItem={removeMealItem}
-        editMealItem={editMealItem}
-      ></Meal>
+
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card>
+              <CardContent>
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                  Monday
+                </Typography>
+                <Demo>
+                  <List>
+                    {generate(
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar></Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={
+                            <Meal
+                              meal={meal}
+                              completeMealItem={completeMealItem}
+                              removeMealItem={removeMealItem}
+                              editMealItem={editMealItem}
+                            ></Meal>
+                          }
+                        />
+                      </ListItem>
+                    )}
+                  </List>
+                </Demo>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card>
+              <CardContent>
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                  Monday
+                </Typography>
+                <Demo>
+                  <List>
+                    {generate(
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar></Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={
+                            <Meal
+                              meal={meal}
+                              completeMealItem={completeMealItem}
+                              removeMealItem={removeMealItem}
+                              editMealItem={editMealItem}
+                            ></Meal>
+                          }
+                        />
+                      </ListItem>
+                    )}
+                  </List>
+                </Demo>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card>
+              <CardContent>
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                  Monday
+                </Typography>
+                <Demo>
+                  <List>
+                    {generate(
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar></Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={
+                            <Meal
+                              meal={meal}
+                              completeMealItem={completeMealItem}
+                              removeMealItem={removeMealItem}
+                              editMealItem={editMealItem}
+                            ></Meal>
+                          }
+                        />
+                      </ListItem>
+                    )}
+                  </List>
+                </Demo>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card>
+              <CardContent>
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                  Monday
+                </Typography>
+                <Demo>
+                  <List>
+                    {generate(
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar></Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={
+                            <Meal
+                              meal={meal}
+                              completeMealItem={completeMealItem}
+                              removeMealItem={removeMealItem}
+                              editMealItem={editMealItem}
+                            ></Meal>
+                          }
+                        />
+                      </ListItem>
+                    )}
+                  </List>
+                </Demo>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
     </div>
   );
 }

@@ -29,7 +29,9 @@ function Meal(props) {
       key={i}
     >
       <div key={item.id} onClick={() => props.completeMealItem(item.id)}>
-        {item.text}: {item.type}
+        {item.text}
+        {"\n"}
+        {item.type}
       </div>
       <div className="icons">
         {console.log(item)}

@@ -17,10 +17,10 @@ import SingleThought from "./pages/SingleThought";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import Locations from "./pages/Locations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
+import Events from "./pages/Events";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,7 +48,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+   <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
         <Router>
           <div className="flex-column justify-flex-start min-100-vh">
@@ -60,10 +60,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/me" element={<Profile />} />
                 <Route path="/profiles/:username" element={<Profile />} />
-                <Route
-                  path="/thoughts/:thoughtId"
-                  element={<SingleThought />}
-                />
+                <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
                 <Route path="/locations" element={<Locations />} />
                 <Route path="/mealplanning" element={<MealPlanning />} />
                 <Route path="/dashboard" element={<Dashboard />} />
