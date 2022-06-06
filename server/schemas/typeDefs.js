@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
+    trips: [Trip]!
   }
 
   type Thought {
@@ -24,6 +25,14 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Trip {
+    _id: ID
+    tripName: String
+    locationName: String
+    tripDates: String
+    attendee: [User]!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -35,6 +44,7 @@ const typeDefs = gql`
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
     me: User
+    trips: Trip
   }
 
   type Mutation {
@@ -44,6 +54,8 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addTrip(tripName: String!): Trip
+    removeTrip(tripId: ID!): Trip
   }
 `;
 
