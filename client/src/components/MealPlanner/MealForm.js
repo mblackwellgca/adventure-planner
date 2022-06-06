@@ -1,0 +1,108 @@
+import React, { useState } from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+
+function MealForm(props) {
+  const [input, setInput] = useState("");
+  let [type, setType] = useState("");
+
+  const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!type) {
+      type = "TBD";
+    }
+
+    props.onSubmit({
+      id: Math.random(Math.floor() * 1000),
+      text: input,
+      type: type,
+    });
+
+    setInput("");
+    setType("");
+  };
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  // First we check to see if "edit" prop exists. If not, we render the normal form
+  // If the prop "edit" exists, we know to render the update form instead
+  return !props.edit ? (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        component="form"
+        className="meal-form"
+        onSubmit={handleSubmit}
+        noValidate
+        sx={{ mt: 1 }}
+      >
+        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
+        <TextField
+          type="text"
+          placeholder="Add to your meal list"
+          value={input}
+          name="text"
+          className="meal-input"
+          onChange={handleChange}
+        ></TextField>
+        <div className="dropdown">
+          <h3 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h3>
+          <div className="dropdown-content">
+            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
+            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
+            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+          </div>
+        </div>
+        <Button type="submit" className="meal-Button">
+          Add meal list item
+        </Button>
+      </Box>
+    </Container>
+  ) : (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        component="form"
+        className="meal-form"
+        onSubmit={handleSubmit}
+        noValidate
+        sx={{ mt: 1 }}
+      >
+        <h3>Update entry: {props.edit.value}</h3>
+        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
+
+        <TextField
+          type="text"
+          placeholder={props.edit.value}
+          value={input}
+          name="text"
+          className="meal-input"
+          onChange={handleChange}
+        ></TextField>
+        <div className="dropdown">
+          <h4 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h4>
+          <div className="dropdown-content">
+            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
+            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
+            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+          </div>
+        </div>
+        <Button type="submit" className="meal-button">
+          Update
+        </Button>
+        {/* </form> */}
+      </Box>
+    </Container>
+  );
+}
+
+export default MealForm;
