@@ -13,11 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from "react-router-dom";
-
+import "../../assets/css/header.css"
 import Auth from "../../utils/auth";
 
-const pages = ['Home', 'dashboard', 'locations', 'MealPlanning', 'me', 'signup', 'login'];
-const settings = ['Profile', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
+const settings = [ 'Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,7 +37,10 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -60,7 +63,9 @@ const ResponsiveAppBar = () => {
           >
             LOGO
           </Typography>
-
+          {Auth.loggedIn() ? (
+            <>
+            
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -133,7 +138,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={Auth.getProfile().data.username} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -154,11 +159,25 @@ const ResponsiveAppBar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
                 </MenuItem>
               ))}
+              <div className="btnLO"  onClick={logout}>
+                Logout
+              </div>
             </Menu>
           </Box>
+          </>
+          ) : (
+            <>
+             <Link className="" to="/login">
+                Login
+              </Link>
+              <Link className="" to="/signup">
+                Signup
+              </Link>
+            </>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
