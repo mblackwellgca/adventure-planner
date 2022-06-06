@@ -6,13 +6,14 @@ function Meal(props) {
     id: null,
     value: "",
     type: "",
+    day: "",
   });
 
   console.log(props.meal);
 
   const submitUpdate = (value) => {
     props.editMealItem(edit.id, value);
-    setEdit({ id: null, value: "", type: "" });
+    setEdit({ id: null, value: "", type: "", day: "" });
   };
 
   if (edit.id) {
@@ -38,7 +39,12 @@ function Meal(props) {
         <p
           style={{ cursor: "pointer" }}
           onClick={() =>
-            setEdit({ id: item.id, value: item.text, type: item.type })
+            setEdit({
+              id: item.id,
+              value: item.text,
+              type: item.type,
+              day: item.day,
+            })
           }
         >
           {" "}

@@ -3,12 +3,17 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
 function MealForm(props) {
   const [input, setInput] = useState("");
   let [type, setType] = useState("");
+  let [day, setDay] = useState("");
 
   const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
 
@@ -31,6 +36,10 @@ function MealForm(props) {
 
   const handleChange = (e) => {
     setInput(e.target.value);
+  };
+
+  const handleDayChange = (event) => {
+    setDay(event.target.value);
   };
 
   // First we check to see if "edit" prop exists. If not, we render the normal form
@@ -65,6 +74,26 @@ function MealForm(props) {
         <Button type="submit" className="meal-Button">
           Add meal list item
         </Button>
+      </Box>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="day-select-label">Day</InputLabel>
+          <Select
+            labelId="day-select-label"
+            id="day-select"
+            value={day}
+            label="Day"
+            onChange={handleDayChange}
+          >
+            <MenuItem value={"Monday"}>Monday</MenuItem>
+            <MenuItem value={"Tuesday"}>Tuesday</MenuItem>
+            <MenuItem value={"Wednesday"}>Wednesday</MenuItem>
+            <MenuItem value={"Thursday"}>Thursday</MenuItem>
+            <MenuItem value={"Friday"}>Friday</MenuItem>
+            <MenuItem value={"Saturday"}>Saturday</MenuItem>
+            <MenuItem value={"Sunday"}>Sunday</MenuItem>
+          </Select>
+        </FormControl>
       </Box>
     </Container>
   ) : (
