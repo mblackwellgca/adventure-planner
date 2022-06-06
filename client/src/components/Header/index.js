@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 import "../../assets/css/header.css"
 import Auth from "../../utils/auth";
 
-const pages = ['Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
-const settings = [ 'Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
+const pages = [ 'dashboard', 'meal-planning', 'discussions'];
+const settings = [ 'dashboard', 'destinations', 'meal-planning', 'discussions'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -95,6 +95,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              <Link className="homeMenu" to={`/`}>Home</Link>
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
@@ -102,6 +103,7 @@ const ResponsiveAppBar = () => {
                   </Typography>
                 </MenuItem>
               ))}
+             
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -124,6 +126,7 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Link className="homeNav" to={`/`}>Home</Link>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -133,6 +136,7 @@ const ResponsiveAppBar = () => {
                 <Link to={`/${page}`}>{page}</Link>
               </Button>
             ))}
+            
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -157,6 +161,7 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <Link className="homeProfile" to={`/`}>Home</Link>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
