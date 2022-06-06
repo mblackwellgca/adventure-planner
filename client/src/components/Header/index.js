@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from "react-router-dom";
-import "../../assets/css/header.css"
+import "../../assets/css/header.css";
 import Auth from "../../utils/auth";
+import Logo from '../../assets/images/group-it-logo.png';
 
 const pages = ['Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
 const settings = [ 'Home', 'Dashboard', 'Destinations', 'MealPlanning', 'Discussions'];
@@ -45,7 +46,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <img src={Logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -61,7 +62,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            The Group Adventure Travel Planner
           </Typography>
           {Auth.loggedIn() ? (
             <>
@@ -171,10 +172,10 @@ const ResponsiveAppBar = () => {
           ) : (
             <>
              <Link className="" to="/login">
-                Login
+                Log in &nbsp;
               </Link>
               <Link className="" to="/signup">
-                Signup
+                Sign up
               </Link>
             </>
           )}
