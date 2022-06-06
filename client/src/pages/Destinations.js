@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import searchResults from "../components/Locations/index";
 
-function Locations() {
+function Destinations() {
     
   const [search, setSearch] = useState("");
 
@@ -30,4 +30,4 @@ function Locations() {
   )
 }
 
-export default Locations;
+export default Destinations;

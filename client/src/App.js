@@ -17,7 +17,7 @@ import SingleThought from "./pages/SingleThought";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Locations from "./pages/Locations";
+import Destinations from "./pages/Destinations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
@@ -58,10 +58,10 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/me" element={<Profile />} />
+                <Route path="/discussions" element={<Profile />} />
                 <Route path="/profiles/:username" element={<Profile />} />
                 <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
-                <Route path="/locations" element={<Locations />} />
+                <Route path="/destinations" element={<Destinations />} />
                 <Route path="/mealplanning" element={<MealPlanning />} />
                 <Route path="/dashboard" element={<Dashboard />} />
               </Routes>
