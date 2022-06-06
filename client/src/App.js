@@ -62,7 +62,7 @@ function App() {
                 <Route path="/profiles/:username" element={<Profile />} />
                 <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
                 <Route path="/destinations" element={<Destinations />} />
-                <Route path="/mealplanning" element={<MealPlanning />} />
+                <Route path="/meal-planning" element={<MealPlanning />} />
                 <Route path="/dashboard" element={<Dashboard />} />
               </Routes>
             </div>

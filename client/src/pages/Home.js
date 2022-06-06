@@ -1,6 +1,9 @@
 import React from 'react';
 import Auth from "../utils/auth";
+
+=======
 import "../assets/css/home.css";
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -8,10 +11,12 @@ const Home = () => {
     <div>
      {Auth.loggedIn() ? (
       <>
+
       <p>if logged in</p>
       <Link className="" to="/Destinations">
                 Plan my next trip!
       </Link>
+
 
       </>
       ) : (
