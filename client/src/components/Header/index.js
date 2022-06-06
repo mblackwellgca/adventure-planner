@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 
-const pages = ['Home', 'Dashboard', 'Destinations', 'Meal Planning', 'Discussions', 'Signup', 'Login'];
+const pages = ['Home', 'dashboard', 'locations', 'MealPlanning', 'me', 'signup', 'login'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -92,7 +92,9 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link to={`/${page}`}>{page}</Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,7 +125,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={`/${page}`}>{page}</Link>
               </Button>
             ))}
           </Box>
