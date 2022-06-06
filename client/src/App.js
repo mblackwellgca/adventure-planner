@@ -20,6 +20,7 @@ import Footer from "./components/Footer";
 import Locations from "./pages/Locations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
+import Events from "./pages/Events";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -47,8 +48,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-   
-    <ThemeProvider theme={theme}>
+   <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
         <Router>
           <div className="flex-column justify-flex-start min-100-vh">
