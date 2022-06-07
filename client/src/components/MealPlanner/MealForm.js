@@ -59,7 +59,7 @@ function MealForm(props) {
         {/* <form className="meal-form" onSubmit={handleSubmit}> */}
         <TextField
           type="text"
-          placeholder="Add to your meal list"
+          placeholder="Add meal to your list"
           value={input}
           name="text"
           className="meal-input"
@@ -91,7 +91,7 @@ function MealForm(props) {
             <MenuItem value={"Sunday"}>Sunday</MenuItem>
           </Select>
         </FormControl>
-        <Button type="submit" className="meal-Button">
+        <Button type="submit" variant="contained" className="meal-Button">
           Add meal list item
         </Button>
       </Box>
@@ -124,10 +124,27 @@ function MealForm(props) {
             <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
           </div>
         </div>
-        <Button type="submit" className="meal-button">
+        <FormControl fullWidth>
+          <InputLabel id="day-select-label">Day</InputLabel>
+          <Select
+            labelId="day-select-label"
+            id="day-select"
+            value={day}
+            label="Day"
+            onChange={handleDayChange}
+          >
+            <MenuItem value={"Monday"}>Monday</MenuItem>
+            <MenuItem value={"Tuesday"}>Tuesday</MenuItem>
+            <MenuItem value={"Wednesday"}>Wednesday</MenuItem>
+            <MenuItem value={"Thursday"}>Thursday</MenuItem>
+            <MenuItem value={"Friday"}>Friday</MenuItem>
+            <MenuItem value={"Saturday"}>Saturday</MenuItem>
+            <MenuItem value={"Sunday"}>Sunday</MenuItem>
+          </Select>
+        </FormControl>
+        <Button variant="contained" type="submit" className="meal-button">
           Update
         </Button>
-        {/* </form> */}
       </Box>
     </Container>
   );

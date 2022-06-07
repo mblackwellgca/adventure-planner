@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import MealForm from "./MealForm";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemText from "@mui/material/ListItemText";
+import Avatar from "@mui/material/Avatar";
+import Auth from "../../utils/auth";
+import CardActions from "@mui/material/CardActions";
 
 function Meal(props) {
   const [edit, setEdit] = useState({
@@ -21,7 +27,7 @@ function Meal(props) {
   ];
 
   // meal array of objects
-  console.log(props.meal);
+  // console.log(props.meal);
 
   const submitUpdate = (value) => {
     props.editMealItem(edit.id, value);
@@ -31,14 +37,10 @@ function Meal(props) {
   if (edit.id) {
     return <MealForm edit={edit} onSubmit={submitUpdate} />;
   }
-  // let mondayMeals = props.meal.filter((m) => {
-  //   m.day === "Monday";
-  // });
   return (
-    // does item.day = Monday? Then add to Monday card
     <div className="weekDays">
       {weekDays.map((currentDay, i) => {
-        console.log(currentDay);
+        // console.log(currentDay);
         let mealType = types.map((type) => {
           let current = props.meal.filter((item) => {
             return (
@@ -50,96 +52,67 @@ function Meal(props) {
           return current.length > 0 &&
             current[0].type === type &&
             currentDay === props.day ? (
-            <div
-              className={
-                current.isComplete
-                  ? `meal-row complete ${current[0].type}`
-                  : `meal-row ${current[0].type}`
-              }
-            >
-              <div
-                key={current[0].id}
-                day={current[0].day}
-                onClick={() => props.completeMealItem(current[0].id)}
-              >
-                {`${type} - ${current[0].text}`}
-              </div>
-              <div className="icons">
-                {console.log(current[0])}
-                <p
-                  style={{ cursor: "pointer" }}
-                  onClick={() =>
-                    setEdit({
-                      id: current[0].id,
-                      value: current[0].text,
-                      type: current[0].type,
-                      day: current[0].day,
-                    })
+            <>
+              <ListItem alignItems="flex-start">
+                {" "}
+                <ListItemAvatar>
+                  <Avatar
+                    day={current[0].day}
+                    alt={Auth.getProfile().data.username}
+                    src="/static/images/avatar/2.jpg"
+                  />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={
+                    <div
+                      className={
+                        current.isComplete
+                          ? `meal-row complete ${current[0].type}`
+                          : `meal-row ${current[0].type}`
+                      }
+                    >
+                      <div
+                        key={current[0].id}
+                        day={current[0].day}
+                        onClick={() => props.completeMealItem(current[0].id)}
+                      >
+                        {`${type} - ${current[0].text}`}
+                      </div>
+                      <CardActions>
+                        {console.log(current[0])}
+                        <span
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            setEdit({
+                              id: current[0].id,
+                              value: current[0].text,
+                              type: current[0].type,
+                              day: current[0].day,
+                            })
+                          }
+                        >
+                          {" "}
+                          ✏️
+                        </span>
+                        <span
+                          style={{ cursor: "pointer" }}
+                          onClick={() => props.removeMealItem(current[0].id)}
+                        >
+                          {" "}
+                          🗑️
+                        </span>
+                      </CardActions>
+                    </div>
                   }
-                >
-                  {" "}
-                  ✏️
-                </p>
-                <p
-                  style={{ cursor: "pointer" }}
-                  onClick={() => props.removeMealItem(current[0].id)}
-                >
-                  {" "}
-                  🗑️
-                </p>
-              </div>
-            </div>
+                />
+              </ListItem>
+            </>
           ) : null;
         });
         return mealType;
       })}
     </div>
   );
-}
-
-{
-  /* <div
-          className={
-            current.isComplete
-              ? `meal-row complete ${current.type}`
-              : `meal-row ${current.type}`
-          }
-          key={i}
-        >
-          <div
-            key={current.id}
-            day={current.day}
-            onClick={() => props.completeMealItem(current.id)}
-          >
-            {current.text}
-            {"\n"}
-            {current.type}
-          </div>
-          <div className="icons">
-            {console.log(current)}
-            <p
-              style={{ cursor: "pointer" }}
-              onClick={() =>
-                setEdit({
-                  id: current.id,
-                  value: current.text,
-                  type: current.type,
-                  day: current.day,
-                })
-              }
-            >
-              {" "}
-              ✏️
-            </p>
-            <p
-              style={{ cursor: "pointer" }}
-              onClick={() => props.removeMealItem(current.id)}
-            >
-              {" "}
-              🗑️
-            </p>
-          </div>
-        </div>; */
 }
 
 export default Meal;

@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -88,35 +84,24 @@ function MealList() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {weekDays.map((day) => {
+            // console.log(`meal line 107: ${meal[0].day}`);
+            console.log(day);
             return (
               <Grid item xs={12} sm={6} md={4} lg={3}>
                 <Card>
                   <CardContent>
-                    <Typography
-                      sx={{ mt: 4, mb: 2 }}
-                      variant="h6"
-                      component="div"
-                    >
+                    <Typography color="secondary" variant="h6" component="div">
                       {day}
                     </Typography>
                     <Demo>
                       <List>
-                        <ListItem>
-                          <ListItemAvatar>
-                            <Avatar></Avatar>
-                          </ListItemAvatar>
-                          <ListItemText
-                            primary={
-                              <Meal
-                                day={day}
-                                meal={meal}
-                                completeMealItem={completeMealItem}
-                                removeMealItem={removeMealItem}
-                                editMealItem={editMealItem}
-                              ></Meal>
-                            }
-                          />
-                        </ListItem>
+                        <Meal
+                          day={day}
+                          meal={meal}
+                          completeMealItem={completeMealItem}
+                          removeMealItem={removeMealItem}
+                          editMealItem={editMealItem}
+                        ></Meal>
                       </List>
                     </Demo>
                   </CardContent>
