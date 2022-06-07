@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img className='logo' src={Logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
+          <Typography 
             variant="h6"
             noWrap
             component="a"
@@ -57,9 +57,10 @@ const ResponsiveAppBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '2rem',
             }}
           >
             The Group Adventure Travel Planner
@@ -117,7 +118,7 @@ const ResponsiveAppBar = () => {
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 900,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -125,15 +126,24 @@ const ResponsiveAppBar = () => {
           >
             Group It
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Link className="homeNav" to={`/`}>Home</Link>
+
+          <Box className='navBar'  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+
+          <Link className="pageNav" to={`/`}>HOME</Link>
+
+          </Button>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={`/${page}`}>{page}</Link>
+                <Link className='pageNav' to={`/${page}`}>{page}</Link>
               </Button>
             ))}
             
@@ -161,15 +171,19 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem onClick={handleCloseUserMenu}>
               <Link className="homeProfile" to={`/`}>Home</Link>
+              </MenuItem>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
                 </MenuItem>
               ))}
+              <MenuItem onClick={handleCloseUserMenu}>
               <div className="btnLO"  onClick={logout}>
                 Logout
               </div>
+              </MenuItem>
             </Menu>
           </Box>
           </>

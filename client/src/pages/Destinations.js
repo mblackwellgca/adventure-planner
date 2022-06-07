@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from 'react';
-import searchResults from "../components/Locations/index";
 
-function Destinations() {
+function Destinations(props) {
     
   const [search, setSearch] = useState("");
 
@@ -10,7 +9,9 @@ function Destinations() {
     event.preventDefault();
     alert(`Let's go to ${search}!`)
   }
-
+  const { DataisLoaded, items } = this.state;
+  if (!DataisLoaded) return 
+  <div> <h1> Please wait a moment.... </h1> </div>;
   return (
     <div>
     <form className="locations" onSubmit={handleSubmit}>
@@ -24,6 +25,16 @@ function Destinations() {
       <input type="submit" className="btn btn-lg btn-info m-2" id="margin-normal" margin="normal" />
     </form>
     <div>
+
+      <div>
+            {
+              items.map((items) => ( 
+              <div key = { items.id } >
+              
+                  </div>
+              ))
+          }
+      </div>
 
     </div>
     </div>
