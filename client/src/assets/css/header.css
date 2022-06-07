@@ -1,12 +1,10 @@
-.btnLO {
-   margin-left: 10%;
-}
 .homeMenu {
     margin-left: 12%;
 }
-.homeNav {
-margin-top: 25px;
+.logo {
+   max-width: 10%;
+   height: auto;
 }
-.homeProfile {
-   margin-left: 10%;
+.navBar {
+   justify-content: right;
 }
