@@ -68,9 +68,15 @@ function MealForm(props) {
         <div className="dropdown">
           <h3 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h3>
           <div className="dropdown-content">
-            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
-            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
-            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
+              Breakfast
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
+              Lunch
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
+              Dinner
+            </Button>
           </div>
         </div>
         <FormControl fullWidth>
@@ -119,9 +125,15 @@ function MealForm(props) {
         <div className="dropdown">
           <h4 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h4>
           <div className="dropdown-content">
-            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
-            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
-            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
+              Breakfast
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
+              Lunch
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
+              Dinner
+            </Button>
           </div>
         </div>
         <FormControl fullWidth>
