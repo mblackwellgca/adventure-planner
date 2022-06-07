@@ -10,10 +10,18 @@ const Home = () => {
      {Auth.loggedIn() ? (
       <>
 
-      <p></p>
+      <p>
       <Link className="" to="/Destinations">
                 Plan my next trip!
       </Link>
+
+      </p>
+      <div className = "trips">
+        <h1>Or choose one of your saved trips</h1>
+        <div>
+          
+        </div>
+      </div>
 
       </>
       ) : (
