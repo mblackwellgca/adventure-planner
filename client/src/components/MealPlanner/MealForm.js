@@ -13,6 +13,7 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 function MealForm(props) {
   const [text, setText] = useState("");
@@ -21,11 +22,42 @@ function MealForm(props) {
 
   const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
 
-  const handleSubmit = (e) => {
+  const [addMeal, { error }] = useMutation(ADD_MEAL, {
+    update(cache, { data: { addMeal } }) {
+      try {
+        const { meals } = cache.readQuery({ query: QUERY_MEALS });
+
+        cache.writeQuery({
+          query: QUERY_MEALS,
+          data: { meals: [addMeal, ...meals] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!type) {
       type = "TBD";
+    }
+
+    try {
+      const { data } = await addMeal({
+        variables: {
+          text,
+          type,
+          day,
+          author: Auth.getProfile().data.username,
+        },
+      });
+
+      setText("");
+      setType("");
+      setDay("");
+    } catch (err) {
+      console.error(err);
     }
 
     props.onSubmit({

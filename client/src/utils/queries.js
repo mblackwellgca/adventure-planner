@@ -64,6 +64,19 @@ export const QUERY_MEALS = gql`
     meals {
       _id
       text
+      type
+      day
+      author
+    }
+  }
+`;
+
+export const QUERY_SINGLE_MEAL = gql`
+  query getSingleMeal($mealId: ID!) {
+    meal(mealId: $mealId) {
+      _id
+      text
+      type
       day
       author
     }

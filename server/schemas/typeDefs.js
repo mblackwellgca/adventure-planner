@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -33,6 +33,14 @@ const typeDefs = gql`
     attendee: [User]!
   }
 
+  type Meal {
+    _id: ID
+    text: String
+    type: String
+    day: String
+    author: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -43,6 +51,8 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
+    meals: [Meal]
+    meal(mealId: ID!): Meal
     me: User
     trips: [Trip]
     trip(tripId: ID!): Trip
@@ -55,6 +65,8 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addMeal(text: String!, type: String, day: String!): Meal
+    removeMeal(mealId: ID!): Meal
     addTrip(tripName: String!): Trip
     removeTrip(tripId: ID!): Trip
   }

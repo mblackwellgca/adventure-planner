@@ -44,6 +44,7 @@ export const ADD_MEAL = gql`
     addMeal(text: $text) {
       _id
       text
+      type
       day
       author
     }
