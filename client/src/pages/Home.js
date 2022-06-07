@@ -15,7 +15,6 @@ const Home = () => {
                 Plan my next trip!
       </Link>
 
-
       </>
       ) : (
       <>
@@ -29,11 +28,11 @@ const Home = () => {
       There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
       </p>
 
-      <p>
+      <p className='bold'>
       Boldly go somewhere you have not gone before!
       </p>
 
-      <p>Please <Link className=" " to="/login">
+      <p className='credentials'>Please <Link className=" " to="/login">
                 Log in&nbsp;
               </Link> 
                 or  <Link className=" " to="/signup">

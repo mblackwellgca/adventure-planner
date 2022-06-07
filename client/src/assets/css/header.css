@@ -3,14 +3,20 @@
 }
 .homeMenu {
     margin-left: 12%;
+    font-size: large;
 }
-.homeNav {
-margin-top: 25px;
+.navBar {
+   justify-content: right;
+}
+.pageNav {
+   font-size: 1.2rem;
 }
 .homeProfile {
 margin-left: 10%;
+padding-right: 5px;
 }
 .logo {
    max-width: 10%;
    height: auto;
 }
+
