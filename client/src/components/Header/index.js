@@ -125,8 +125,13 @@ const ResponsiveAppBar = () => {
           >
             Group It
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box className="navBar"sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
           <Link className="homeNav" to={`/`}>Home</Link>
+          </Button>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -161,15 +166,19 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem onClick={handleCloseUserMenu}>
               <Link className="homeProfile" to={`/`}>Home</Link>
+              </MenuItem>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
                 </MenuItem>
               ))}
+              <MenuItem onClick={handleCloseUserMenu}>
               <div className="btnLO"  onClick={logout}>
                 Logout
               </div>
+              </MenuItem>
             </Menu>
           </Box>
           </>

@@ -29,7 +29,7 @@ const Profile = () => {
           ) : (
             <ThoughtList
               thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+              title="Discussions..."
             />
           )}
         </div>
