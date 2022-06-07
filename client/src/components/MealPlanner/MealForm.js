@@ -9,9 +9,13 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import { useMutation } from "@apollo/client";
+
+import { ADD_MEAL } from "../../utils/mutations";
+import { QUERY_MEALS } from "../../utils/queries";
 
 function MealForm(props) {
-  const [input, setInput] = useState("");
+  const [text, setText] = useState("");
   let [type, setType] = useState("");
   let [day, setDay] = useState("");
 
@@ -26,18 +30,18 @@ function MealForm(props) {
 
     props.onSubmit({
       id: Math.random(Math.floor() * 1000),
-      text: input,
+      text: text,
       type: type,
       day: day,
     });
 
-    setInput("");
+    setText("");
     setType("");
     setDay("");
   };
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    setText(e.target.value);
   };
 
   const handleDayChange = (event) => {
@@ -60,7 +64,7 @@ function MealForm(props) {
         <TextField
           type="text"
           placeholder="Add meal to your list"
-          value={input}
+          value={text}
           name="text"
           className="meal-input"
           onChange={handleChange}
@@ -117,7 +121,7 @@ function MealForm(props) {
         <TextField
           type="text"
           placeholder={props.edit.value}
-          value={input}
+          value={text}
           name="text"
           className="meal-input"
           onChange={handleChange}

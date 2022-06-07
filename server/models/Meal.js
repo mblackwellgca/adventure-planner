@@ -1,20 +1,20 @@
 const { Schema, model } = require("mongoose");
 
 const mealSchema = new Schema({
-  mealText: {
+  text: {
     type: String,
     required: "Please  give your meal a name.",
     minlength: 3,
     maxlength: 30,
     trim: true,
   },
-  mealType: {
+  type: {
     type: String,
   },
-  mealDay: {
+  day: {
     type: String,
   },
-  mealAuthor: {
+  author: {
     type: String,
     required: true,
     trim: true,
