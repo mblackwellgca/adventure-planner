@@ -108,7 +108,7 @@ function MealList() {
                           <ListItemText
                             primary={
                               <Meal
-                                day={"Monday"}
+                                day={day}
                                 meal={meal}
                                 completeMealItem={completeMealItem}
                                 removeMealItem={removeMealItem}
