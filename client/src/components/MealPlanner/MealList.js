@@ -102,6 +102,7 @@ function MealList() {
                         <ListItemText
                           primary={
                             <Meal
+                              day={"Monday"}
                               meal={meal}
                               completeMealItem={completeMealItem}
                               removeMealItem={removeMealItem}
@@ -120,7 +121,7 @@ function MealList() {
             <Card>
               <CardContent>
                 <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Monday
+                  Tuesday
                 </Typography>
                 <Demo>
                   <List>
@@ -132,6 +133,7 @@ function MealList() {
                         <ListItemText
                           primary={
                             <Meal
+                              day={"Tuesday"}
                               meal={meal}
                               completeMealItem={completeMealItem}
                               removeMealItem={removeMealItem}
@@ -150,7 +152,7 @@ function MealList() {
             <Card>
               <CardContent>
                 <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Monday
+                  Wednesday
                 </Typography>
                 <Demo>
                   <List>
@@ -162,6 +164,7 @@ function MealList() {
                         <ListItemText
                           primary={
                             <Meal
+                              day={"Wednesday"}
                               meal={meal}
                               completeMealItem={completeMealItem}
                               removeMealItem={removeMealItem}
@@ -179,8 +182,13 @@ function MealList() {
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <Card>
               <CardContent>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Monday
+                <Typography
+                  sx={{ mt: 4, mb: 2 }}
+                  variant="h6"
+                  component="div"
+                  id="4"
+                >
+                  Thursday
                 </Typography>
                 <Demo>
                   <List>
@@ -192,6 +200,7 @@ function MealList() {
                         <ListItemText
                           primary={
                             <Meal
+                              day={"Thursday"}
                               meal={meal}
                               completeMealItem={completeMealItem}
                               removeMealItem={removeMealItem}

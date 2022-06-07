@@ -9,6 +9,17 @@ function Meal(props) {
     day: "",
   });
 
+  const weekDays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  // meal array of objects
   console.log(props.meal);
 
   const submitUpdate = (value) => {
@@ -19,8 +30,11 @@ function Meal(props) {
   if (edit.id) {
     return <MealForm edit={edit} onSubmit={submitUpdate} />;
   }
-
+  // let mondayMeals = props.meal.filter((m) => {
+  //   m.day === "Monday";
+  // });
   return props.meal.map((item, i) => (
+    // does item.day = Monday? Then add to Monday card
     <div
       className={
         item.isComplete
@@ -29,7 +43,14 @@ function Meal(props) {
       }
       key={i}
     >
-      <div key={item.id} onClick={() => props.completeMealItem(item.id)}>
+      {/* {item.filter((day) => {
+        return day === current;
+      })} */}
+      <div
+        key={item.id}
+        day={item.day}
+        onClick={() => props.completeMealItem(item.id)}
+      >
         {item.text}
         {"\n"}
         {item.type}

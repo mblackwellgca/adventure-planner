@@ -28,10 +28,12 @@ function MealForm(props) {
       id: Math.random(Math.floor() * 1000),
       text: input,
       type: type,
+      day: day,
     });
 
     setInput("");
     setType("");
+    setDay("");
   };
 
   const handleChange = (e) => {
