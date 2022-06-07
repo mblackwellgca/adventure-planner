@@ -8,6 +8,7 @@ function Meal(props) {
     type: "",
     day: "",
   });
+  const types = ["breakfast", "lunch", "dinner", "TBD"];
 
   const weekDays = [
     "Monday",
@@ -33,54 +34,74 @@ function Meal(props) {
   // let mondayMeals = props.meal.filter((m) => {
   //   m.day === "Monday";
   // });
-  return props.meal.map((item, i) => (
+  return (
     // does item.day = Monday? Then add to Monday card
-    <div
-      className={
-        item.isComplete
-          ? `meal-row complete ${item.type}`
-          : `meal-row ${item.type}`
-      }
-      key={i}
-    >
-      {/* {item.filter((day) => {
-        return day === current;
-      })} */}
-      <div
-        key={item.id}
-        day={item.day}
-        onClick={() => props.completeMealItem(item.id)}
-      >
-        {item.text}
-        {"\n"}
-        {item.type}
-      </div>
-      <div className="icons">
-        {console.log(item)}
-        <p
-          style={{ cursor: "pointer" }}
-          onClick={() =>
-            setEdit({
-              id: item.id,
-              value: item.text,
-              type: item.type,
-              day: item.day,
-            })
-          }
-        >
-          {" "}
-          ✏️
-        </p>
-        <p
-          style={{ cursor: "pointer" }}
-          onClick={() => props.removeMealItem(item.id)}
-        >
-          {" "}
-          🗑️
-        </p>
-      </div>
+    <div className="weekDays">
+      {weekDays.map((currentDay, i) => {
+        console.log(currentDay);
+        let mealType = types.map((type) => {
+          let current = props.meal.filter((item) => {
+            return (
+              item.day === currentDay &&
+              item.type === type &&
+              currentDay === props.day
+            );
+          });
+          return current.length > 0 &&
+            current[0].type === type &&
+            currentDay === props.day ? (
+            <div>{currentDay + "-" + type + " - " + current[0].text}</div>
+          ) : null;
+        });
+        return mealType;
+      })}
     </div>
-  ));
+  );
+}
+
+{
+  /* <div
+          className={
+            current.isComplete
+              ? `meal-row complete ${current.type}`
+              : `meal-row ${current.type}`
+          }
+          key={i}
+        >
+          <div
+            key={current.id}
+            day={current.day}
+            onClick={() => props.completeMealItem(current.id)}
+          >
+            {current.text}
+            {"\n"}
+            {current.type}
+          </div>
+          <div className="icons">
+            {console.log(current)}
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() =>
+                setEdit({
+                  id: current.id,
+                  value: current.text,
+                  type: current.type,
+                  day: current.day,
+                })
+              }
+            >
+              {" "}
+              ✏️
+            </p>
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => props.removeMealItem(current.id)}
+            >
+              {" "}
+              🗑️
+            </p>
+          </div>
+        </div>; */
 }
 
 export default Meal;

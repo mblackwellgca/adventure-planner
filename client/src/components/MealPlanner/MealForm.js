@@ -107,7 +107,6 @@ function MealForm(props) {
         sx={{ mt: 1 }}
       >
         <h3>Update entry: {props.edit.value}</h3>
-        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
 
         <TextField
           type="text"

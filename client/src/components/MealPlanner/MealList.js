@@ -13,17 +13,19 @@ import CardContent from "@mui/material/CardContent";
 import MealForm from "./MealForm";
 import Meal from "./Meal";
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
-
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
+
+const weekDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 function MealList() {
   const [meal, setMeal] = useState([]);
@@ -83,138 +85,45 @@ function MealList() {
     <div>
       <h1>What meal would you like to add to the meal planner?</h1>
       <MealForm onSubmit={addMealItem} />
-
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card>
-              <CardContent>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Monday
-                </Typography>
-                <Demo>
-                  <List>
-                    {generate(
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar></Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={
-                            <Meal
-                              day={"Monday"}
-                              meal={meal}
-                              completeMealItem={completeMealItem}
-                              removeMealItem={removeMealItem}
-                              editMealItem={editMealItem}
-                            ></Meal>
-                          }
-                        />
-                      </ListItem>
-                    )}
-                  </List>
-                </Demo>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card>
-              <CardContent>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Tuesday
-                </Typography>
-                <Demo>
-                  <List>
-                    {generate(
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar></Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={
-                            <Meal
-                              day={"Tuesday"}
-                              meal={meal}
-                              completeMealItem={completeMealItem}
-                              removeMealItem={removeMealItem}
-                              editMealItem={editMealItem}
-                            ></Meal>
-                          }
-                        />
-                      </ListItem>
-                    )}
-                  </List>
-                </Demo>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card>
-              <CardContent>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                  Wednesday
-                </Typography>
-                <Demo>
-                  <List>
-                    {generate(
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar></Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={
-                            <Meal
-                              day={"Wednesday"}
-                              meal={meal}
-                              completeMealItem={completeMealItem}
-                              removeMealItem={removeMealItem}
-                              editMealItem={editMealItem}
-                            ></Meal>
-                          }
-                        />
-                      </ListItem>
-                    )}
-                  </List>
-                </Demo>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card>
-              <CardContent>
-                <Typography
-                  sx={{ mt: 4, mb: 2 }}
-                  variant="h6"
-                  component="div"
-                  id="4"
-                >
-                  Thursday
-                </Typography>
-                <Demo>
-                  <List>
-                    {generate(
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar></Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={
-                            <Meal
-                              day={"Thursday"}
-                              meal={meal}
-                              completeMealItem={completeMealItem}
-                              removeMealItem={removeMealItem}
-                              editMealItem={editMealItem}
-                            ></Meal>
-                          }
-                        />
-                      </ListItem>
-                    )}
-                  </List>
-                </Demo>
-              </CardContent>
-            </Card>
-          </Grid>
+          {weekDays.map((day) => {
+            return (
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Card>
+                  <CardContent>
+                    <Typography
+                      sx={{ mt: 4, mb: 2 }}
+                      variant="h6"
+                      component="div"
+                    >
+                      {day}
+                    </Typography>
+                    <Demo>
+                      <List>
+                        <ListItem>
+                          <ListItemAvatar>
+                            <Avatar></Avatar>
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={
+                              <Meal
+                                day={"Monday"}
+                                meal={meal}
+                                completeMealItem={completeMealItem}
+                                removeMealItem={removeMealItem}
+                                editMealItem={editMealItem}
+                              ></Meal>
+                            }
+                          />
+                        </ListItem>
+                      </List>
+                    </Demo>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
         </Grid>
       </Box>
     </div>
