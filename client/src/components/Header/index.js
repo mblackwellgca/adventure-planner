@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img className='logo' src={Logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
+          <Typography 
             variant="h6"
             noWrap
             component="a"
@@ -57,9 +57,10 @@ const ResponsiveAppBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '2rem',
             }}
           >
             The Group Adventure Travel Planner
@@ -117,7 +118,7 @@ const ResponsiveAppBar = () => {
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 900,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -125,12 +126,16 @@ const ResponsiveAppBar = () => {
           >
             Group It
           </Typography>
-          <Box className="navBar"sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          <Box className='navBar'  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
           <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-          <Link className="homeNav" to={`/`}>Home</Link>
+
+          <Link className="pageNav" to={`/`}>HOME</Link>
+
           </Button>
             {pages.map((page) => (
               <Button
@@ -138,7 +143,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={`/${page}`}>{page}</Link>
+                <Link className='pageNav' to={`/${page}`}>{page}</Link>
               </Button>
             ))}
             

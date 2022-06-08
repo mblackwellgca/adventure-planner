@@ -1,6 +1,28 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import MealForm from "./MealForm";
 import Meal from "./Meal";
+import { v4 as uuidv4 } from "uuid";
+
+const Demo = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+}));
+
+const weekDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 function MealList() {
   const [meal, setMeal] = useState([]);
@@ -60,12 +82,37 @@ function MealList() {
     <div>
       <h1>What meal would you like to add to the meal planner?</h1>
       <MealForm onSubmit={addMealItem} />
-      <Meal
-        meal={meal}
-        completeMealItem={completeMealItem}
-        removeMealItem={removeMealItem}
-        editMealItem={editMealItem}
-      ></Meal>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          {weekDays.map((day) => {
+            // console.log(`meal line 107: ${meal[0].day}`);
+            console.log(day);
+            return (
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Card>
+                  <CardContent>
+                    <Typography color="secondary" variant="h6" component="div">
+                      {day}
+                    </Typography>
+                    <Demo>
+                      <List>
+                        <Meal
+                          key={uuidv4()}
+                          day={day}
+                          meal={meal}
+                          completeMealItem={completeMealItem}
+                          removeMealItem={removeMealItem}
+                          editMealItem={editMealItem}
+                        ></Meal>
+                      </List>
+                    </Demo>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
     </div>
   );
 }
