@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -9,35 +10,71 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import { useMutation } from "@apollo/client";
+
+import { ADD_MEAL } from "../../utils/mutations";
+import { QUERY_MEALS } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 function MealForm(props) {
-  const [input, setInput] = useState("");
+  const [text, setText] = useState("");
   let [type, setType] = useState("");
   let [day, setDay] = useState("");
 
   const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
 
-  const handleSubmit = (e) => {
+  const [addMeal, { error }] = useMutation(ADD_MEAL, {
+    update(cache, { data: { addMeal } }) {
+      try {
+        const { meals } = cache.readQuery({ query: QUERY_MEALS });
+
+        cache.writeQuery({
+          query: QUERY_MEALS,
+          data: { meals: [addMeal, ...meals] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!type) {
       type = "TBD";
     }
 
+    try {
+      const { data } = await addMeal({
+        variables: {
+          text,
+          type,
+          day,
+          author: Auth.getProfile().data.username,
+        },
+      });
+
+      setText("");
+      setType("");
+      setDay("");
+    } catch (err) {
+      console.error(err);
+    }
+
     props.onSubmit({
       id: Math.random(Math.floor() * 1000),
-      text: input,
+      text: text,
       type: type,
       day: day,
     });
 
-    setInput("");
+    setText("");
     setType("");
     setDay("");
   };
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    setText(e.target.value);
   };
 
   const handleDayChange = (event) => {
@@ -46,7 +83,13 @@ function MealForm(props) {
 
   // First we check to see if "edit" prop exists. If not, we render the normal form
   // If the prop "edit" exists, we know to render the update form instead
-  return !props.edit ? (
+  return !Auth.loggedIn(
+    <p>
+      You need to be logged in to start a discussion. Please{" "}
+      <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+    </p>
+  );
+  !props.edit ? (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
@@ -60,7 +103,7 @@ function MealForm(props) {
         <TextField
           type="text"
           placeholder="Add meal to your list"
-          value={input}
+          value={text}
           name="text"
           className="meal-input"
           onChange={handleChange}
@@ -68,9 +111,15 @@ function MealForm(props) {
         <div className="dropdown">
           <h3 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h3>
           <div className="dropdown-content">
-            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
-            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
-            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
+              Breakfast
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
+              Lunch
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
+              Dinner
+            </Button>
           </div>
         </div>
         <FormControl fullWidth>
@@ -111,7 +160,7 @@ function MealForm(props) {
         <TextField
           type="text"
           placeholder={props.edit.value}
-          value={input}
+          value={text}
           name="text"
           className="meal-input"
           onChange={handleChange}
@@ -119,9 +168,15 @@ function MealForm(props) {
         <div className="dropdown">
           <h4 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h4>
           <div className="dropdown-content">
-            <Button onClick={() => setType(typeLevel[0])}>Breakfast</Button>
-            <Button onClick={() => setType(typeLevel[1])}>Lunch</Button>
-            <Button onClick={() => setType(typeLevel[2])}>Dinner</Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
+              Breakfast
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
+              Lunch
+            </Button>
+            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
+              Dinner
+            </Button>
           </div>
         </div>
         <FormControl fullWidth>

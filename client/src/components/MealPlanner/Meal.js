@@ -59,7 +59,7 @@ function Meal(props) {
                   <Avatar
                     day={current[0].day}
                     alt={Auth.getProfile().data.username}
-                    src="/static/images/avatar/2.jpg"
+                    sx={{ bgcolor: "secondary" }}
                   />
                 </ListItemAvatar>
                 <ListItemText
