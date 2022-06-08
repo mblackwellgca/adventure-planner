@@ -48,24 +48,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-const [items, setItems] = useState([  ]);
-const [dataIsLoaded, setDataIsLoaded] = useState(false);
-useEffect(() => {var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Basic YzNjMjAyY2Y3ZDVhMTUzZTQ5MGU2NDgxY2I3NjlhY2E6OWQ3YjM5MDQ4MmU4YjNlMmU3NWRhNDEzMWFkOWQ3NmY=");
-  
-  var raw = "";
-  
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    // body: raw,
-    redirect: 'follow'
-  };
-  
-  fetch("https://api.roadgoat.com/api/v2/destinations/new-york-ny-usa", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));})
   return (
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
