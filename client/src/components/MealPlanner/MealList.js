@@ -8,6 +8,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import MealForm from "./MealForm";
 import Meal from "./Meal";
+import { v4 as uuidv4 } from "uuid";
 
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -96,6 +97,7 @@ function MealList() {
                     <Demo>
                       <List>
                         <Meal
+                          key={uuidv4()}
                           day={day}
                           meal={meal}
                           completeMealItem={completeMealItem}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -82,7 +83,13 @@ function MealForm(props) {
 
   // First we check to see if "edit" prop exists. If not, we render the normal form
   // If the prop "edit" exists, we know to render the update form instead
-  return !props.edit ? (
+  return !Auth.loggedIn(
+    <p>
+      You need to be logged in to start a discussion. Please{" "}
+      <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+    </p>
+  );
+  !props.edit ? (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
