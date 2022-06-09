@@ -3,18 +3,18 @@
     "text": "pizza",
     "type": "dinner",
     "day": "Monday",
-    "author": "amachkel"
+    "username": "amachkel"
   },
   {
     "text": "muffins",
     "type": "breakfast",
     "day": "Monday",
-    "author": "amachkel"
+    "username": "amachkel"
   },
   {
     "text": "spaghetti",
     "type": "lunch",
     "day": "Friday",
-    "author": "amachkel"
+    "username": "amachkel"
   }
 ]

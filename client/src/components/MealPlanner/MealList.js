@@ -85,8 +85,6 @@ function MealList() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {weekDays.map((day) => {
-            // console.log(`meal line 107: ${meal[0].day}`);
-            console.log(day);
             return (
               <Grid item xs={12} sm={6} md={4} lg={3}>
                 <Card>
