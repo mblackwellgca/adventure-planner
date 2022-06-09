@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -55,6 +55,30 @@ export const QUERY_ME = gql`
         thoughtAuthor
         createdAt
       }
+    }
+  }
+`;
+
+export const QUERY_MEALS = gql`
+  query getMeals {
+    meals {
+      _id
+      text
+      type
+      day
+      username
+    }
+  }
+`;
+
+export const QUERY_SINGLE_MEAL = gql`
+  query getSingleMeal($mealId: ID!) {
+    meal(mealId: $mealId) {
+      _id
+      text
+      type
+      day
+      username
     }
   }
 `;

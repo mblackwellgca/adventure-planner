@@ -1,12 +1,14 @@
-const db = require('../config/connection');
-const { User, Thought } = require('../models');
-const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const db = require("../config/connection");
+const { User, Thought, Meal } = require("../models");
+const userSeeds = require("./userSeeds.json");
+const thoughtSeeds = require("./thoughtSeeds.json");
+const mealSeeds = require("./mealSeeds.json");
 
-db.once('open', async () => {
+db.once("open", async () => {
   try {
     await Thought.deleteMany({});
     await User.deleteMany({});
+    await Meal.deleteMany({});
 
     await User.create(userSeeds);
 
@@ -21,11 +23,22 @@ db.once('open', async () => {
         }
       );
     }
+    for (let i = 0; i < mealSeeds.length; i++) {
+      const { _id, username } = await Meal.create(mealSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: username },
+        {
+          $addToSet: {
+            meals: _id,
+          },
+        }
+      );
+    }
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 
-  console.log('all done!');
+  console.log("all done!");
   process.exit(0);
 });

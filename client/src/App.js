@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./assets/colorPalette";
 import {
@@ -21,6 +21,7 @@ import Destinations from "./pages/Destinations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
+require('dotenv').config();
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,14 +49,14 @@ const client = new ApolloClient({
 
 function App() {
   return (
-   <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
         <Router>
           <div className="flex-column justify-flex-start min-100-vh">
             <Header />
             <div className="container">
               <Routes>
-                <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/discussions" element={<Profile />} />

@@ -26,10 +26,7 @@ const SingleThought = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {thought.thoughtAuthor} <br />
-        <span style={{ fontSize: '1rem' }}>
-          had this thought on {thought.createdAt}
-        </span>
+        {thought.thoughtText} <br />
       </h3>
       <div className="bg-light py-4">
         <blockquote
@@ -41,7 +38,7 @@ const SingleThought = () => {
             lineHeight: '1.5',
           }}
         >
-          {thought.thoughtText}
+          {thought.createdAt}
         </blockquote>
       </div>
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { QUERY_THOUGHTS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -24,15 +24,8 @@ const ThoughtForm = () => {
       } catch (e) {
         console.error(e);
       }
-
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      });
-    },
-  });
+     },
+   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -62,7 +55,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <h3>What's on your mind?</h3>
+      <h3>What would you like to discuss?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -90,7 +83,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add A Discussion
               </button>
             </div>
             {error && (
@@ -102,7 +95,7 @@ const ThoughtForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to start a discussion. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

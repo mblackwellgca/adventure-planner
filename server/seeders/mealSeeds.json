@@ -1,0 +1,20 @@
+[
+  {
+    "text": "pizza",
+    "type": "dinner",
+    "day": "Monday",
+    "username": "amachkel"
+  },
+  {
+    "text": "muffins",
+    "type": "breakfast",
+    "day": "Monday",
+    "username": "amachkel"
+  },
+  {
+    "text": "spaghetti",
+    "type": "lunch",
+    "day": "Friday",
+    "username": "amachkel"
+  }
+]
