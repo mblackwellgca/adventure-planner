@@ -9,6 +9,8 @@ import Auth from "../../utils/auth";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Alert from "@mui/material/Alert";
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState("");
 
@@ -108,17 +110,19 @@ const ThoughtForm = () => {
             </button>
           </div> */}
           {error && (
-            <div className="col-12 my-3 bg-danger text-white p-3">
-              {error.message}
-            </div>
+            <Stack sx={{ width: "100%" }} spacing={2}>
+              <Alert severity="error">{error.message}</Alert>
+            </Stack>
           )}
           {/* </form> */}
         </>
       ) : (
-        <p>
-          You need to be logged in to start a discussion. Please{" "}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="error">
+            You need to be logged in to start a discussion. Please{" "}
+            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          </Alert>
+        </Stack>
       )}
     </div>
   );
