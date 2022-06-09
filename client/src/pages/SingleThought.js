@@ -1,13 +1,19 @@
-import React from 'react';
+import React from "react";
 
 // Import the `useParams()` hook
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+import CommentList from "../components/CommentList";
+import CommentForm from "../components/CommentForm";
 
-import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
+import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const SingleThought = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
@@ -24,31 +30,35 @@ const SingleThought = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {thought.thoughtText} <br />
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className="p-4"
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {thought.createdAt}
-        </blockquote>
-      </div>
-
-      <div className="my-5">
-        <CommentList comments={thought.comments} />
-      </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm thoughtId={thought._id} />
-      </div>
-    </div>
+    <>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Box
+            sx={{
+              backgroundColor: "primary.light",
+              // opacity: [0.9, 0.8, 0.7],
+            }}
+          >
+            <Typography
+              sx={{ mb: 1.5 }}
+              color="secondary.main"
+              variant="h5"
+              component="div"
+            >
+              {thought.thoughtText}
+            </Typography>
+          </Box>
+          <Typography variant="body2">{thought.createdAt}</Typography>
+        </CardContent>
+      </Card>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography>
+            <CommentForm thoughtId={thought._id} />
+          </Typography>
+        </CardContent>
+      </Card>
+    </>
   );
 };
 
