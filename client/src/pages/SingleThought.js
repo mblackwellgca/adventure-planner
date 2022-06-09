@@ -35,12 +35,13 @@ const SingleThought = () => {
         <CardContent>
           <Box
             sx={{
-              backgroundColor: "primary.light",
-              // opacity: [0.9, 0.8, 0.7],
+              p: 2,
+              backgroundColor: "secondary.extraLight",
+              borderRadius: "3px",
             }}
           >
             <Typography
-              sx={{ mb: 1.5 }}
+              sx={{ mb: 1.5, display: "flex", justifyContent: "center" }}
               color="secondary.main"
               variant="h5"
               component="div"
@@ -48,13 +49,26 @@ const SingleThought = () => {
               {thought.thoughtText}
             </Typography>
           </Box>
-          <Typography variant="body2">{thought.createdAt}</Typography>
+          <Typography variant="body2">
+            Posted by {thought.thoughtAuthor} on {thought.createdAt}
+          </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275 }}>
+      <Card
+        sx={{
+          minWidth: 275,
+          p: 2,
+          m: 3,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <CardContent>
           <Typography>
-            <CommentForm thoughtId={thought._id} />
+            <CommentForm
+              thoughtId={thought._id}
+              sx={{ flexDirection: "column", justifyContent: "center" }}
+            />
           </Typography>
         </CardContent>
       </Card>

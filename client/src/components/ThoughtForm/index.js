@@ -75,7 +75,12 @@ const ThoughtForm = () => {
             className="thought-form"
             onSubmit={handleFormSubmit}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              mt: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
           >
             <TextField
               type="text"
@@ -85,8 +90,8 @@ const ThoughtForm = () => {
               value={thoughtText}
               onChange={handleChange}
             ></TextField>
-            <Button type="submit" variant="contained">
-              Add a Discussion
+            <Button sx={{ mt: 1 }} type="submit" variant="contained">
+              Start a New Discussion
             </Button>
           </Box>
           {/* <form
@@ -111,7 +116,7 @@ const ThoughtForm = () => {
           </div> */}
           {error && (
             <Stack sx={{ width: "100%" }} spacing={2}>
-              <Alert severity="error">{error.message}</Alert>
+              <Alert severity="error">This field is required</Alert>
             </Stack>
           )}
           {/* </form> */}

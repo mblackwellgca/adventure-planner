@@ -13,7 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import Container from "@mui/material/Container";
 import Auth from "../utils/auth";
 
 const Profile = () => {
@@ -21,32 +21,23 @@ const Profile = () => {
   const thoughts = data?.thoughts || [];
 
   return (
-    <main>
-      {/* <div className="flex-row justify-center"> */}
-      {/* <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: "1px dotted #1a1a1a" }}
-        > */}
-      <Card>
+    <Container maxWidth="sm">
+      <Card sx={{ p: 2, m: 3, display: "flex", justifyContent: "center" }}>
         <CardContent>
-          <ThoughtForm />
+          <ThoughtForm
+            sx={{ flexDirection: "column", justifyContent: "center" }}
+          />
         </CardContent>
       </Card>
-      {/* </div> */}
-      <div className="col-12 col-md-8 mb-3">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <Card>
-            <CardContent>
-              <ThoughtList thoughts={thoughts} title="Discussions..." />
-            </CardContent>
-          </Card>
-        )}
-      </div>
 
-      {/* </div> */}
-    </main>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <Box>
+          <ThoughtList thoughts={thoughts} title="Discussions..." />
+        </Box>
+      )}
+    </Container>
   );
 };
 
