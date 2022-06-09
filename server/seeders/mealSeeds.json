@@ -1,0 +1,20 @@
+[
+  {
+    "text": "pizza",
+    "type": "dinner",
+    "day": "Monday",
+    "author": "amachkel"
+  },
+  {
+    "text": "muffins",
+    "type": "breakfast",
+    "day": "Monday",
+    "author": "amachkel"
+  },
+  {
+    "text": "spaghetti",
+    "type": "lunch",
+    "day": "Friday",
+    "author": "amachkel"
+  }
+]
