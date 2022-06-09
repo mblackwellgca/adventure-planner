@@ -19,7 +19,7 @@ function Destinations(props) {
     redirect: 'follow'
   };
     fetch(`https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${search}`, requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
   }
@@ -40,6 +40,7 @@ function Destinations(props) {
             {
               items.map((items) => (
               <div key = { items.id } >
+                { items.data[0].attributes.name }
                   </div>
               ))
           }
