@@ -40,13 +40,13 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_MEAL = gql`
-  mutation addMeal($text: String!) {
-    addMeal(text: $text) {
+  mutation addMeal($text: String!, $type: String, $day: String!) {
+    addMeal(text: $text, type: $type, day: $day) {
       _id
       text
       type
       day
-      author
+      username
     }
   }
 `;

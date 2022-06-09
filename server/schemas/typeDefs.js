@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     thoughts: [Thought]!
     trips: [Trip]!
+    meals: [Meal]!
   }
 
   type Thought {
@@ -38,7 +39,7 @@ const typeDefs = gql`
     text: String
     type: String
     day: String
-    author: String
+    username: String
   }
 
   type Auth {
@@ -51,7 +52,7 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
-    meals: [Meal]
+    meals(username: String): [Meal]
     meal(mealId: ID!): Meal
     me: User
     trips: [Trip]

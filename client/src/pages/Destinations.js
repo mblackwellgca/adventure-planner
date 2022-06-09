@@ -40,7 +40,6 @@ function Destinations(props) {
             {
               items.map((items) => (
               <div key = { items.id } >
-                { items.data[0].attributes.name }
                   </div>
               ))
           }

@@ -33,7 +33,7 @@ function MealForm(props) {
           data: { meals: [addMeal, ...meals] },
         });
       } catch (e) {
-        console.error(e);
+        // console.error(e);
       }
     },
   });
@@ -83,13 +83,7 @@ function MealForm(props) {
 
   // First we check to see if "edit" prop exists. If not, we render the normal form
   // If the prop "edit" exists, we know to render the update form instead
-  return !Auth.loggedIn(
-    <p>
-      You need to be logged in to start a discussion. Please{" "}
-      <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-    </p>
-  );
-  !props.edit ? (
+  return Auth.loggedIn && !props.edit ? (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
@@ -145,7 +139,7 @@ function MealForm(props) {
         </Button>
       </Box>
     </Container>
-  ) : (
+  ) : Auth.loggedIn ? (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
@@ -202,6 +196,11 @@ function MealForm(props) {
         </Button>
       </Box>
     </Container>
+  ) : (
+    <p>
+      You need to be logged in to start a discussion. Please{" "}
+      <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+    </p>
   );
 }
 
