@@ -45,12 +45,6 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img
-            className="logo"
-            src={Logo}
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-          />
-
           {Auth.loggedIn() ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

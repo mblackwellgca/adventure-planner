@@ -45,6 +45,4 @@ const Profile = () => {
   );
 };
 
-// https://unsplash.com/photos/yCMQukL013E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
 export default Profile;
