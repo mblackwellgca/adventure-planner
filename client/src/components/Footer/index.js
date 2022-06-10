@@ -6,10 +6,15 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography
+      sx={{ mt: 5 }}
+      variant="body2"
+      color="text.secondary"
+      align="center"
+    >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Group It
+        Group It Travel
       </Link>{" "}
       {2022}
       {"."}

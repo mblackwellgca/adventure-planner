@@ -50,24 +50,7 @@ const ResponsiveAppBar = () => {
             src={Logo}
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
           />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-              fontSize: "2rem",
-            }}
-          >
-            The Group Adventure Travel Planner
-          </Typography>
+
           {Auth.loggedIn() ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -158,7 +141,11 @@ const ResponsiveAppBar = () => {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt={Auth.getProfile().data.username} />
+                    <Avatar
+                      sx={{ bgcolor: "secondary.main" }}
+                      alt={Auth.getProfile().data.username}
+                      src={Auth.getProfile().data.username}
+                    />
                   </IconButton>
                 </Tooltip>
                 <Menu

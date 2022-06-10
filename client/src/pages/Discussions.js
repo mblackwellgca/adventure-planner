@@ -18,7 +18,7 @@ const Profile = () => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <Container maxWidth="sm">
+        <Container>
           <Card sx={{ p: 2, m: 3, display: "flex", justifyContent: "center" }}>
             <CardContent>
               <ThoughtForm

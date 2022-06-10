@@ -38,7 +38,7 @@ const ThoughtList = ({
                       >
                         <Link
                           underline="hover"
-                          href={`/thoughts/${thought.thoughtAuthor}`}
+                          href={`/thoughts/${thought._id}`}
                         >
                           {thought.thoughtText} <br />
                         </Link>
@@ -46,16 +46,14 @@ const ThoughtList = ({
                     </Typography>
                   ) : (
                     <>
-                      <Typography>
-                        <span style={{ fontSize: "1rem" }}>
-                          You created this on {thought.createdAt}
-                        </span>
+                      <Typography sx={{ fontSize: "1rem" }}>
+                        You created this on {thought.createdAt}
                       </Typography>
                     </>
                   )}
 
                   <Typography sx={{ color: "secondary.main" }}>
-                    <p>Posted by {thought.thoughtAuthor}</p>
+                    Posted by {thought.thoughtAuthor}
                   </Typography>
                   <Button variant="contained">
                     <Link

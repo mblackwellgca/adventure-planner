@@ -6,7 +6,12 @@ import Typography from "@mui/material/Typography";
 
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
-    return <h3>No Comments Yet</h3>;
+    return (
+      <Box sx={{ m: 2, width: "100%" }}>
+        {" "}
+        <Typography variant={"h5"}>No Comments Yet.</Typography>
+      </Box>
+    );
   }
 
   return (

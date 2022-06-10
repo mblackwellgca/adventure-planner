@@ -12,6 +12,8 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShare } from "@fortawesome/free-solid-svg-icons";
 
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState("");
@@ -61,7 +63,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <Typography component={"h3"}>Create a Discussion</Typography>
+      <Typography variant="h4">Create a Discussion</Typography>
 
       {Auth.loggedIn() ? (
         <>
@@ -94,7 +96,7 @@ const ThoughtForm = () => {
               onChange={handleChange}
             ></TextField>
             <Button sx={{ mt: 1 }} type="submit" variant="contained">
-              Start a New Discussion
+              <FontAwesomeIcon icon={faShare} color="#6B3567" />
             </Button>
           </Box>
           {error && (
