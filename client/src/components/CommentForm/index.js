@@ -86,7 +86,7 @@ const CommentForm = ({ thoughtId }) => {
               sx={{ mt: 1 }}
               type="submit"
               onClick={() => {
-                console.log("submitted");
+                console.log(`submitted ${commentText}`);
               }}
               variant="contained"
             >

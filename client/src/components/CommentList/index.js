@@ -11,7 +11,12 @@ const CommentList = ({ comments = [] }) => {
 
   return (
     <>
-      <h3 style={{ borderBottom: "1px dotted #1a1a1a" }}>Comments</h3>
+      <Typography
+        component={"h3"}
+        style={{ borderBottom: "1px dotted #1a1a1a" }}
+      >
+        Comments
+      </Typography>
       <Card sx={{ p: 2, mt: 3, boxShadow: 1 }}>
         <CardContent>
           {comments &&

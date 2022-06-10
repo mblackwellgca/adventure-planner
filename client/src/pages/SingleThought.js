@@ -1,5 +1,4 @@
 import React from "react";
-
 // Import the `useParams()` hook
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -61,8 +60,8 @@ const SingleThought = () => {
         }}
       >
         <CardContent>
-          <Typography>
-            <CommentList></CommentList>
+          <Typography variant="span">
+            <CommentList comments={thought.comments} />
             <CommentForm
               thoughtId={thought._id}
               sx={{ flexDirection: "column", justifyContent: "center" }}
