@@ -7,9 +7,10 @@ const Footer = () => {
   const navigate = useNavigate();
   return (
     <Typography
-      sx={{ mt: 5 }}
+      sx={{ my: 2 }}
       variant="body2"
-      color="text.secondary"
+      backgroundColor="rgba(255, 255, 255, 0)"
+      color="secondary.main"
       align="center"
     >
       {"Copyright © "}

@@ -1,15 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "../assets/css/home.css";
-import Logo from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
+import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import { CssBaseline, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ClassNames } from "@emotion/react";
+import { Grid, Box } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    backgroundImage: `url(${Logo})`,
+    backgroundImage: `url(${Background})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "bottom",
     backgroundSize: "cover",
@@ -21,6 +22,20 @@ const Home = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <Grid container spacing={0} minHeight={100}>
+        <Grid item xs={5}>
+          <Box
+            sx={{
+              height: "100vh",
+              backgroundColor: "#FFF",
+              opacity: [0.9, 0.8, 0.7],
+            }}
+          />
+        </Grid>
+        <Grid item xs={7}>
+          <Box />
+        </Grid>
+      </Grid>
     </div>
   );
 };

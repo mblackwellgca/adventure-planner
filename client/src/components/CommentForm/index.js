@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentSms } from "@fortawesome/free-solid-svg-icons";
+import MessageIcon from "@mui/icons-material/Message";
 
 import { ADD_COMMENT } from "../../utils/mutations";
 import Box from "@mui/material/Box";
@@ -88,7 +87,7 @@ const CommentForm = ({ thoughtId }) => {
               variant="contained"
               size="medium"
             >
-              <FontAwesomeIcon icon={faCommentSms} color="#6B3567" size="lg" />
+              <MessageIcon color="#6B3567" size="lg" />
             </Button>
           </Box>
         </>
