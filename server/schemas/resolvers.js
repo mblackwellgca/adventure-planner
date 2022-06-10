@@ -8,7 +8,7 @@ const resolvers = {
       return User.find().populate("thoughts");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("thoughts");
+      return User.findOne({ username }).populate(["thoughts", "meals"]);
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -25,7 +25,7 @@ const resolvers = {
     },
     meals: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Meal.find(params).populate("meals");
+      return Meal.find(params);
     },
     meal: async (parent, { mealId }) => {
       const params = username ? { username } : {};
@@ -122,13 +122,14 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addMeal: async (parent, { text }, context) => {
+    addMeal: async (parent, { text, type, day }, context) => {
       if (context.user) {
+        console.log(context.user);
         const meal = await Meal.create({
           text,
           type,
           day,
-          author: context.user.username,
+          username: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -144,7 +145,7 @@ const resolvers = {
       if (context.user) {
         const meal = await Meal.findOneAndDelete({
           _id: mealId,
-          author: context.user.username,
+          username: context.user.username,
         });
 
         await User.findOneAndUpdate(
