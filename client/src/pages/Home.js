@@ -35,7 +35,7 @@ const Home = () => {
       
       <p className='message'>
       Planning a getaway with family or friends and looking for a trip planner app to help you figure out the logistics? 
-      There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
+      There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodations can feel like impossible tasks when several people are involved.
       </p>
 
       <img className="boardwalk" src={Logo} alt="boardwalk" />;
