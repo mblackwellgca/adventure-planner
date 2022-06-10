@@ -5,31 +5,43 @@ import Lightbulb from "../../assets/images/lightbulb.png";
 import Collaborate from "../../assets/images/collaborate.png";
 import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
 import { CardActionArea } from "@mui/material";
+import { ClassNames } from "@emotion/react";
+import { makeStyles } from "@material-ui/core/styles";
+import details from "./CardDetails";
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 375,
+  },
+  media: {
+    height: 250,
+  },
+});
 
 export default function HomeCards() {
+  const classes = useStyles();
   return (
-    <Grid container spacing={2}>
+    <Grid id="home-cards" container spacing={2}>
       <Grid
         item
         xs={12}
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
+              className={classes.media}
               component="img"
-              height="140"
               image={Maldives}
               alt="Maldives"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Lizard
+                {details[0].title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {details[0].description}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -41,21 +53,20 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
+              className={classes.media}
               component="img"
-              height="140"
               image={Lightbulb}
               alt="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Lizard
+                {details[1].title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {details[1].description}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -67,21 +78,20 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
+              className={classes.media}
               component="img"
-              height="140"
               image={Collaborate}
               alt="people pointing at a laptop screen together"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Lizard
+                {details[2].title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {details[2].description}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -93,26 +103,25 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
+              className={classes.media}
               component="img"
-              height="140"
               image={Meal}
               alt="prepared meals"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Lizard
+                {details[3].title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {details[3].description}
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
-      </Grid>{" "}
+      </Grid>
     </Grid>
   );
 }

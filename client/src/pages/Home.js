@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
-import { Link } from "react-router-dom";
+import { Link as Scroll } from "react-scroll";
 import { ClassNames } from "@emotion/react";
 import { Grid, Box, CssBaseline, Typography, Collapse } from "@mui/material";
 import HomeCards from "../components/HomeCards";
@@ -18,8 +18,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "bottom",
     backgroundSize: "cover",
   },
+  container: {
+    textAlign: "center",
+  },
   goDown: {
     color: "secondary.main",
+    textAlign: "center",
     fontSize: "4rem",
   },
 }));
@@ -79,22 +83,26 @@ const Home = () => {
                 {...(checked ? { timeout: 1000 } : {})}
                 collapsedHeight={50}
               >
-                <Typography variant={"h3"} color={"#FFF"}>
-                  Welcome to Your Travel Planner.
-                </Typography>
-                <Typography color={"#FFF"}>
-                  {" "}
-                  Planning a getaway with family or friends and looking for a
-                  trip planner app to help you figure out the logistics? There
-                  are endless details that go into planning a group trip.
-                  Coordinating flights, arranging transportation, planning for
-                  meals, scheduling activities and figuring out accommodation
-                  can feel like impossible tasks when a lot of people are
-                  involved.
-                </Typography>
-                <IconButton>
-                  <ExpandMoreIcon className={classes.goDown} />
-                </IconButton>
+                <div className={classes.container}>
+                  <Typography variant={"h3"} color={"#FFF"}>
+                    Welcome to Your Travel Planner.
+                  </Typography>
+                  <Typography color={"#FFF"}>
+                    {" "}
+                    Planning a getaway with family or friends and looking for a
+                    trip planner app to help you figure out the logistics? There
+                    are endless details that go into planning a group trip.
+                    Coordinating flights, arranging transportation, planning for
+                    meals, scheduling activities and figuring out accommodation
+                    can feel like impossible tasks when a lot of people are
+                    involved.
+                  </Typography>
+                  <Scroll to="home-cards" smooth={true}>
+                    <IconButton>
+                      <ExpandMoreIcon className={classes.goDown} />
+                    </IconButton>
+                  </Scroll>
+                </div>
               </Collapse>
             </Box>
             <Box
@@ -102,6 +110,7 @@ const Home = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                mb: 5,
               }}
             >
               <HomeCards />
