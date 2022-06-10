@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import Auth from "../../utils/auth";
+import Typography from "@mui/material/Typography";
 
 const CommentForm = ({ thoughtId }) => {
   const [commentText, setCommentText] = useState("");
@@ -45,12 +46,12 @@ const CommentForm = ({ thoughtId }) => {
 
   return (
     <div>
-      <h4>Care to comment?</h4>
+      <Typography component={"h3"}>Care to comment?</Typography>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
+          <h3
+            className={` ${
               characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
@@ -60,7 +61,7 @@ const CommentForm = ({ thoughtId }) => {
                 <Alert severity="error">This field is required</Alert>
               </Stack>
             )}
-          </p>
+          </h3>
           <Box
             component="form"
             className="comment-form"
@@ -75,13 +76,20 @@ const CommentForm = ({ thoughtId }) => {
           >
             <TextField
               type="text"
-              name="thoughtText"
-              placeholder="Start a discussion"
+              name="commentText"
+              placeholder="Add your comment"
               className="form-input"
               value={commentText}
               onChange={handleChange}
             ></TextField>
-            <Button sx={{ mt: 1 }} type="submit" variant="contained">
+            <Button
+              sx={{ mt: 1 }}
+              type="submit"
+              onClick={() => {
+                console.log("submitted");
+              }}
+              variant="contained"
+            >
               Add comment
             </Button>
           </Box>

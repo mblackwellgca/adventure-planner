@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -16,7 +15,7 @@ const ThoughtList = ({
   showUsername = true,
 }) => {
   if (!thoughts.length) {
-    return <h3>No Discussions Yet</h3>;
+    return <h3>Be the first to start a discussion.</h3>;
   }
 
   return (

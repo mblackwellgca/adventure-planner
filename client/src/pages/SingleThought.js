@@ -3,16 +3,13 @@ import React from "react";
 // Import the `useParams()` hook
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-
 import CommentList from "../components/CommentList";
 import CommentForm from "../components/CommentForm";
 
 import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 const SingleThought = () => {
@@ -65,6 +62,7 @@ const SingleThought = () => {
       >
         <CardContent>
           <Typography>
+            <CommentList></CommentList>
             <CommentForm
               thoughtId={thought._id}
               sx={{ flexDirection: "column", justifyContent: "center" }}
