@@ -12,6 +12,8 @@ import details from "./CardDetails";
 const useStyles = makeStyles({
   root: {
     maxWidth: 375,
+    background: "rgba(0,0,0,0.5)",
+    margin: "20px",
   },
   media: {
     height: 250,
@@ -29,22 +31,20 @@ export default function HomeCards() {
         sx={{ display: "flex", justifyContent: "center" }}
       >
         <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={Maldives}
-              alt="Maldives"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {details[0].title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {details[0].description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={Maldives}
+            alt="Maldives"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {details[0].title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {details[0].description}
+            </Typography>
+          </CardContent>
         </Card>
       </Grid>
       <Grid
@@ -54,22 +54,20 @@ export default function HomeCards() {
         sx={{ display: "flex", justifyContent: "center" }}
       >
         <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={Lightbulb}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {details[1].title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {details[1].description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={Lightbulb}
+            alt="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {details[1].title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {details[1].description}
+            </Typography>
+          </CardContent>
         </Card>
       </Grid>{" "}
       <Grid
@@ -79,22 +77,20 @@ export default function HomeCards() {
         sx={{ display: "flex", justifyContent: "center" }}
       >
         <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={Collaborate}
-              alt="people pointing at a laptop screen together"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {details[2].title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {details[2].description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={Collaborate}
+            alt="people pointing at a laptop screen together"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {details[2].title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {details[2].description}
+            </Typography>
+          </CardContent>
         </Card>
       </Grid>
       <Grid
@@ -104,22 +100,20 @@ export default function HomeCards() {
         sx={{ display: "flex", justifyContent: "center" }}
       >
         <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={Meal}
-              alt="prepared meals"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {details[3].title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {details[3].description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={Meal}
+            alt="prepared meals"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {details[3].title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {details[3].description}
+            </Typography>
+          </CardContent>
         </Card>
       </Grid>
     </Grid>
