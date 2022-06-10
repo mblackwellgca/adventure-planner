@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCommentSms } from "@fortawesome/free-solid-svg-icons";
 
 import { ADD_COMMENT } from "../../utils/mutations";
 import Box from "@mui/material/Box";
@@ -45,23 +47,21 @@ const CommentForm = ({ thoughtId }) => {
   };
 
   return (
-    <div>
-      <Typography component={"h3"}>Care to comment?</Typography>
+    <Box sx={{ p: 2 }}>
+      <Typography variant={"h5"} sx={{ pt: 2 }}>
+        Care to comment?
+      </Typography>
 
       {Auth.loggedIn() ? (
         <>
-          <h3
-            className={` ${
-              characterCount === 280 || error ? "text-danger" : ""
-            }`}
-          >
+          <Typography sx={{ pt: 2 }} variant="span">
             Character Count: {characterCount}/280
             {error && (
               <Stack sx={{ width: "100%" }} spacing={2}>
                 <Alert severity="error">This field is required</Alert>
               </Stack>
             )}
-          </h3>
+          </Typography>
           <Box
             component="form"
             className="comment-form"
@@ -85,12 +85,10 @@ const CommentForm = ({ thoughtId }) => {
             <Button
               sx={{ mt: 1 }}
               type="submit"
-              onClick={() => {
-                console.log(`submitted ${commentText}`);
-              }}
               variant="contained"
+              size="medium"
             >
-              Add comment
+              <FontAwesomeIcon icon={faCommentSms} color="#6B3567" size="lg" />
             </Button>
           </Box>
         </>
@@ -100,7 +98,7 @@ const CommentForm = ({ thoughtId }) => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-    </div>
+    </Box>
   );
 };
 

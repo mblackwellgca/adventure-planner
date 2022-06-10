@@ -11,30 +11,25 @@ const CommentList = ({ comments = [] }) => {
 
   return (
     <>
-      <Typography
-        component={"h3"}
-        style={{ borderBottom: "1px dotted #1a1a1a" }}
-      >
-        Comments
-      </Typography>
-      <Card sx={{ p: 2, mt: 3, boxShadow: 1 }}>
-        <CardContent>
-          {comments &&
-            comments.map((comment) => (
-              <div key={comment._id} className="col-12 mb-3 pb-3">
-                <Box sx={{ p: 2, mt: 3, boxShadow: 1 }}>
-                  <Typography variant="h4">
-                    {comment.commentAuthor} commented{" "}
-                    <span style={{ fontSize: "0.825rem" }}>
-                      on {comment.createdAt}
-                    </span>
-                  </Typography>
-                  <p className="card-body">{comment.commentText}</p>
-                </Box>
-              </div>
-            ))}
-        </CardContent>
-      </Card>
+      <Box sx={{ py: 2, my: 3, width: "100%" }}>
+        <Typography variant={"h5"}>Comments</Typography>
+        {comments &&
+          comments.map((comment) => (
+            <div key={comment._id}>
+              <Box sx={{ p: 2, boxShadow: 1 }}>
+                <Typography variant="h6" className="card-body">
+                  {comment.commentText}
+                </Typography>
+                <Typography variant="span">
+                  {comment.commentAuthor}{" "}
+                  <span style={{ fontSize: "0.825rem" }}>
+                    {comment.createdAt}
+                  </span>
+                </Typography>
+              </Box>
+            </div>
+          ))}
+      </Box>
     </>
   );
 };

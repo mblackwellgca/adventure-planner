@@ -50,25 +50,22 @@ const SingleThought = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card
+      <Box
         sx={{
           minWidth: 275,
           p: 2,
           m: 3,
           display: "flex",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
-        <CardContent>
-          <Typography variant="span">
-            <CommentList comments={thought.comments} />
-            <CommentForm
-              thoughtId={thought._id}
-              sx={{ flexDirection: "column", justifyContent: "center" }}
-            />
-          </Typography>
-        </CardContent>
-      </Card>
+        <CommentList comments={thought.comments} />
+        <CommentForm
+          thoughtId={thought._id}
+          sx={{ justifyContent: "center" }}
+        />
+      </Box>
     </>
   );
 };
