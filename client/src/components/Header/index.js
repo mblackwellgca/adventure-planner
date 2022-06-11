@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "flex-end",
-    backgroundColor: "rgba(0, 0, 0, 0)",
   },
   link: {
     textDecoration: "none",
@@ -59,6 +58,92 @@ const ResponsiveAppBar = () => {
         <Toolbar disableGutters className={classes.root}>
           {Auth.loggedIn() ? (
             <>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  className={classes.root}
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
+                  <Link className={`homeMenu ${classes.link}`} to={`/`}>
+                    Home
+                  </Link>
+                  {pages.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">
+                        <Link to={`/${page}`}>{page}</Link>
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              <Typography
+                variant="h5"
+                noWrap
+                component="a"
+                href=""
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontFamily: "monospace",
+                  fontWeight: 900,
+                  letterSpacing: ".3rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                Group It
+              </Typography>
+
+              <Box
+                className="navBar"
+                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+              >
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <Link className="pageNav" to={`/`}>
+                    HOME
+                  </Link>
+                </Button>
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    <Link className="pageNav" to={`/${page}`}>
+                      {page}
+                    </Link>
+                  </Button>
+                ))}
+              </Box>
+
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -70,38 +155,35 @@ const ResponsiveAppBar = () => {
                   </IconButton>
                 </Tooltip>
                 <Menu
-                  className="Menu"
                   sx={{ mt: "45px" }}
                   id="menu-appbar"
                   anchorEl={anchorElUser}
                   anchorOrigin={{
                     vertical: "top",
-                    horizontal: "left",
+                    horizontal: "right",
                   }}
                   keepMounted
                   transformOrigin={{
                     vertical: "top",
-                    horizontal: "left",
+                    horizontal: "right",
                   }}
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Link className={`homeProfile ${classes.link}`} to={`/`}>
+                    <Link className="homeProfile" to={`/`}>
                       Home
                     </Link>
                   </MenuItem>
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">
-                        <Link className={classes.link} to={`/${setting}`}>
-                          {setting}
-                        </Link>
+                        <Link to={`/${setting}`}>{setting}</Link>
                       </Typography>
                     </MenuItem>
                   ))}
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <div className={`btnLO ${classes.link}`} onClick={logout}>
+                    <div className="btnLO" onClick={logout}>
                       Logout
                     </div>
                   </MenuItem>

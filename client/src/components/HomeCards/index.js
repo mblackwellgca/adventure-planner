@@ -4,12 +4,11 @@ import Meal from "../../assets/images/meal-planner.png";
 import Lightbulb from "../../assets/images/lightbulb.png";
 import Collaborate from "../../assets/images/collaborate.png";
 import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
-import { CardActionArea } from "@mui/material";
-import { ClassNames } from "@emotion/react";
-import { makeStyles } from "@material-ui/core/styles";
+
+import { createStyled } from "@mui/system";
 import details from "./CardDetails";
 
-const useStyles = makeStyles({
+const styled = createStyled({
   root: {
     maxWidth: 375,
     background: "rgba(0,0,0,0.5)",
@@ -41,7 +40,7 @@ export default function HomeCards() {
             <Typography gutterBottom variant="h5" component="div">
               {details[0].title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="secondary.main">
               {details[0].description}
             </Typography>
           </CardContent>

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
 import { Link as Scroll } from "react-scroll";
 import { ClassNames } from "@emotion/react";
-import { Grid, Box, CssBaseline, Typography, Collapse } from "@mui/material";
+import { Grid, Box, CssBaseline, Typography } from "@mui/material";
+import { IconButton, Collapse } from "@material-ui/core";
 import HomeCards from "../components/HomeCards";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { IconButton } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,21 +21,17 @@ const useStyles = makeStyles((theme) => ({
   container: {
     textAlign: "center",
   },
-  goDown: {
-    color: "secondary.main",
-    textAlign: "center",
-    fontSize: "4rem",
-  },
 }));
 
 const Home = () => {
+  const nodeRef = useRef(null);
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
   }, []);
   return (
-    <div className={classes.root}>
+    <div ref={nodeRef} className={classes.root}>
       <CssBaseline />
       <Grid container spacing={0} minHeight={100}>
         <Grid item xs={5}>
@@ -81,7 +77,7 @@ const Home = () => {
               <Collapse
                 in={checked}
                 {...(checked ? { timeout: 1000 } : {})}
-                collapsedHeight={50}
+                collapsedSize={50}
               >
                 <div className={classes.container}>
                   <Typography variant={"h3"} color={"#FFF"}>
@@ -99,7 +95,9 @@ const Home = () => {
                   </Typography>
                   <Scroll to="home-cards" smooth={true}>
                     <IconButton>
-                      <ExpandMoreIcon className={classes.goDown} />
+                      <ExpandMoreIcon
+                        sx={{ fontSize: "4rem", color: "secondary.main" }}
+                      />
                     </IconButton>
                   </Scroll>
                 </div>
