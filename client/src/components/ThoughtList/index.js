@@ -1,5 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Link from "@mui/material/Link";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ThoughtList = ({
   thoughts,
@@ -8,43 +15,64 @@ const ThoughtList = ({
   showUsername = true,
 }) => {
   if (!thoughts.length) {
-    return <h3>No Discussions Yet</h3>;
+    return <h3>Be the first to start a discussion.</h3>;
   }
 
   return (
     <div>
-      {showTitle && <h3>{title}</h3>}
-      {thoughts &&
-        thoughts.map((thought) => (
-          <div key={thought._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {showUsername ? (
-                <Link
-                  className="text-light"
-                  to={`/profiles/${thought.thoughtAuthor}`}
-                >
-                  {thought.thoughtText} <br />
-                  
-                </Link>
-              ) : (
-                <>
-                  <span style={{ fontSize: '1rem' }}>
-                    You created this on {thought.createdAt}
-                  </span>
-                </>
-              )}
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{thought.thoughtText}</p>
-            </div>
-            <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${thought._id}`}
-            >
-              Join the discussion on this thought.
-            </Link>
-          </div>
-        ))}
+      <Card sx={{ p: 2, mt: 3, boxShadow: 1 }}>
+        <CardContent>
+          {showTitle && <h3>{title}</h3>}
+          {thoughts &&
+            thoughts.map((thought) => (
+              <div key={thought._id}>
+                <Box sx={{ p: 2, mt: 3, boxShadow: 1 }}>
+                  {showUsername ? (
+                    <Typography variant="h4">
+                      <Box
+                        sx={{
+                          p: 2,
+                          backgroundColor: "secondary.extraLight",
+                          borderRadius: "3px",
+                        }}
+                      >
+                        <Link
+                          underline="hover"
+                          href={`/thoughts/${thought._id}`}
+                        >
+                          {thought.thoughtText} <br />
+                        </Link>
+                      </Box>
+                    </Typography>
+                  ) : (
+                    <>
+                      <Typography sx={{ fontSize: "1rem" }}>
+                        You created this on {thought.createdAt}
+                      </Typography>
+                    </>
+                  )}
+
+                  <Typography sx={{ color: "secondary.main" }}>
+                    Posted by {thought.thoughtAuthor}
+                  </Typography>
+                  <Button variant="contained">
+                    <Link
+                      underline="none"
+                      href={`/thoughts/${thought._id}`}
+                      sx={{ color: "black" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faCommentAlt}
+                        color="#6B3567"
+                        size="lg"
+                      />
+                    </Link>
+                  </Button>
+                </Box>
+              </div>
+            ))}
+        </CardContent>
+      </Card>
     </div>
   );
 };
