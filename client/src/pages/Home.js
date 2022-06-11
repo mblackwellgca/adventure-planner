@@ -11,10 +11,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "100vh",
+    minHeight: "100%",
     backgroundImage: `url(${Background})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    backgroundPosition: "center center",
+    backgroundAttachment: "fixed",
     backgroundSize: "cover",
   },
   container: {
