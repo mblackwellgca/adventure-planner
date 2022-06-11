@@ -93,6 +93,7 @@ function MealForm(props) {
         noValidate
         sx={{ mt: 1 }}
       >
+        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
         <TextField
           type="text"
           placeholder="Add meal to your list"

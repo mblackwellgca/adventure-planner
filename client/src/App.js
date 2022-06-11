@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./assets/colorPalette";
 import {
@@ -9,7 +9,6 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -20,7 +19,7 @@ import Footer from "./components/Footer";
 import Destinations from "./pages/Destinations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
-import Events from "./pages/Events";
+
 require("dotenv").config();
 
 // Construct our main GraphQL API endpoint
@@ -61,7 +60,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/discussions" element={<Discussions />} />
                 <Route
-                  path="/Discussions/:username"
+                  path="/discussions/:username"
                   element={<Discussions />}
                 />
                 <Route

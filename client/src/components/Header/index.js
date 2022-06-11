@@ -12,16 +12,27 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import "../../assets/css/header.css";
+import { makeStyles } from "@material-ui/core/styles";
 import Auth from "../../utils/auth";
-import Logo from "../../assets/images/group-it-logo.png";
 
 const pages = ["dashboard", "meal-planning", "discussions"];
 const settings = ["dashboard", "destinations", "meal-planning", "discussions"];
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  link: {
+    textDecoration: "none",
+    fontSize: 22,
+  },
+}));
+
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const classes = useStyles();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -44,13 +55,7 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <img
-            className="logo"
-            src={Logo}
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-          />
-
+        <Toolbar disableGutters className={classes.root}>
           {Auth.loggedIn() ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -65,6 +70,7 @@ const ResponsiveAppBar = () => {
                   <MenuIcon />
                 </IconButton>
                 <Menu
+                  className={classes.root}
                   id="menu-appbar"
                   anchorEl={anchorElNav}
                   anchorOrigin={{
@@ -82,7 +88,7 @@ const ResponsiveAppBar = () => {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  <Link className="homeMenu" to={`/`}>
+                  <Link className={`homeMenu ${classes.link}`} to={`/`}>
                     Home
                   </Link>
                   {pages.map((page) => (
@@ -186,10 +192,14 @@ const ResponsiveAppBar = () => {
             </>
           ) : (
             <>
-              <Link className="" to="/login">
+              <Link className={classes.link} to="/login">
                 Log in &nbsp;
               </Link>
-              <Link className="" to="/signup">
+              <Link
+                style={{ textDecoration: "none" }}
+                className={classes.link}
+                to="/signup"
+              >
                 Sign up
               </Link>
             </>
