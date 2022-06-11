@@ -14,7 +14,7 @@ const mealSchema = new Schema({
   day: {
     type: String,
   },
-  author: {
+  username: {
     type: String,
     required: true,
     trim: true,

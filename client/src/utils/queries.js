@@ -66,7 +66,7 @@ export const QUERY_MEALS = gql`
       text
       type
       day
-      author
+      username
     }
   }
 `;
@@ -78,7 +78,7 @@ export const QUERY_SINGLE_MEAL = gql`
       text
       type
       day
-      author
+      username
     }
   }
 `;

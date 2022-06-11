@@ -15,7 +15,9 @@ function Destinations(props) {
   var slug = [];
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     // alert(`Let's go to ${search}!`)
+
     fetch(`https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${search}`, requestOptions)
     .then(response => response.json())
     .then(function (data) {

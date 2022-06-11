@@ -24,9 +24,9 @@ db.once("open", async () => {
       );
     }
     for (let i = 0; i < mealSeeds.length; i++) {
-      const { _id, author } = await Meal.create(mealSeeds[i]);
+      const { _id, username } = await Meal.create(mealSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: author },
+        { username: username },
         {
           $addToSet: {
             meals: _id,
