@@ -20,7 +20,7 @@ const ThoughtList = ({
 
   return (
     <div>
-      <Card sx={{ p: 2, mt: 3, boxShadow: 1 }}>
+      <Card sx={{ p: 2, mt: 3 }}>
         <CardContent>
           {showTitle && <h3>{title}</h3>}
           {thoughts &&
