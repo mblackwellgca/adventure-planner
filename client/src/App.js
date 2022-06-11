@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./assets/colorPalette";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache,ApolloProvider,createHttpLink} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import SingleThought from "./pages/SingleThought";
-import Discussions from "./pages/Discussions";
+import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Destinations from "./pages/Destinations";
 import MealPlanning from "./pages/MealPlanning";
 import Dashboard from "./pages/Dashboard";
-import Events from "./pages/Events";
-require("dotenv").config();
+
+require('dotenv').config();
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -56,18 +50,12 @@ function App() {
             <Header />
             <div className="container">
               <Routes>
-                <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/discussions" element={<Discussions />} />
-                <Route
-                  path="/Discussions/:username"
-                  element={<Discussions />}
-                />
-                <Route
-                  path="/thoughts/:thoughtId"
-                  element={<SingleThought />}
-                />
+                <Route path="/discussions" element={<Profile />} />
+                <Route path="/profiles/:username" element={<Profile />} />
+                <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
                 <Route path="/destinations" element={<Destinations />} />
                 <Route path="/meal-planning" element={<MealPlanning />} />
                 <Route path="/dashboard" element={<Dashboard />} />

@@ -23,7 +23,7 @@ const Signup = () => {
     password: "",
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
-
+console.log(data);
   const handleChange = (event) => {
     const { name, value } = event.target;
 

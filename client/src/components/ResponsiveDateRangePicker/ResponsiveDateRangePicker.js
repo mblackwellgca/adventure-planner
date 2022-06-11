@@ -11,6 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 export default function ResponsiveDateRangePicker() {
   const [value, setValue] = React.useState([null, null]);
   const matches = useMediaQuery("(pointer:fine)");
+  console.log(value);
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack spacing={3}>
