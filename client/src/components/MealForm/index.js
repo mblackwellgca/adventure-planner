@@ -65,14 +65,19 @@ const MealForm = () => {
 
   return (
     <div>
-      <Typography variant="h4">Create a Discussion</Typography>
+      <Typography variant="h4">Add to Your Group's Meal Plan</Typography>
       <CssBaseline />
       <Box
         component="form"
         className="meal-form"
         onSubmit={handleFormSubmit}
         noValidate
-        sx={{ mt: 1 }}
+        sx={{
+          mt: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
       >
         <TextField
           type="text"
@@ -82,20 +87,52 @@ const MealForm = () => {
           className="meal-input"
           onChange={handleChange}
         ></TextField>
-        <div className="dropdown">
-          <h3 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h3>
-          <div className="dropdown-content">
-            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
-              Breakfast
-            </Button>
-            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
-              Lunch
-            </Button>
-            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
-              Dinner
-            </Button>
-          </div>
-        </div>
+        <h3 className={`${type}`}>{type || "Select Type of Meal"}</h3>
+        <Box>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[0])}
+          >
+            Breakfast
+          </Button>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[1])}
+          >
+            Lunch
+          </Button>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[2])}
+          >
+            Dinner
+          </Button>
+        </Box>
+
         <FormControl fullWidth>
           <InputLabel id="day-select-label">Day</InputLabel>
           <Select
