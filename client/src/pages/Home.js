@@ -4,7 +4,6 @@ import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
 import { Link as Scroll } from "react-scroll";
-import { ClassNames } from "@emotion/react";
 import { Grid, Box, CssBaseline, Typography } from "@mui/material";
 import { IconButton, Collapse } from "@material-ui/core";
 import HomeCards from "../components/HomeCards";

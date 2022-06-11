@@ -4,23 +4,21 @@ import Meal from "../../assets/images/meal-planner.png";
 import Lightbulb from "../../assets/images/lightbulb.png";
 import Collaborate from "../../assets/images/collaborate.png";
 import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
-
-import { createStyled } from "@mui/system";
 import details from "./CardDetails";
 
-const styled = createStyled({
-  root: {
-    maxWidth: 375,
-    background: "rgba(0,0,0,0.5)",
-    margin: "20px",
-  },
-  media: {
-    height: 250,
-  },
-});
+// const styled = createStyled({
+//   root: {
+//     maxWidth: 375,
+//     background: "rgba(0,0,0,0.5)",
+//     margin: "20px",
+//   },
+//   media: {
+//     height: 250,
+//   },
+// });
 
 export default function HomeCards() {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <Grid id="home-cards" container spacing={2}>
       <Grid
@@ -29,9 +27,16 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
+        <Card
+          sx={{
+            maxWidth: 375,
+            color: "#FFF",
+            background: "rgba(0, 182, 195, 0.5)",
+            margin: "20px",
+          }}
+        >
           <CardMedia
-            className={classes.media}
+            // className={classes.media}
             component="img"
             image={Maldives}
             alt="Maldives"
@@ -52,9 +57,9 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
+        <Card>
           <CardMedia
-            className={classes.media}
+            // className={classes.media}
             component="img"
             image={Lightbulb}
             alt="green iguana"
@@ -75,9 +80,9 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
+        <Card>
           <CardMedia
-            className={classes.media}
+            // className={classes.media}
             component="img"
             image={Collaborate}
             alt="people pointing at a laptop screen together"
@@ -98,9 +103,9 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
+        <Card>
           <CardMedia
-            className={classes.media}
+            // className={classes.media}
             component="img"
             image={Meal}
             alt="prepared meals"
