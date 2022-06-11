@@ -33,12 +33,7 @@ const Home = () => {
   return (
     <div ref={nodeRef} className={classes.root}>
       <CssBaseline />
-      <Grid
-        container
-        spacing={0}
-        minHeight={100}
-        sx={{ display: "flex", flexWrap: "wrap" }}
-      >
+      <Grid container spacing={0} minHeight={100}>
         <Grid item xs={12} md={5}>
           <Box
             sx={{
@@ -49,18 +44,30 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            {" "}
-            <Box
-              component={"img"}
-              className="logo"
-              src={Logo}
-              sx={{
-                display: "flex",
-              }}
-            />
+            <div
+              className={classes.container}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              <Box
+                component={"img"}
+                className="logo"
+                src={Logo}
+                sx={{
+                  display: "flex",
+                }}
+              />
+              <Scroll to="welcome" smooth={true}>
+                <IconButton>
+                  <ExpandMoreIcon
+                    sx={{ fontSize: "4rem", color: "secondary.main" }}
+                  />
+                </IconButton>
+              </Scroll>
+            </div>
           </Box>
         </Grid>
         <Grid
+          id="welcome"
           item
           xs={12}
           md={7}
