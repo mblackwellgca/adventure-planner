@@ -4,17 +4,24 @@ import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
 import { Link as Scroll } from "react-scroll";
-import { Grid, Box, CssBaseline, Typography } from "@mui/material";
+import {
+  Grid,
+  Box,
+  CssBaseline,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { IconButton, Collapse } from "@material-ui/core";
 import HomeCards from "../components/HomeCards";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "100vh",
+    minHeight: "100%",
     backgroundImage: `url(${Background})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "bottom",
+    backgroundPosition: "center center",
+    backgroundAttachment: "fixed",
     backgroundSize: "cover",
   },
   container: {
@@ -23,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const nodeRef = useRef(null);
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
@@ -33,7 +41,7 @@ const Home = () => {
     <div ref={nodeRef} className={classes.root}>
       <CssBaseline />
       <Grid container spacing={0} minHeight={100}>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5}>
           <Box
             sx={{
               height: "100vh",
@@ -43,20 +51,59 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            {" "}
-            <Box
-              component={"img"}
-              className="logo"
-              src={Logo}
-              sx={{
-                display: "flex",
-              }}
-            />
+            <div
+              className={classes.container}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              {" "}
+              <Box
+                component={"img"}
+                className="logo"
+                src={Logo}
+                sx={{
+                  display: "flex",
+                }}
+              />
+              {!matches ? (
+                <Scroll to="welcome" smooth={true}>
+                  <IconButton>
+                    <ExpandMoreIcon
+                      sx={{ fontSize: "4rem", color: "secondary.dark" }}
+                    />
+                  </IconButton>
+                </Scroll>
+              ) : null}
+            </div>
           </Box>
+          {matches ? (
+            <Box
+              sx={{
+                height: "100vh",
+                backgroundColor: "rgba(255, 255, 255, 0.7)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Collapse
+                in={checked}
+                {...(checked ? { timeout: 1000 } : {})}
+                collapsedSize={50}
+              >
+                <div className={classes.container}>
+                  <Typography variant={"h3"} color={"primary.dark"}>
+                    Boldly go somewhere you have not gone before!
+                  </Typography>
+                </div>
+              </Collapse>
+            </Box>
+          ) : null}
         </Grid>
         <Grid
+          id="welcome"
           item
-          xs={7}
+          xs={12}
+          md={7}
           sx={{
             display: "flex",
             backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -95,7 +142,7 @@ const Home = () => {
                   <Scroll to="home-cards" smooth={true}>
                     <IconButton>
                       <ExpandMoreIcon
-                        sx={{ fontSize: "4rem", color: "secondary.main" }}
+                        sx={{ fontSize: "4rem", color: "secondary.light" }}
                       />
                     </IconButton>
                   </Scroll>
