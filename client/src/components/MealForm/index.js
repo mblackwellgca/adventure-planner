@@ -73,7 +73,6 @@ const MealForm = () => {
         onSubmit={handleFormSubmit}
         noValidate
         sx={{
-          mt: 1,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
