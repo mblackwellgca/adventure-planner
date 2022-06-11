@@ -4,7 +4,13 @@ import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
 import { Link as Scroll } from "react-scroll";
-import { Grid, Box, CssBaseline, Typography } from "@mui/material";
+import {
+  Grid,
+  Box,
+  CssBaseline,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { IconButton, Collapse } from "@material-ui/core";
 import HomeCards from "../components/HomeCards";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -24,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const nodeRef = useRef(null);
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
@@ -56,13 +63,15 @@ const Home = () => {
                   display: "flex",
                 }}
               />
-              <Scroll to="welcome" smooth={true}>
-                <IconButton>
-                  <ExpandMoreIcon
-                    sx={{ fontSize: "4rem", color: "secondary.main" }}
-                  />
-                </IconButton>
-              </Scroll>
+              {!matches ? (
+                <Scroll to="welcome" smooth={true}>
+                  <IconButton>
+                    <ExpandMoreIcon
+                      sx={{ fontSize: "4rem", color: "secondary.main" }}
+                    />
+                  </IconButton>
+                </Scroll>
+              ) : null}
             </div>
           </Box>
         </Grid>
