@@ -55,6 +55,7 @@ const Home = () => {
               className={classes.container}
               sx={{ display: "flex", flexDirection: "column" }}
             >
+              {" "}
               <Box
                 component={"img"}
                 className="logo"
@@ -67,13 +68,36 @@ const Home = () => {
                 <Scroll to="welcome" smooth={true}>
                   <IconButton>
                     <ExpandMoreIcon
-                      sx={{ fontSize: "4rem", color: "secondary.main" }}
+                      sx={{ fontSize: "4rem", color: "secondary.dark" }}
                     />
                   </IconButton>
                 </Scroll>
               ) : null}
             </div>
           </Box>
+          {matches ? (
+            <Box
+              sx={{
+                height: "100vh",
+                backgroundColor: "rgba(255, 255, 255, 0.7)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Collapse
+                in={checked}
+                {...(checked ? { timeout: 1000 } : {})}
+                collapsedSize={50}
+              >
+                <div className={classes.container}>
+                  <Typography variant={"h3"} color={"primary.dark"}>
+                    Boldly go somewhere you have not gone before!
+                  </Typography>
+                </div>
+              </Collapse>
+            </Box>
+          ) : null}
         </Grid>
         <Grid
           id="welcome"
@@ -118,7 +142,7 @@ const Home = () => {
                   <Scroll to="home-cards" smooth={true}>
                     <IconButton>
                       <ExpandMoreIcon
-                        sx={{ fontSize: "4rem", color: "secondary.main" }}
+                        sx={{ fontSize: "4rem", color: "secondary.light" }}
                       />
                     </IconButton>
                   </Scroll>
