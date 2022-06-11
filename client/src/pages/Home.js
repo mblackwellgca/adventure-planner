@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     backgroundImage: `url(${Background})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "bottom",
+    backgroundPosition: "center",
     backgroundSize: "cover",
   },
   container: {
@@ -32,8 +32,13 @@ const Home = () => {
   return (
     <div ref={nodeRef} className={classes.root}>
       <CssBaseline />
-      <Grid container spacing={0} minHeight={100}>
-        <Grid item xs={5}>
+      <Grid
+        container
+        spacing={0}
+        minHeight={100}
+        sx={{ display: "flex", flexWrap: "wrap" }}
+      >
+        <Grid item xs={12} md={5}>
           <Box
             sx={{
               height: "100vh",
@@ -56,7 +61,8 @@ const Home = () => {
         </Grid>
         <Grid
           item
-          xs={7}
+          xs={12}
+          md={7}
           sx={{
             display: "flex",
             backgroundColor: "rgba(0, 0, 0, 0.6)",
