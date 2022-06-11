@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+import {
+  CssBaseline,
+  TextField,
+  Button,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Typography,
+  Box,
+} from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_MEAL } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -18,21 +20,20 @@ const MealForm = () => {
   const [type, setType] = useState("");
   const [day, setDay] = useState("");
   const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
-  
+
   const [addMeal] = useMutation(ADD_MEAL, {
-    update(cache, {data: {addMeal}}) {
+    update(cache, { data: { addMeal } }) {
       try {
-        const {meals} = cache.readQuery({ query: QUERY_MEALS});
+        const { meals } = cache.readQuery({ query: QUERY_MEALS });
         cache.writeQuery({
           query: QUERY_MEALS,
-          data: { meals: [addMeal, ...meals]},
+          data: { meals: [addMeal, ...meals] },
         });
       } catch (e) {
         console.error(e);
       }
     },
   });
-  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -55,17 +56,16 @@ const MealForm = () => {
   };
 
   const handleChange = (event) => {
-    setText(event.target.value); 
+    setText(event.target.value);
   };
 
   const handleDayChange = (event) => {
     setDay(event.target.value);
   };
- 
 
   return (
-  <div>
-    <Container component="main" maxWidth="xs">
+    <div>
+      <Typography variant="h4">Create a Discussion</Typography>
       <CssBaseline />
       <Box
         component="form"
@@ -74,9 +74,8 @@ const MealForm = () => {
         noValidate
         sx={{ mt: 1 }}
       >
-        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
         <TextField
-        type="text"
+          type="text"
           placeholder="Add meal to your list"
           value={text}
           name="text"
@@ -120,12 +119,8 @@ const MealForm = () => {
           Add meal list item
         </Button>
       </Box>
-    </Container>
-    
-    
-    </div> 
-  )
-}
-
+    </div>
+  );
+};
 
 export default MealForm;
