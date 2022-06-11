@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from 'react';
+import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker/ResponsiveDateRangePicker";
 
 function Destinations(props) {
   const [items, setItems] = useState([  ]);
@@ -34,6 +35,7 @@ function Destinations(props) {
         />
       </label>
       <input type="submit" className="btn btn-lg btn-info m-2" id="margin-normal" margin="normal" />
+      <ResponsiveDateRangePicker />
     </form>
     <div>
       <div>

@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const mealSchema = new Schema({
   text: {
     type: String,
-    required: "Please  give your meal a name.",
+    required: "Please give your meal a name.",
     minlength: 3,
     maxlength: 30,
     trim: true,
@@ -13,6 +13,8 @@ const mealSchema = new Schema({
   },
   day: {
     type: String,
+    required: true,
+    trim: true,
   },
   username: {
     type: String,
@@ -21,6 +23,6 @@ const mealSchema = new Schema({
   },
 });
 
-const Meal = model("Meal", mealSchema);
+const Meal = model('Meal', mealSchema);
 
 module.exports = Meal;

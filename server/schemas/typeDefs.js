@@ -7,8 +7,6 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
-    trips: [Trip]!
-    meals: [Meal]!
   }
 
   type Thought {
@@ -66,7 +64,7 @@ const typeDefs = gql`
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    addMeal(text: String!, type: String, day: String!): Meal
+    addMeal(text: String!, type: String!, day: String!): Meal
     removeMeal(mealId: ID!): Meal
     addTrip(tripName: String!): Trip
     removeTrip(tripId: ID!): Trip

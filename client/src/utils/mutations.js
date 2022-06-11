@@ -40,7 +40,7 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_MEAL = gql`
-  mutation addMeal($text: String!, $type: String, $day: String!) {
+  mutation addMeal($text: String!, $type: String!, $day: String!) {
     addMeal(text: $text, type: $type, day: $day) {
       _id
       text
@@ -66,3 +66,10 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const REMOVE_MEAL = gql`
+  mutation removeMeal($mealId: ID!) {
+    removeMeal(mealId: $mealId){
+      _id
+    }
+  }`
