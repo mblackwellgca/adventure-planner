@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../../assets/WeatherCard.css";
+import "../../assets//css/WeatherCard.css";
+import { Card, CardContent, Typography } from "@mui/material";
 
 const api = {
   key: "d0ec0bc12a2d2e358f70d304e2a267fd",
@@ -54,7 +55,7 @@ export default function WeatherCard() {
     return `${day} ${date} ${month} ${year}`;
   };
   return (
-    <div
+    <Card
       className={
         typeof weather.main != "undefined"
           ? weather.main.temp > 16
@@ -63,7 +64,8 @@ export default function WeatherCard() {
           : "app"
       }
     >
-      <div className="weather-card">
+      <CardContent className="weather-card">
+        <Typography variant="h4">Weather</Typography>
         <div className="search-box">
           <input
             type="text"
@@ -90,7 +92,7 @@ export default function WeatherCard() {
         ) : (
           ""
         )}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
