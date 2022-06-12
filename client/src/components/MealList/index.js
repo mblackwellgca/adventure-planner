@@ -1,5 +1,5 @@
-import React from "react";
-import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS } from "../../utils/queries";
 import { styled } from "@mui/material/styles";
@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Auth from "../../utils/auth";
 
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -25,32 +26,28 @@ const weekDays = [
 ];
 
 const MealList = ({ meals }) => {
-  const [removeMeal] = useMutation(REMOVE_MEAL, {
-    update(cache, { data: { removeMeal } }) {
-      try {
-        const { meals } = cache.readQuery({ query: QUERY_MEALS });
-        cache.writeQuery({
-          query: QUERY_MEALS,
-          data: { meals: [removeMeal, ...meals] },
-        });
-      } catch (e) {
-        console.error(e);
+  const [mealList, setMealList] = useState(meals);
+  const { loading, data } = useQuery(QUERY_MEALS);
+  const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
+
+  const handleRemoveMeal = async (mealId) => {
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
+      if (!token) {
+        return false;
       }
-    },
-  });
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const { data } = await removeMeal({
-        variables: {
-          id: meals._id,
-        },
-      });
-      console.log(data);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+      try {
+        const { data } = await removeMeal({
+          variables: { mealId },
+        });
+        removeMeal(mealId);
+        setMealList("");
+      if (meals.meal._id=== mealId) {
+        return mealList;
+      }
+      } catch (err) {
+        console.error(err);
+  }
+};
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -77,13 +74,13 @@ const MealList = ({ meals }) => {
                           <p> {meal.type} </p>
                           <p> {meal.text} </p>
                           <p>{meal.username}</p>
-                          <span
+                          <button
                             style={{ cursor: "pointer" }}
-                            onClick={handleFormSubmit}
+                            onClick={() => handleRemoveMeal(meal._id)}
                           >
                             {" "}
                             🗑️
-                          </span>
+                          </button>
                         </div>
                       );
                   })}
@@ -96,5 +93,6 @@ const MealList = ({ meals }) => {
     </Box>
   );
 };
+
 
 export default MealList;

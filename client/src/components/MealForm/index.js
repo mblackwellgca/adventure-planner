@@ -1,15 +1,5 @@
 import React, { useState } from "react";
-import {
-  CssBaseline,
-  TextField,
-  Button,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select,
-  Typography,
-  Box,
-} from "@mui/material";
+import {CssBaseline,TextField,Button,InputLabel,MenuItem, FormControl, Select,Typography, Box} from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_MEAL } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -46,7 +36,6 @@ const MealForm = () => {
           username: Auth.getProfile().data.username,
         },
       });
-      console.log(data);
       setText("");
       setType("");
       setDay("");
