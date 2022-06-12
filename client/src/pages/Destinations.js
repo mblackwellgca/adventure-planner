@@ -11,7 +11,7 @@ import Hotel from '../assets/images/hotel-1749602_640.jpg';
 import Swim from '../assets/images/water-3292794_640.jpg';
 import Plan from '../assets/images/notepad-1130743_640.jpg';
 import Car from '../assets/images/nature-4346917_640.jpg';
-
+const city = "";
 var requestOptions = {
   method: 'GET',
   headers: {
@@ -52,10 +52,11 @@ function Destinations(props) {
     fetch(`https://api.roadgoat.com/api/v2/destinations/${slug}`, requestOptions)
       .then(response => response.json())
       .then(function (data) {
+        const names = data["data"]["attributes"]["budget"][data.data.attributes.name];
+        console.log(names)
         setItems([data])
         console.log(data)
-        const name = [data.data.attributes.name];
-        console.log(name)
+        
       })
   }
   return (
@@ -77,6 +78,7 @@ function Destinations(props) {
             items.map((data) => (
               <div key={data.id} >
                 <h1>{data.data.attributes.name}</h1>
+                {/* <p>{data["data"]["attributes"]["budget"][data.data.attributes.name]}</p> */}
 
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia

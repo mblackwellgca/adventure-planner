@@ -71,5 +71,9 @@ export const REMOVE_MEAL = gql`
   mutation removeMeal($mealId: ID!) {
     removeMeal(mealId: $mealId){
       _id
+      text
+      type
+      day
+      username
     }
-  }`
+  }`;
