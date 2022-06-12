@@ -10,7 +10,6 @@ const DashboardGrid = styled(Grid)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  // backgroundColor: "#DDD",
   border: "1px solid red",
   minHeight: "100vh",
 });
@@ -23,7 +22,6 @@ const GridItem = styled(Grid)({
 });
 
 export default function Dashboard() {
-  // const classes = useStyles();
   return (
     <div className={`dashboard`}>
       <DashboardGrid container spacing={0}>

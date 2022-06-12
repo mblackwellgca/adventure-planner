@@ -65,7 +65,18 @@ export default function WeatherCard() {
       }
     >
       <CardContent className="weather-card">
-        <Typography variant="h4">Weather</Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            color: "#fff",
+            fontSize: "32px",
+            fontWeight: 500,
+            textAlign: "center",
+            textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
+          }}
+        >
+          Weather
+        </Typography>
         <div className="search-box">
           <input
             type="text"
