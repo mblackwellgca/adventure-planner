@@ -75,7 +75,7 @@ const MealList = ({ meals }) => {
                           <p>{meal.username}</p>
                           <button
                             style={{ cursor: "pointer" }}
-                            onClick={() => handleRemoveMeal(meal._id)}
+                            onClick={() => handleRemoveMeal(meal._id)+window.location.reload(false)}
                           >
                             {" "}
                             🗑️
