@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-
+import { makeStyles } from "@material-ui/core/styles";
 import ThoughtForm from "../components/ThoughtForm";
 import ThoughtList from "../components/ThoughtList";
 import { QUERY_THOUGHTS } from "../utils/queries";
@@ -9,17 +9,38 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Background from "../assets/images/discussions-wallpaper.png";
 import Auth from "../utils/auth";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "100vh",
+    backgroundImage: `url(${Background})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    padding: "2rem",
+  },
+}));
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
-
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       {Auth.loggedIn() ? (
         <Container>
-          <Card sx={{ p: 2, m: 3, display: "flex", justifyContent: "center" }}>
+          <Card
+            sx={{
+              p: 2,
+              m: 3,
+              display: "flex",
+              justifyContent: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+            }}
+          >
             <CardContent>
               <ThoughtForm
                 sx={{ flexDirection: "column", justifyContent: "center" }}

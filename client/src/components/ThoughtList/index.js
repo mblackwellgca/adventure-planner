@@ -20,59 +20,60 @@ const ThoughtList = ({
 
   return (
     <div>
-      <Card sx={{ p: 2, mt: 3 }}>
-        <CardContent>
-          {showTitle && <h3>{title}</h3>}
-          {thoughts &&
-            thoughts.map((thought) => (
-              <div key={thought._id}>
-                <Box sx={{ p: 2, mt: 3, boxShadow: 1 }}>
-                  {showUsername ? (
-                    <Typography variant="h4">
-                      <Box
-                        sx={{
-                          p: 2,
-                          backgroundColor: "secondary.extraLight",
-                          borderRadius: "3px",
-                        }}
-                      >
-                        <Link
-                          underline="hover"
-                          href={`/thoughts/${thought._id}`}
-                        >
-                          {thought.thoughtText} <br />
-                        </Link>
-                      </Box>
-                    </Typography>
-                  ) : (
-                    <>
-                      <Typography sx={{ fontSize: "1rem" }}>
-                        You created this on {thought.createdAt}
-                      </Typography>
-                    </>
-                  )}
-
-                  <Typography sx={{ color: "secondary.main" }}>
-                    Posted by {thought.thoughtAuthor}
-                  </Typography>
-                  <Button variant="contained">
-                    <Link
-                      underline="none"
-                      href={`/thoughts/${thought._id}`}
-                      sx={{ color: "black" }}
+      {showTitle && <h3>{title}</h3>}
+      {thoughts &&
+        thoughts.map((thought) => (
+          <div key={thought._id}>
+            <Card
+              sx={{
+                p: 2,
+                mt: 3,
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+              }}
+            >
+              <CardContent>
+                {" "}
+                {showUsername ? (
+                  <Typography variant="h4">
+                    <Box
+                      sx={{
+                        p: 2,
+                        backgroundColor: "secondary.extraLight",
+                        borderRadius: "3px",
+                      }}
                     >
-                      <FontAwesomeIcon
-                        icon={faCommentAlt}
-                        color="#6B3567"
-                        size="lg"
-                      />
-                    </Link>
-                  </Button>
-                </Box>
-              </div>
-            ))}
-        </CardContent>
-      </Card>
+                      <Link underline="hover" href={`/thoughts/${thought._id}`}>
+                        {thought.thoughtText} <br />
+                      </Link>
+                    </Box>
+                  </Typography>
+                ) : (
+                  <>
+                    <Typography sx={{ fontSize: "1rem" }}>
+                      You created this on {thought.createdAt}
+                    </Typography>
+                  </>
+                )}
+                <Typography sx={{ color: "secondary.main" }}>
+                  Posted by {thought.thoughtAuthor}
+                </Typography>
+                <Button variant="contained">
+                  <Link
+                    underline="none"
+                    href={`/thoughts/${thought._id}`}
+                    sx={{ color: "black" }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCommentAlt}
+                      color="#6B3567"
+                      size="lg"
+                    />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
     </div>
   );
 };
