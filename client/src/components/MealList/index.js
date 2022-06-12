@@ -1,5 +1,5 @@
-import React from "react";
-import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS } from "../../utils/queries";
 import { styled } from "@mui/material/styles";
@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
+import Auth from "../../utils/auth";
 
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -25,75 +25,74 @@ const weekDays = [
   "Sunday",
 ];
 
+const MealList = ({ meals }) => {
+  const [mealList, setMealList] = useState(meals);
+  const { loading, data } = useQuery(QUERY_MEALS);
+  const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
 
-
-const MealList = ({
-  meals,
-}) => {
-
-  const [removeMeal] = useMutation(REMOVE_MEAL, {
-    update(cache, {data: {removeMeal}}) {
-      try {
-        const {meals} = cache.readQuery({ query: QUERY_MEALS});
-          cache.writeQuery({
-          query: QUERY_MEALS,
-          data: { meals: [removeMeal, ...meals]},
-        });
-      } catch (e) {
-        console.error(e);
+  const handleRemoveMeal = async (mealId) => {
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
+      if (!token) {
+        return false;
       }
-    },
-  }); 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const { data } = await removeMeal({
-        variables: {
-          id: meals._id
-        },
-      });
-      console.log(data);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  
+      try {
+        const { data } = await removeMeal({
+          variables: { mealId },
+        });
+        removeMeal(mealId);
+        setMealList("");
+      if (meals.meal._id=== mealId) {
+        return mealList;
+      }
+      } catch (err) {
+        console.error(err);
+  }
+};
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {weekDays.map((day) => (
-              <Grid item xs={12} sm={6} md={4} lg={3}>
-                <Card>
-                  <CardContent>
-                    <Typography color="secondary" variant="h6" component="div">
-                      {day}
-                    </Typography>
-                    <Demo>
-                      <List>
-                      {meals.map((meal) => {
-                         if (meal.day === day)
-                        return (
-                          <div key = {meal._id}>
-                            <p> {meal.type} </p>
-                            <p> {meal.text} </p>
-                            <p>{meal.username}</p>
-                            <span style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
-                                {" "} 🗑️
-                            </span>
-                          </div>
-                        )
-                        })}
-                       </List>
-                    </Demo>
-                  </CardContent>
-                </Card>
-              </Grid>
-            )
-          )}
-        </Grid>
-      </Box>
-  )
- }
+      <Grid container spacing={2}>
+        {weekDays.map((day) => (
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card
+              sx={{
+                p: 2,
+                boxShadow: 2,
+                minHeight: 500,
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+              }}
+            >
+              <CardContent>
+                <Typography color="secondary" variant="h6" component="div">
+                  {day}
+                </Typography>
+                <List>
+                  {meals.map((meal) => {
+                    if (meal.day === day)
+                      return (
+                        <div key={meal._id}>
+                          <p> {meal.type} </p>
+                          <p> {meal.text} </p>
+                          <p>{meal.username}</p>
+                          <button
+                            style={{ cursor: "pointer" }}
+                            onClick={() => handleRemoveMeal(meal._id)+window.location.reload(false)}
+                          >
+                            {" "}
+                            🗑️
+                          </button>
+                        </div>
+                      );
+                  })}
+                </List>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
 
 export default MealList;

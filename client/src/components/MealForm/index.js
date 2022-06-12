@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+import {CssBaseline,TextField,Button,InputLabel,MenuItem, FormControl, Select,Typography, Box} from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_MEAL } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -18,21 +10,20 @@ const MealForm = () => {
   const [type, setType] = useState("");
   const [day, setDay] = useState("");
   const typeLevel = ["breakfast", "lunch", "dinner", "TBD"];
-  
+
   const [addMeal] = useMutation(ADD_MEAL, {
-    update(cache, {data: {addMeal}}) {
+    update(cache, { data: { addMeal } }) {
       try {
-        const {meals} = cache.readQuery({ query: QUERY_MEALS});
+        const { meals } = cache.readQuery({ query: QUERY_MEALS });
         cache.writeQuery({
           query: QUERY_MEALS,
-          data: { meals: [addMeal, ...meals]},
+          data: { meals: [addMeal, ...meals] },
         });
       } catch (e) {
         console.error(e);
       }
     },
   });
-  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -45,7 +36,6 @@ const MealForm = () => {
           username: Auth.getProfile().data.username,
         },
       });
-      console.log(data);
       setText("");
       setType("");
       setDay("");
@@ -55,48 +45,82 @@ const MealForm = () => {
   };
 
   const handleChange = (event) => {
-    setText(event.target.value); 
+    setText(event.target.value);
   };
 
   const handleDayChange = (event) => {
     setDay(event.target.value);
   };
- 
 
   return (
-  <div>
-    <Container component="main" maxWidth="xs">
+    <div>
+      <Typography variant="h4">Add to Your Group's Meal Plan</Typography>
       <CssBaseline />
       <Box
         component="form"
         className="meal-form"
         onSubmit={handleFormSubmit}
         noValidate
-        sx={{ mt: 1 }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
       >
-        {/* <form className="meal-form" onSubmit={handleSubmit}> */}
         <TextField
-        type="text"
+          type="text"
           placeholder="Add meal to your list"
           value={text}
           name="text"
           className="meal-input"
           onChange={handleChange}
         ></TextField>
-        <div className="dropdown">
-          <h3 className={`dropbtn ${type}`}>{type || "Type of Meal"}</h3>
-          <div className="dropdown-content">
-            <Button color="secondary" onClick={() => setType(typeLevel[0])}>
-              Breakfast
-            </Button>
-            <Button color="secondary" onClick={() => setType(typeLevel[1])}>
-              Lunch
-            </Button>
-            <Button color="secondary" onClick={() => setType(typeLevel[2])}>
-              Dinner
-            </Button>
-          </div>
-        </div>
+        <h3 className={`${type}`}>{type || "Select Type of Meal"}</h3>
+        <Box>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[0])}
+          >
+            Breakfast
+          </Button>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[1])}
+          >
+            Lunch
+          </Button>
+          <Button
+            sx={[
+              { color: "secondary.main" },
+              {
+                "&:focus": {
+                  backgroundColor: "secondary.dark",
+                  color: "secondary.contrastText",
+                },
+              },
+            ]}
+            onClick={() => setType(typeLevel[2])}
+          >
+            Dinner
+          </Button>
+        </Box>
+
         <FormControl fullWidth>
           <InputLabel id="day-select-label">Day</InputLabel>
           <Select
@@ -120,12 +144,8 @@ const MealForm = () => {
           Add meal list item
         </Button>
       </Box>
-    </Container>
-    
-    
-    </div> 
-  )
-}
-
+    </div>
+  );
+};
 
 export default MealForm;

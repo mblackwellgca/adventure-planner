@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-
 import { ADD_THOUGHT } from "../../utils/mutations";
 import { QUERY_THOUGHTS } from "../../utils/queries";
-
 import Auth from "../../utils/auth";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Typography from "@mui/material/Typography";
+import {
+  Box,
+  TextField,
+  Button,
+  Stack,
+  Alert,
+  Typography,
+} from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 
