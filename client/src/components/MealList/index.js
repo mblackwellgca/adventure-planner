@@ -26,28 +26,27 @@ const weekDays = [
 ];
 
 const MealList = ({ meals }) => {
-  const [mealList, setMealList] = useState(meals);
+  // const [mealList, setMealList] = useState({});
   const { loading, data } = useQuery(QUERY_MEALS);
   const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
 
+  const mealList = data?.meal || [];
+
   const handleRemoveMeal = async (mealId) => {
-      const token = Auth.loggedIn() ? Auth.getToken() : null;
-      if (!token) {
-        return false;
-      }
-      try {
-        const { data } = await removeMeal({
-          variables: { mealId },
-        });
-        removeMeal(mealId);
-        setMealList("");
-      if (meals.meal._id=== mealId) {
-        return mealList;
-      }
-      } catch (err) {
-        console.error(err);
-  }
-};
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+    try {
+      const { data } = await removeMeal({
+        variables: { mealId },
+      });
+      removeMeal(mealId);
+      mealList.map((meal) => (meal._id === mealId ? (meal = "") : meal));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -93,6 +92,5 @@ const MealList = ({ meals }) => {
     </Box>
   );
 };
-
 
 export default MealList;
