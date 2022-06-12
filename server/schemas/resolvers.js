@@ -145,7 +145,6 @@ const resolvers = {
       if (context.user) {
         const meal = await Meal.findOneAndDelete({
           _id: mealId,
-          username: context.user.username,
         });
 
         await User.findOneAndUpdate(
