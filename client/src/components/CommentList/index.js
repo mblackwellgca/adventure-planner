@@ -16,7 +16,7 @@ const CommentList = ({ comments = [] }) => {
 
   return (
     <>
-      <Box sx={{ py: 2, my: 3, width: "100%" }}>
+      <Box sx={{ p: 2, my: 3, width: "100%", backgroundColor: "#FFF" }}>
         <Typography variant={"h5"}>Comments</Typography>
         {comments &&
           comments.map((comment) => (
