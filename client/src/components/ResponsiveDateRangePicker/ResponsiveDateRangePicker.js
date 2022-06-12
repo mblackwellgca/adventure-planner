@@ -34,7 +34,11 @@ export default function ResponsiveDateRangePicker() {
     <CardStyled>
       <CardContent>
         <Typography variant="h4">Travel Dates</Typography>
+
         <LocalizationProvider dateAdapter={AdapterDateFns}>
+          {value[(0, 1)] != null ? (
+            <Typography>{`${value[0]} - ${value[1]} `}</Typography>
+          ) : null}
           <Stack spacing={3}>
             {!matches ? (
               <MobileDateRangePicker
@@ -56,6 +60,7 @@ export default function ResponsiveDateRangePicker() {
                 startText="Start"
                 value={value}
                 onChange={(newValue) => {
+                  console.log(newValue);
                   setValue(newValue);
                 }}
                 renderInput={(startProps, endProps) => (

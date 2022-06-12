@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import "../../assets//css/WeatherCard.css";
 import { Card, CardContent, Typography } from "@mui/material";
-
+import { styled } from "@mui/system";
 const api = {
   key: "d0ec0bc12a2d2e358f70d304e2a267fd",
   base: "https://api.openweathermap.org/data/2.5/",
 };
+
+const CardStyled = styled(Card)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  maxWidth: 545,
+  minHeight: 345,
+  padding: 2,
+  margin: 3,
+  backgroundColor: "#DDD",
+});
 
 export default function WeatherCard() {
   const [query, setQuery] = useState("");
@@ -13,7 +24,7 @@ export default function WeatherCard() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
@@ -55,16 +66,16 @@ export default function WeatherCard() {
     return `${day} ${date} ${month} ${year}`;
   };
   return (
-    <Card
-      className={
+    <CardStyled
+      className={`weather-card ${
         typeof weather.main != "undefined"
-          ? weather.main.temp > 16
+          ? weather.main.temp > 61
             ? "App warm"
             : "App"
           : "app"
-      }
+      }`}
     >
-      <CardContent className="weather-card">
+      <CardContent>
         <Typography
           variant="h4"
           sx={{
@@ -96,7 +107,7 @@ export default function WeatherCard() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round(weather.main.temp)}°c</div>
+              <div className="temp">{Math.round(weather.main.temp)}°f</div>
               <div className="weather">{weather.weather[0].description}</div>
             </div>
           </div>
@@ -104,6 +115,6 @@ export default function WeatherCard() {
           ""
         )}
       </CardContent>
-    </Card>
+    </CardStyled>
   );
 }

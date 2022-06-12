@@ -5,6 +5,8 @@ import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker/R
 // import { useQuery } from "@apollo/client";
 import { styled } from "@mui/system";
 import { Grid, Typography } from "@mui/material";
+import TripCard from "../components/TripCard";
+import BudgetCard from "../components/TripCard/BudgetCard";
 
 const DashboardGrid = styled(Grid)({
   display: "flex",
@@ -15,10 +17,10 @@ const DashboardGrid = styled(Grid)({
 });
 
 const GridItem = styled(Grid)({
-  display: "flex",
-  justifyContent: "center",
-  height: 345,
-  minWidth: 545,
+  // display: "flex",
+  // justifyContent: "center",
+  // height: 345,
+  // minWidth: 545,
 });
 
 export default function Dashboard() {
@@ -30,6 +32,12 @@ export default function Dashboard() {
         </GridItem>
         <GridItem item xs={12} md={6}>
           <ResponsiveDateRangePicker />
+        </GridItem>
+        <GridItem item xs={12} md={6}>
+          <TripCard />
+        </GridItem>
+        <GridItem item xs={12} md={6}>
+          <BudgetCard />
         </GridItem>
       </DashboardGrid>
     </div>
