@@ -40,10 +40,8 @@ const MealList = ({ meals }) => {
           variables: { mealId },
         });
         removeMeal(mealId);
-        setMealList("");
-      if (meals.meal._id=== mealId) {
-        return mealList;
-      }
+        this.setMealList({});
+    
       } catch (err) {
         console.error(err);
   }
@@ -76,7 +74,7 @@ const MealList = ({ meals }) => {
                           <p>{meal.username}</p>
                           <button
                             style={{ cursor: "pointer" }}
-                            onClick={() => handleRemoveMeal(meal._id)}
+                            onClick={() => handleRemoveMeal(meal._id)+window.location.reload(false)}
                           >
                             {" "}
                             🗑️
