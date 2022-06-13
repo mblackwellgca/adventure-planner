@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/system";
 import ThoughtForm from "../components/ThoughtForm";
 import ThoughtList from "../components/ThoughtList";
 import { QUERY_THOUGHTS } from "../utils/queries";
@@ -12,24 +12,21 @@ import Container from "@mui/material/Container";
 import Background from "../assets/images/discussions-wallpaper.png";
 import Auth from "../utils/auth";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: "100vh",
-    backgroundImage: `url(${Background})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
-    padding: "2rem",
-  },
-}));
+const PageStyled = styled("div")({
+  minHeight: "100vh",
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center center",
+  backgroundAttachment: "fixed",
+  backgroundSize: "cover",
+  padding: "2rem",
+});
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <PageStyled className="gradient-card">
       {Auth.loggedIn() ? (
         <Container>
           <Card
@@ -62,7 +59,7 @@ const Profile = () => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-    </div>
+    </PageStyled>
   );
 };
 
