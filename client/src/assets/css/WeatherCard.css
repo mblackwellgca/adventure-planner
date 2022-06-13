@@ -20,7 +20,7 @@ body {
   background-image: url("../images/warm-weather.png");
 }
 
-.weather-card {
+.gradient-card {
   /* padding: 25px; */
   background-image: linear-gradient(
     to bottom,

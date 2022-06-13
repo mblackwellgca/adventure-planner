@@ -22,7 +22,7 @@ const CardStyled = styled(Card)({
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
-  margin: 3,
+  margin: "0 auto",
   backgroundColor: "#DDD",
 });
 
@@ -50,13 +50,25 @@ export default function ResponsiveDateRangePicker() {
   }, []);
 
   return (
-    <CardStyled>
+    <CardStyled className="gradient-card">
       <CardContent>
-        <Typography variant="h4">Travel Dates</Typography>
+        <Typography
+          sx={{
+            color: "#fff",
+            fontSize: "32px",
+            fontWeight: 500,
+            textAlign: "center",
+            textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
+            pb: 3,
+          }}
+          variant="h4"
+        >
+          Travel Dates
+        </Typography>
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           {value[(0, 1)] != null ? (
-            <Typography sx={{ p: 2 }} variant="h6">{`${
+            <Typography sx={{ p: 2, textAlign: "center" }} variant="h6">{`${
               startDate.getMonth() + 1
             }/${startDate.getDate()}/${startDate.getFullYear()} - ${
               endDate.getMonth() + 1

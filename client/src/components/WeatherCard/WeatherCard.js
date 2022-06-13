@@ -14,8 +14,7 @@ const CardStyled = styled(Card)({
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
-  margin: 3,
-  backgroundColor: "#DDD",
+  margin: "0 auto",
 });
 
 export default function WeatherCard() {
@@ -67,7 +66,7 @@ export default function WeatherCard() {
   };
   return (
     <CardStyled
-      className={`weather-card ${
+      className={`gradient-card ${
         typeof weather.main != "undefined"
           ? weather.main.temp > 61
             ? "App warm"
