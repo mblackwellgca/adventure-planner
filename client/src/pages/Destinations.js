@@ -14,7 +14,7 @@ import Plan from "../assets/images/notepad-1130743_640.jpg";
 import Car from "../assets/images/nature-4346917_640.jpg";
 import Safe from "../assets/images/japan-2014618_640.jpg";
 import Money from "../assets/images/banknotes-209104_640.jpg";
-
+const Swim = "swim";
 const city = "";
 
 var requestOptions = {
