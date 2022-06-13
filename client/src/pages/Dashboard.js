@@ -6,7 +6,7 @@ import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker/R
 import { styled } from "@mui/system";
 import { Grid, Typography } from "@mui/material";
 import TripCard from "../components/TripCard";
-import BudgetCard from "../components/TripCard/BudgetCard";
+import BudgetCard from "../components/BudgetCard";
 
 const DashboardGrid = styled(Grid)({
   display: "flex",

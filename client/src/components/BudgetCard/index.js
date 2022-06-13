@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, TextField, Fab } from "@mui/material";
 import { styled } from "@mui/system";
-
+import AddIcon from "@mui/icons-material/Add";
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
@@ -18,6 +18,10 @@ export default function BudgetCard() {
     <CardStyled>
       <CardContent>
         <Typography variant="h4">Budget</Typography>
+        <TextField id="outlined-basic" label="Add Amount" variant="outlined" />
+        <Fab color="primary" aria-label="add">
+          <AddIcon />
+        </Fab>
       </CardContent>
     </CardStyled>
   );
