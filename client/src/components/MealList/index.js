@@ -26,12 +26,10 @@ const weekDays = [
 ];
 
 const MealList = ({ meals }) => {
-  // const [mealList, setMealList] = useState({});
   const { loading, data } = useQuery(QUERY_MEALS);
   const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
-
-  const mealList = data?.meal || [];
-
+  const [mealList, setMealList] = useState();
+  // const [mealList, setMealList] = useState(data.meals);
   const handleRemoveMeal = async (mealId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
@@ -41,12 +39,23 @@ const MealList = ({ meals }) => {
       const { data } = await removeMeal({
         variables: { mealId },
       });
+
       removeMeal(mealId);
-      mealList.map((meal) => (meal._id === mealId ? (meal = "") : meal));
+      console.log(data);
+      // const updatedMealList = [...mealList].filter(
+      //   (item) => item._id !== mealId
+      // );
+      // setMealList(updatedMealList);
     } catch (err) {
       console.error(err);
     }
   };
+  if (error) {
+    return `${error.message}`;
+  }
+  if (loading) {
+    return `Loading!! :)`;
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -66,7 +75,7 @@ const MealList = ({ meals }) => {
                   {day}
                 </Typography>
                 <List>
-                  {meals.map((meal) => {
+                  {data.meals.map((meal) => {
                     if (meal.day === day)
                       return (
                         <div key={meal._id}>
@@ -75,7 +84,7 @@ const MealList = ({ meals }) => {
                           <p>{meal.username}</p>
                           <button
                             style={{ cursor: "pointer" }}
-                            onClick={() => handleRemoveMeal(meal._id)+window.location.reload(false)}
+                            onClick={() => handleRemoveMeal(meal._id)}
                           >
                             {" "}
                             🗑️
