@@ -9,18 +9,19 @@ body {
 }
 
 .App {
-  background-image: url("images/cool-weather.png");
+  background-image: url("../images/cool-weather.png");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s ease-out;
+  min-width: 80%;
 }
 
 .App.warm {
-  background-image: url("images/warm-weather.png");
+  background-image: url("../images/warm-weather.png");
 }
 
-.weather-card {
-  padding: 25px;
+.gradient-card {
+  /* padding: 25px; */
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.2),
@@ -30,7 +31,6 @@ body {
 
 .search-box {
   width: 100%;
-  margin: 0 0 75px;
 }
 
 .search-box .search-bar {
@@ -78,10 +78,10 @@ body {
   display: inline-block;
   margin: 30px auto;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  border-radius: 8px;
 
-  padding: 15px 25px;
-  font-size: 102px;
+  padding: 0.5rem 1rem;
+  font-size: 3rem;
   color: #fff;
 
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
@@ -91,7 +91,6 @@ body {
 
 .weather-box .weather {
   color: #fff;
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 3rem;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
