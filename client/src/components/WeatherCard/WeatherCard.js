@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../assets/css/WeatherCard.css";
 import { Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 const api = {

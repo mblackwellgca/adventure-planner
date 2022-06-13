@@ -1,10 +1,11 @@
 import React from "react";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
 import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker";
-import { styled } from "@mui/system";
-import { Grid } from "@mui/material";
 import TripCard from "../components/TripCard";
 import BudgetCard from "../components/BudgetCard";
+import "../assets/css/Dashboard.css";
+import { styled } from "@mui/system";
+import { Grid, Divider } from "@mui/material";
 
 const DashboardGrid = styled(Grid)({
   display: "flex",
@@ -16,6 +17,14 @@ const DashboardGrid = styled(Grid)({
 export default function Dashboard() {
   return (
     <div className={`dashboard`}>
+      <Divider
+        sx={{
+          mt: 5,
+          mb: 5,
+        }}
+      >
+        My Dashboard
+      </Divider>
       <DashboardGrid container spacing={0}>
         <Grid item xs={12} md={6}>
           <WeatherCard />

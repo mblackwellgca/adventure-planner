@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
-import Background from "../../assets/images/hotel-1749602_640.jpg";
+import "../../assets/css/Dashboard.css";
 import {
   Box,
   List,
@@ -16,12 +16,10 @@ import AddIcon from "@mui/icons-material/Add";
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
-  // backgroundImage: `url(${Background})`,
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
   margin: "0 auto",
-  backgroundColor: "#DDD",
 });
 
 export default function TripCard() {
@@ -51,7 +49,7 @@ export default function TripCard() {
   }
 
   return (
-    <CardStyled className="gradient-card">
+    <CardStyled className="gradient-card trip-card">
       <CardContent>
         <Typography
           sx={{
@@ -74,14 +72,19 @@ export default function TripCard() {
           id="outlined-basic"
           label="Add Details"
           variant="outlined"
+          color="secondary"
         />
-        <Box sx={{ overflow: "hidden" }}>
-          <List sx={{ maxHeight: 100, overflow: "auto" }} component="div">
-            {details.map((detail) => {
-              return <TripDetails key={uuidv4()} detail={detail.detail} />;
-            })}
-          </List>
-        </Box>
+
+        <List
+          sx={{ maxHeight: 100, overflow: "auto" }}
+          component="div"
+          className="scroll-box"
+        >
+          {details.map((detail) => {
+            return <TripDetails key={uuidv4()} detail={detail.detail} />;
+          })}
+        </List>
+
         <Fab
           color="primary"
           aria-label="add"

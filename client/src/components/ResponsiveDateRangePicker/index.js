@@ -15,7 +15,6 @@ const CardStyled = styled(Card)({
   minHeight: 345,
   padding: 2,
   margin: "0 auto",
-  backgroundColor: "#DDD",
 });
 export default function ResponsiveDateRangePicker() {
   const [value, setValue] = useState([null, null]);
@@ -71,9 +70,9 @@ export default function ResponsiveDateRangePicker() {
                 }}
                 renderInput={(startProps, endProps) => (
                   <React.Fragment>
-                    <TextField {...startProps} />
+                    <TextField color="secondary" {...startProps} />
                     <Box sx={{ mx: 2 }}> to </Box>
-                    <TextField {...endProps} />
+                    <TextField color="secondary" {...endProps} />
                   </React.Fragment>
                 )}
               />
@@ -87,9 +86,9 @@ export default function ResponsiveDateRangePicker() {
                 }}
                 renderInput={(startProps, endProps) => (
                   <React.Fragment>
-                    <TextField {...startProps} />
+                    <TextField color="secondary" {...startProps} />
                     <Box sx={{ mx: 2 }}> to </Box>
-                    <TextField {...endProps} />
+                    <TextField color="secondary" {...endProps} />
                   </React.Fragment>
                 )}
               />
