@@ -6,15 +6,8 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { MobileDateRangePicker } from "@mui/x-date-pickers-pro/MobileDateRangePicker";
 import { DesktopDateRangePicker } from "@mui/x-date-pickers-pro/DesktopDateRangePicker";
-import {
-  useMediaQuery,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { useMediaQuery, Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
@@ -25,21 +18,18 @@ const CardStyled = styled(Card)({
   margin: "0 auto",
   backgroundColor: "#DDD",
 });
-
 export default function ResponsiveDateRangePicker() {
   const [value, setValue] = useState([null, null]);
   const matches = useMediaQuery("(pointer:fine)");
-
   let startDate = new Date(value[0]);
   let endDate = new Date(value[1]);
 
   useEffect(() => {
-    console.log(value);
+    // console.log(value);
     if (value[0] != null && value[1] != null) {
       localStorage.setItem("value", JSON.stringify(value));
     }
   }, [value]);
-
   useEffect(() => {
     const value = JSON.parse(localStorage.getItem("value"));
     if (value) {
@@ -48,7 +38,6 @@ export default function ResponsiveDateRangePicker() {
       endDate = new Date(value[1]);
     }
   }, []);
-
   return (
     <CardStyled className="gradient-card">
       <CardContent>
@@ -59,16 +48,14 @@ export default function ResponsiveDateRangePicker() {
             fontWeight: 500,
             textAlign: "center",
             textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
-            pb: 3,
           }}
           variant="h4"
         >
           Travel Dates
         </Typography>
-
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           {value[(0, 1)] != null ? (
-            <Typography sx={{ p: 2, textAlign: "center" }} variant="h6">{`${
+            <Typography sx={{ p: 2 }} variant="h6">{`${
               startDate.getMonth() + 1
             }/${startDate.getDate()}/${startDate.getFullYear()} - ${
               endDate.getMonth() + 1

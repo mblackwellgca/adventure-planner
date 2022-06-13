@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+import TripDetails from "../TripDetails";
 import {
-  Button,
+  Box,
   Card,
   CardContent,
   TextField,
@@ -21,6 +23,31 @@ const CardStyled = styled(Card)({
 });
 
 export default function TripCard() {
+  const [details, setDetails] = useState([]);
+  const detailNameRef = useRef();
+  // useEffect(() => {
+  //   console.log(details);
+  //   if (details[0] != null && details[1] != null) {
+  //     localStorage.setItem("details", JSON.stringify(details));
+  //   }
+  // }, [details]);
+  // useEffect(() => {
+  //   const details = JSON.parse(localStorage.getItem("details"));
+  //   if (details) {
+  //     setDetails(details);
+  //   }
+  // }, []);
+
+  function handleAddDetails(e) {
+    const detail = detailNameRef.current.value;
+    if (detail === "") return;
+    console.log(detail);
+    setDetails((prevDetails) => {
+      return [...prevDetails, { id: uuidv4(), detail: detail }];
+    });
+    detailNameRef.current.value = null;
+  }
+
   return (
     <CardStyled className="gradient-card">
       <CardContent>
@@ -36,8 +63,23 @@ export default function TripCard() {
         >
           Trip Details
         </Typography>
-        <TextField id="outlined-basic" label="Add Details" variant="outlined" />
-        <Fab color="primary" aria-label="add">
+
+        <TextField
+          inputRef={detailNameRef}
+          id="outlined-basic"
+          label="Add Details"
+          variant="outlined"
+        />
+        {details.map((detail) => {
+          return <TripDetails key={uuidv4()} detail={detail.detail} />;
+        })}
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={(e) => {
+            handleAddDetails(e);
+          }}
+        >
           <AddIcon />
         </Fab>
       </CardContent>
