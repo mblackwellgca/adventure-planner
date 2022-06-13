@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import BudgetDetails from "../BudgetDetails";
+import { v4 as uuidv4 } from "uuid";
 import { Card, CardContent, Typography, TextField, Fab } from "@mui/material";
 import { styled } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,6 +16,31 @@ const CardStyled = styled(Card)({
 });
 
 export default function BudgetCard() {
+  const [budget, setBudget] = useState([]);
+  const budgetNameRef = useRef();
+  useEffect(() => {
+    console.log(budget);
+    if (budget.length > 0) {
+      localStorage.setItem("budget", JSON.stringify(budget));
+    }
+  }, [budget]);
+  useEffect(() => {
+    const storedbudget = JSON.parse(localStorage.getItem("budget"));
+    if (storedbudget) {
+      setBudget(storedbudget);
+    }
+  }, []);
+
+  function handleAddBudget(e) {
+    const budget = budgetNameRef.current.value;
+    if (budget === "") return;
+    console.log(budget);
+    setBudget((prevBudget) => {
+      return [...prevBudget, { id: uuidv4(), budget: budget }];
+    });
+    budgetNameRef.current.value = null;
+  }
+
   return (
     <CardStyled className="gradient-card">
       <CardContent>
@@ -29,8 +56,22 @@ export default function BudgetCard() {
         >
           Budget
         </Typography>
-        <TextField id="outlined-basic" label="Add Amount" variant="outlined" />
-        <Fab color="primary" aria-label="add">
+        <TextField
+          inputRef={budgetNameRef}
+          id="outlined-basic"
+          label="Add Amount"
+          variant="outlined"
+        />
+        {budget.map((budget) => {
+          return <BudgetDetails key={uuidv4()} budget={budget.budget} />;
+        })}
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={(e) => {
+            handleAddBudget(e);
+          }}
+        >
           <AddIcon />
         </Fab>
       </CardContent>

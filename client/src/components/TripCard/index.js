@@ -1,14 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
-import {
-  Box,
-  Card,
-  CardContent,
-  TextField,
-  Typography,
-  Fab,
-} from "@mui/material";
+import { Card, CardContent, TextField, Typography, Fab } from "@mui/material";
 import { styled } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
 const CardStyled = styled(Card)({

@@ -1,8 +1,6 @@
 import React from "react";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
-import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker/ResponsiveDateRangePicker";
-// import { useParams } from "react-router-dom";
-// import { useQuery } from "@apollo/client";
+import ResponsiveDateRangePicker from "../components/ResponsiveDateRangePicker";
 import { styled } from "@mui/system";
 import { Grid } from "@mui/material";
 import TripCard from "../components/TripCard";
