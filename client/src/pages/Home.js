@@ -22,10 +22,12 @@ const HomeStyled = styled("div")({
   backgroundPosition: "center center",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
+});
 
-  container: {
-    textAlign: "center",
-  },
+const AlignedDiv = styled("div")({
+  textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
 });
 
 const Home = () => {
@@ -49,7 +51,7 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            <div sx={{ display: "flex", flexDirection: "column" }}>
+            <AlignedDiv>
               {" "}
               <Box
                 component={"img"}
@@ -68,7 +70,7 @@ const Home = () => {
                   </IconButton>
                 </Scroll>
               ) : null}
-            </div>
+            </AlignedDiv>
           </Box>
           {matches ? (
             <Box
@@ -85,11 +87,11 @@ const Home = () => {
                 {...(checked ? { timeout: 1000 } : {})}
                 collapsedSize={50}
               >
-                <div>
+                <AlignedDiv>
                   <Typography variant={"h3"} color={"primary.dark"}>
                     Boldly go somewhere you have not gone before!
                   </Typography>
-                </div>
+                </AlignedDiv>
               </Collapse>
             </Box>
           ) : null}
@@ -120,7 +122,7 @@ const Home = () => {
                 {...(checked ? { timeout: 1000 } : {})}
                 collapsedSize={50}
               >
-                <div sx={{ textAlign: "center" }}>
+                <AlignedDiv>
                   <Typography variant={"h3"} color={"#FFF"}>
                     Welcome to Your Travel Planner.
                   </Typography>
@@ -141,7 +143,7 @@ const Home = () => {
                       />
                     </IconButton>
                   </Scroll>
-                </div>
+                </AlignedDiv>
               </Collapse>
             </Box>
             <Box

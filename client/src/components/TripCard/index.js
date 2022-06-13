@@ -27,7 +27,7 @@ export default function TripCard() {
   const detailNameRef = useRef();
   useEffect(() => {
     console.log(details);
-    if (details) {
+    if (details.length > 0) {
       localStorage.setItem("details", JSON.stringify(details));
     }
   }, [details]);
