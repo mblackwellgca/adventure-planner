@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/system";
 import "../assets/css/home.css";
 import Background from "../../src/assets/images/aleksandra-boguslawska-MS7KD9Ti7FQ-unsplash.png";
 import Logo from "../../src/assets/images/group-it-logo.png";
@@ -15,30 +15,30 @@ import { IconButton, Collapse } from "@material-ui/core";
 import HomeCards from "../components/HomeCards";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: "100%",
-    backgroundImage: `url(${Background})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
-  },
-  container: {
-    textAlign: "center",
-  },
-}));
+const HomeStyled = styled("div")({
+  minHeight: "100%",
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center center",
+  backgroundAttachment: "fixed",
+  backgroundSize: "cover",
+});
+
+const AlignedDiv = styled("div")({
+  textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+});
 
 const Home = () => {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const nodeRef = useRef(null);
-  const classes = useStyles();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
   }, []);
   return (
-    <div ref={nodeRef} className={classes.root}>
+    <HomeStyled ref={nodeRef}>
       <CssBaseline />
       <Grid container spacing={0} minHeight={100}>
         <Grid item xs={12} md={5}>
@@ -51,10 +51,7 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            <div
-              className={classes.container}
-              sx={{ display: "flex", flexDirection: "column" }}
-            >
+            <AlignedDiv>
               {" "}
               <Box
                 component={"img"}
@@ -73,7 +70,7 @@ const Home = () => {
                   </IconButton>
                 </Scroll>
               ) : null}
-            </div>
+            </AlignedDiv>
           </Box>
           {matches ? (
             <Box
@@ -90,11 +87,11 @@ const Home = () => {
                 {...(checked ? { timeout: 1000 } : {})}
                 collapsedSize={50}
               >
-                <div className={classes.container}>
+                <AlignedDiv>
                   <Typography variant={"h3"} color={"primary.dark"}>
                     Boldly go somewhere you have not gone before!
                   </Typography>
-                </div>
+                </AlignedDiv>
               </Collapse>
             </Box>
           ) : null}
@@ -125,7 +122,7 @@ const Home = () => {
                 {...(checked ? { timeout: 1000 } : {})}
                 collapsedSize={50}
               >
-                <div className={classes.container}>
+                <AlignedDiv>
                   <Typography variant={"h3"} color={"#FFF"}>
                     Welcome to Your Travel Planner.
                   </Typography>
@@ -146,7 +143,7 @@ const Home = () => {
                       />
                     </IconButton>
                   </Scroll>
-                </div>
+                </AlignedDiv>
               </Collapse>
             </Box>
             <Box
@@ -162,7 +159,7 @@ const Home = () => {
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </HomeStyled>
   );
 };
 export default Home;

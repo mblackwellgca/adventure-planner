@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../assets//css/WeatherCard.css";
 import { Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 const api = {
@@ -10,7 +9,6 @@ const api = {
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
@@ -84,6 +82,7 @@ export default function WeatherCard() {
             textAlign: "center",
             textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
           }}
+          gutterBottom
         >
           Weather
         </Typography>
