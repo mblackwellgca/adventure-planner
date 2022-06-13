@@ -25,18 +25,18 @@ const CardStyled = styled(Card)({
 export default function TripCard() {
   const [details, setDetails] = useState([]);
   const detailNameRef = useRef();
-  // useEffect(() => {
-  //   console.log(details);
-  //   if (details[0] != null && details[1] != null) {
-  //     localStorage.setItem("details", JSON.stringify(details));
-  //   }
-  // }, [details]);
-  // useEffect(() => {
-  //   const details = JSON.parse(localStorage.getItem("details"));
-  //   if (details) {
-  //     setDetails(details);
-  //   }
-  // }, []);
+  useEffect(() => {
+    console.log(details);
+    if (details) {
+      localStorage.setItem("details", JSON.stringify(details));
+    }
+  }, [details]);
+  useEffect(() => {
+    const storedDetails = JSON.parse(localStorage.getItem("details"));
+    if (storedDetails) {
+      setDetails(storedDetails);
+    }
+  }, []);
 
   function handleAddDetails(e) {
     const detail = detailNameRef.current.value;
