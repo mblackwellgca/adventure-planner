@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import Maldives from "../../assets/images/pexels-asad-photo-maldives-1450360.png";
 import Meal from "../../assets/images/meal-planner.png";
 import Lightbulb from "../../assets/images/lightbulb.png";

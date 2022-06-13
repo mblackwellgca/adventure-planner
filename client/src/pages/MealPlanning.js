@@ -23,7 +23,9 @@ const MealPlanning = () => {
   const { loading, data } = useQuery(QUERY_MEALS);
   const meals = data?.meals || [];
   const classes = useStyles();
-  return (
+  return loading ? (
+    <div>Loading!</div>
+  ) : (
     <div className={classes.root}>
       <CssBaseline />
       <Container>

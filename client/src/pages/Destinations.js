@@ -25,7 +25,7 @@ var requestOptions = {
 
 function Destinations(props) {
   const [items, setItems] = useState([]);
-  const [dataIsLoaded, setDataIsLoaded] = useState(false);
+  // const [dataIsLoaded, setDataIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
   const handleSubmit = (event) => {
@@ -153,16 +153,25 @@ function Destinations(props) {
                       ></Typography>
                     </CardContent>
                     <CardActions>
-                      <a href={data.data.attributes.airbnb_url} target="_blank">
+                      <a
+                        href={data.data.attributes.airbnb_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Button size="small">AirBnB</Button>
                       </a>
                       <a
                         href={data.data.attributes.kayak_lodgings_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Kayak Lodgings</Button>
                       </a>
-                      <a href={data.data.attributes.vrbo_url} target="_blank">
+                      <a
+                        href={data.data.attributes.vrbo_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Button size="small">Vrbo</Button>
                       </a>
                     </CardActions>
@@ -200,18 +209,21 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.alltrails_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Go Hiking</Button>
                       </a>
                       <a
                         href={data.data.attributes.getyourguide_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Travel Guide</Button>
                       </a>
                       <a
                         href={data.data.attributes.google_events_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Google Events</Button>
                       </a>
@@ -250,12 +262,14 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.walk_score_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Walk Score</Button>
                       </a>
                       <a
                         href={data.data.attributes.kayak_car_rental_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Kayak Car Rental</Button>
                       </a>
@@ -299,6 +313,7 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.wikipedia_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Wikipedia</Button>
                       </a>

@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
 import "../../assets/css/Dashboard.css";
 import {
-  Box,
   List,
   Card,
   CardContent,
