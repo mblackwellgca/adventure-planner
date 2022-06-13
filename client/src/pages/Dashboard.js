@@ -17,10 +17,10 @@ const DashboardGrid = styled(Grid)({
 });
 
 const GridItem = styled(Grid)({
-  // display: "flex",
-  // justifyContent: "center",
-  // height: 345,
-  // minWidth: 545,
+  display: "flex",
+  justifyContent: "center",
+  height: "100%",
+  width: "100%",
 });
 
 export default function Dashboard() {

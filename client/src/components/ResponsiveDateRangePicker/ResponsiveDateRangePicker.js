@@ -34,7 +34,8 @@ export default function ResponsiveDateRangePicker() {
   let endDate = new Date(value[1]);
 
   useEffect(() => {
-    if (value !== [null, null]) {
+    console.log(value);
+    if (value[0] != null && value[1] != null) {
       localStorage.setItem("value", JSON.stringify(value));
     }
   }, [value]);
