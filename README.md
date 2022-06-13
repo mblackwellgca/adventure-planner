@@ -1,5 +1,6 @@
-# Never-Wavering-Wayfaring-Wanderlust-Adventure-Planner
+# Group It - The Group Adventure Travel Planner
 Planning a getaway with family or friends and looking for a trip planner app to help you figure out the logistics? 
+There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
 
 ## Table Of Contents
 
@@ -11,29 +12,32 @@ Planning a getaway with family or friends and looking for a trip planner app to 
 
 ## Description
 
-Planning a getaway with family or friends and looking for a trip planner app to help you figure out the logistics? 
-There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
-
 The Group It - Group Adventure Travel Planner makes group travel easy! An intuitively designed app that allows group travel planners to seamlessly coordinate, plan, and book group trips all in one place. From voting on the destination, to sharing flight bookings!
 Bachelor parties, girls trips, family reunions, couples’ getaways… you-name-it. It doesn’t matter whether you’re flying, driving, or walking to your destination. The Group It planner is designed to help with the logistics, no matter how big or small.
 
 
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/AP-Home.png)
+![Screenshot](../adventure-planner/client/src/assets/images/)
 
 
 ## Usage
 
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/login.png)
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/signup.png)
+![Screenshot](../adventure-planner/client/src/assets/images/login.png)
+![Screenshot](../adventure-planner/client/src/assets/images/signup.png)
 
 
 ## Technologies Used
 
-- HTML
+- apollo
 - CSS
-- JavaScript
-- React.js
-- Spotify API
+- date-fns
+- react.js
+- emotion
+- javaScript
+- node
+- material ui
+- graphql
+- mongo db
+- jwt
 
 ## Application Deployed Url
 
