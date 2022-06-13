@@ -14,8 +14,6 @@ import Plan from "../assets/images/notepad-1130743_640.jpg";
 import Car from "../assets/images/nature-4346917_640.jpg";
 import Safe from "../assets/images/japan-2014618_640.jpg";
 import Money from "../assets/images/banknotes-209104_640.jpg";
-const Swim = "swim";
-const city = "";
 
 var requestOptions = {
   method: "GET",
@@ -61,9 +59,6 @@ function Destinations(props) {
     )
       .then((response) => response.json())
       .then(function (data) {
-        const names =
-          data["data"]["attributes"]["budget"][data.data.attributes.name];
-        console.log(names);
         setItems([data]);
         console.log(data);
       });
@@ -348,11 +343,7 @@ function Destinations(props) {
                         </Box>
                       </Typography>
                     </CardContent>
-                    <CardActions>
-                      {/* <a href={data["data"]["attributes"]["covid"][data.data.attributes.name]["url"]} target="_blank">
-                          <Button size="small">Coronovirus Updates</Button>
-                        </a> */}
-                    </CardActions>
+                    <CardActions></CardActions>
                   </Card>
                 </Grid>
 
@@ -370,7 +361,7 @@ function Destinations(props) {
                   <Card sx={{ minWidth: 345, height: 300, boxShadow: 4 }}>
                     <CardMedia
                       component="img"
-                      alt="mnoney"
+                      alt="money"
                       height="140"
                       image={Money}
                     />
@@ -407,140 +398,6 @@ function Destinations(props) {
                     <CardActions></CardActions>
                   </Card>
                 </Grid>
-                <h1>{data.data.attributes.name}</h1>
-                {/* <p>{data["data"]["attributes"]["budget"][data.data.attributes.name]}</p> */}
-
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    alt="hotel"
-                    height="140"
-                    image={Hotel}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Find Lodging
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                    ></Typography>
-                  </CardContent>
-                  <CardActions>
-                    <a href={data.data.attributes.airbnb_url} target="_blank">
-                      <Button size="small">AirBnB</Button>
-                    </a>
-                    <a
-                      href={data.data.attributes.kayak_lodgings_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Kayak Lodgings</Button>
-                    </a>
-                    <a href={data.data.attributes.vrbo_url} target="_blank">
-                      <Button size="small">Vrbo</Button>
-                    </a>
-                  </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    alt="hotel"
-                    height="140"
-                    // image={Swim}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Make Plans
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                    ></Typography>
-                  </CardContent>
-                  <CardActions>
-                    <a
-                      href={data.data.attributes.alltrails_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Go Hiking</Button>
-                    </a>
-                    <a
-                      href={data.data.attributes.getyourguide_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Travel Guide</Button>
-                    </a>
-                    <a
-                      href={data.data.attributes.google_events_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Google Events</Button>
-                    </a>
-                  </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    alt="car"
-                    height="140"
-                    image={Car}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Get Around
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                    ></Typography>
-                  </CardContent>
-                  <CardActions>
-                    <a
-                      href={data.data.attributes.walk_score_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Walk Score</Button>
-                    </a>
-                    <a
-                      href={data.data.attributes.kayak_car_rental_url}
-                      target="_blank"
-                    >
-                      <Button size="small">Kayak Car Rental</Button>
-                    </a>
-                  </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    alt="hotel"
-                    height="140"
-                    image={Plan}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Learn More
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <p>
-                        <b>Population:</b> {data.data.attributes.population}
-                      </p>
-                      <p>
-                        <b>Average Rating (1-5):</b>{" "}
-                        {data.data.attributes.average_rating}
-                      </p>
-                      <a
-                        href={data.data.attributes.wikipedia_url}
-                        target="_blank"
-                      >
-                        <Button size="small">Wikipedia</Button>
-                      </a>
-                    </Typography>
-                  </CardContent>
-                  <CardActions></CardActions>
-                </Card>
               </Grid>
             </div>
           ))}
