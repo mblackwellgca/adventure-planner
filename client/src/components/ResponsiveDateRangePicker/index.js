@@ -11,7 +11,6 @@ import { styled } from "@mui/system";
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
@@ -50,12 +49,13 @@ export default function ResponsiveDateRangePicker() {
             textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
           }}
           variant="h4"
+          gutterBottom
         >
           Travel Dates
         </Typography>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           {value[(0, 1)] != null ? (
-            <Typography sx={{ p: 2 }} variant="h6">{`${
+            <Typography sx={{ p: 2 }} variant="h6" gutterBottom>{`${
               startDate.getMonth() + 1
             }/${startDate.getDate()}/${startDate.getFullYear()} - ${
               endDate.getMonth() + 1

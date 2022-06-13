@@ -1,13 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
-import { Card, CardContent, TextField, Typography, Fab } from "@mui/material";
+import Background from "../../assets/images/hotel-1749602_640.jpg";
+import {
+  Box,
+  List,
+  Card,
+  CardContent,
+  TextField,
+  Typography,
+  Fab,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
+  // backgroundImage: `url(${Background})`,
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
@@ -46,6 +55,7 @@ export default function TripCard() {
       <CardContent>
         <Typography
           sx={{
+            p: 1,
             color: "#fff",
             fontSize: "32px",
             fontWeight: 500,
@@ -53,19 +63,25 @@ export default function TripCard() {
             textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
           }}
           variant="h4"
+          gutterBottom
         >
           Trip Details
         </Typography>
 
         <TextField
+          sx={{ m: 2 }}
           inputRef={detailNameRef}
           id="outlined-basic"
           label="Add Details"
           variant="outlined"
         />
-        {details.map((detail) => {
-          return <TripDetails key={uuidv4()} detail={detail.detail} />;
-        })}
+        <Box sx={{ overflow: "hidden" }}>
+          <List sx={{ maxHeight: 100, overflow: "auto" }} component="div">
+            {details.map((detail) => {
+              return <TripDetails key={uuidv4()} detail={detail.detail} />;
+            })}
+          </List>
+        </Box>
         <Fab
           color="primary"
           aria-label="add"

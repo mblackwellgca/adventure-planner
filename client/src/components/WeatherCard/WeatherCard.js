@@ -10,7 +10,6 @@ const api = {
 const CardStyled = styled(Card)({
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   maxWidth: 545,
   minHeight: 345,
   padding: 2,
@@ -84,6 +83,7 @@ export default function WeatherCard() {
             textAlign: "center",
             textShadow: "3px 3px rgba(50, 50, 70, 0.5)",
           }}
+          gutterBottom
         >
           Weather
         </Typography>
