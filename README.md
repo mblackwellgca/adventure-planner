@@ -21,11 +21,11 @@ Bachelor parties, girls trips, family reunions, couples’ getaways… you-name-
 
 ## Usage
 
-![Screenshot](../adventure-planner/client/src/assets/images/group-it-signin.gif "Group It Signin")
-![Screenshot](../adventure-planner/client/src/assets/images/group-it-mealplan.gif "Group It Meal Planner")
-![Screenshot](../adventure-planner/client/src/assets/images/group-it-discussions.gif "Group It Discussions")
-![Screenshot](../adventure-planner/client/src/assets/images/group-it-profile-settings.gif "Group It Settings")
-![Screenshot](../adventure-planner/client/src/assets/images/group-it-destinations.gif "Group It Destinations")
+![Screenshot](../adventure-planner/client/src/assets/images/signup.png)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-mealplan.png)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-discussions.gif)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-profile-setting.png)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-destinations.gif)
 
 
 ## Technologies Used
