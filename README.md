@@ -21,15 +21,15 @@ Bachelor parties, girls trips, family reunions, couples’ getaways… you-name-
 
 ## Usage
 
-![Screenshot](/adventure-planner/client/src/assets/images/signup.png)
+![Screenshot](./client/src/assets/images/signup.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-mealplan.png)
+![Screenshot](./client/src/assets/images/group-it-mealplan.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-discussions.gif)
+![Screenshot](./client/src/assets/images/group-it-discussions.gif)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-profile-setting.png)
+![Screenshot](./client/src/assets/images/group-it-profile-setting.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-destinations.gif)
+![Screenshot](./client/src/assets/images/group-it-destinations.gif)
 
 
 ## Technologies Used
@@ -59,7 +59,7 @@ Below is link for application deployed using Heroku
 
 Scan the QR code to view the live web site
 
-![Group It - The Group Adventure Travel Planner QR](../adventure-planner/client/src/assets/images/qrcode_group-it-travel-planner.herokuapp.com.png)
+![Group It - The Group Adventure Travel Planner QR](./client/src/assets/images/qrcode_group-it-travel-planner.herokuapp.com.png)
 
 ## License
 
