@@ -8,6 +8,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+// import Alert from '@mui/material/Alert';
+// import AlertTitle from '@mui/material/AlertTitle';
+// import Stack from '@mui/material/Stack';
 import Hotel from "../assets/images/hotel-1749602_640.jpg";
 import City from "../assets/images/dubai-1767540_640.jpg";
 import Plan from "../assets/images/notepad-1130743_640.jpg";
@@ -25,15 +28,15 @@ var requestOptions = {
 
 function Destinations(props) {
   const [items, setItems] = useState([]);
-  const [dataIsLoaded, setDataIsLoaded] = useState(false);
+  // const [dataIsLoaded, setDataIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, BasicAlert) => {
     event.preventDefault();
     // alert(`Let's go to ${search}!`)
     var myHeader =
       ("Authorization:",
-      "Basic YzNjMjAyY2Y3ZDVhMTUzZTQ5MGU2NDgxY2I3NjlhY2E6OWQ3YjM5MDQ4MmU4YjNlMmU3NWRhNDEzMWFkOWQ3NmY=");
+        "Basic YzNjMjAyY2Y3ZDVhMTUzZTQ5MGU2NDgxY2I3NjlhY2E6OWQ3YjM5MDQ4MmU4YjNlMmU3NWRhNDEzMWFkOWQ3NmY=");
     var requestOptions = {
       method: "GET",
       headers: {
@@ -46,11 +49,26 @@ function Destinations(props) {
       `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${search}`,
       requestOptions
     )
+
       .then((response) => response.json())
       .then(function (data) {
         bulkApi(data["data"][0]["attributes"]["slug"]);
       })
-      .catch((error) => console.log("error", error));
+      .catch(function (error) {
+        console.log("error", error)
+        alert(`Sorry, your search for ${search} isn't supported. Try a different location!`)
+        // function BasicAlert() {
+        //   return (
+        //     <Stack sx={{ width: '100%' }} spacing={2}>
+        //       <Alert severity="error">
+        //         <AlertTitle>Error</AlertTitle>
+        //         Sorry, your search isn't supported. Try a different location!
+        //       </Alert>
+        //     </Stack>
+        //   )
+        // };
+        // BasicAlert();
+      });
   };
   function bulkApi(slug) {
     fetch(
@@ -153,16 +171,25 @@ function Destinations(props) {
                       ></Typography>
                     </CardContent>
                     <CardActions>
-                      <a href={data.data.attributes.airbnb_url} target="_blank">
+                      <a
+                        href={data.data.attributes.airbnb_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Button size="small">AirBnB</Button>
                       </a>
                       <a
                         href={data.data.attributes.kayak_lodgings_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Kayak Lodgings</Button>
                       </a>
-                      <a href={data.data.attributes.vrbo_url} target="_blank">
+                      <a
+                        href={data.data.attributes.vrbo_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Button size="small">Vrbo</Button>
                       </a>
                     </CardActions>
@@ -200,18 +227,21 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.alltrails_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Go Hiking</Button>
                       </a>
                       <a
                         href={data.data.attributes.getyourguide_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Travel Guide</Button>
                       </a>
                       <a
                         href={data.data.attributes.google_events_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Google Events</Button>
                       </a>
@@ -250,12 +280,14 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.walk_score_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Walk Score</Button>
                       </a>
                       <a
                         href={data.data.attributes.kayak_car_rental_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Kayak Car Rental</Button>
                       </a>
@@ -299,6 +331,7 @@ function Destinations(props) {
                       <a
                         href={data.data.attributes.wikipedia_url}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button size="small">Wikipedia</Button>
                       </a>
@@ -337,7 +370,7 @@ function Destinations(props) {
                           <b>Crime Risk:</b>{" "}
                           {
                             data["data"]["attributes"]["safety"][
-                              data.data.attributes.name
+                            data.data.attributes.name
                             ]["subText"]
                           }
                         </Box>
@@ -374,13 +407,13 @@ function Destinations(props) {
                           <b>Daily Cost:</b>{" "}
                           {
                             data["data"]["attributes"]["budget"][
-                              data.data.attributes.name
+                            data.data.attributes.name
                             ]["text"]
                           }{" "}
                           |{" "}
                           {
                             data["data"]["attributes"]["budget"][
-                              data.data.attributes.name
+                            data.data.attributes.name
                             ]["subText"]
                           }
                           !
@@ -389,7 +422,7 @@ function Destinations(props) {
                           <b>Cost Rating (1-8):</b>{" "}
                           {
                             data["data"]["attributes"]["budget"][
-                              data.data.attributes.name
+                            data.data.attributes.name
                             ]["value"]
                           }
                         </Box>
