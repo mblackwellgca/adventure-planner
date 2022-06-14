@@ -14,13 +14,10 @@ export default function TripDetails(props) {
   }
 
   return (
-    <ListItem
-      sx={{ display: "flex", justifyContent: "space-between" }}
-      gutterBottom
-    >
+    <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
       {props.detail}
-      <IconButton>
-        <DeleteIcon onClick={() => handleDeleteDetail(props.id)} />
+      <IconButton onClick={() => handleDeleteDetail(props.id)}>
+        <DeleteIcon />
       </IconButton>
       <Divider />
     </ListItem>

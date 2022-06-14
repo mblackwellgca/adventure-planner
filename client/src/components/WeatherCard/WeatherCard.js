@@ -4,7 +4,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 const api = {
   key: process.env.REACT_APP_KEY,
-  base: process.env.REACT_APP_BASE_URL,
+  base: "https://api.openweathermap.org/data/2.5/",
 };
 
 const CardStyled = styled(Card)({

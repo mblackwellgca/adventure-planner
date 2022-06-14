@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import BudgetDetails from "../BudgetDetails";
-import { v4 as uuidv4 } from "uuid";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 import {
   Card,
   CardContent,
   List,
+  ListItem,
   Typography,
   TextField,
   Fab,
@@ -40,9 +41,7 @@ export default function BudgetCard() {
     const budget = budgetNameRef.current.value;
     if (budget === "") return;
     console.log(budget);
-    setBudget((prevBudget) => {
-      return [...prevBudget, { id: uuidv4(), budget: budget }];
-    });
+    setBudget(budget);
     budgetNameRef.current.value = null;
   }
 
@@ -75,9 +74,7 @@ export default function BudgetCard() {
           component="div"
           className="scroll-box"
         >
-          {budget.map((budget) => {
-            return <BudgetDetails key={uuidv4()} budget={budget.budget} />;
-          })}
+          <ListItem>{budget}</ListItem>
         </List>
         <Fab
           color="primary"
@@ -87,6 +84,15 @@ export default function BudgetCard() {
           }}
         >
           <AddIcon />
+        </Fab>
+        <Fab
+          color="secondary"
+          aria-label="delete"
+          onClick={() => {
+            setBudget([]);
+          }}
+        >
+          <DeleteIcon />
         </Fab>
       </CardContent>
     </CardStyled>
