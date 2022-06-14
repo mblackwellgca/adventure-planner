@@ -16,20 +16,20 @@ The Group It - Group Adventure Travel Planner makes group travel easy! An intuit
 Bachelor parties, girls trips, family reunions, couples’ getaways… you-name-it. It doesn’t matter whether you’re flying, driving, or walking to your destination. The Group It planner is designed to help with the logistics, no matter how big or small.
 
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-dashboard.gif)
+![Screenshot](./client/src/assets/images/group-it-dashboard.gif)
 
 
 ## Usage
 
-![Screenshot](/adventure-planner/client/src/assets/images/signup.png)
+![Screenshot](./client/src/assets/images/signup.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-mealplan.png)
+![Screenshot](./client/src/assets/images/group-it-mealplan.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-discussions.gif)
+![Screenshot](./client/src/assets/images/group-it-discussions.gif)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-profile-setting.png)
+![Screenshot](./client/src/assets/images/group-it-profile-setting.png)
 
-![Screenshot](/adventure-planner/client/src/assets/images/group-it-destinations.gif)
+![Screenshot](./client/src/assets/images/group-it-destinations.gif)
 
 
 ## Technologies Used
