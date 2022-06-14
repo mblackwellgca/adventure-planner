@@ -5,22 +5,19 @@ import Lightbulb from "../../assets/images/lightbulb.png";
 import Collaborate from "../../assets/images/collaborate.png";
 import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/system";
 import details from "./CardDetails";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 375,
-    background: "rgba(0,0,0,0.5)",
-    margin: "20px",
-  },
-  media: {
-    height: 250,
-  },
+const StyledCard = styled(Card)({
+  maxWidth: 375,
+  maxHeight: 400,
+  background: "rgba(255, 255, 255, 0.8)",
+  // "rgba(0, 182, 195, 0.5)",
+  margin: "20px",
+  color: "primary.main",
 });
 
 export default function HomeCards() {
-  const classes = useStyles();
   return (
     <Grid id="home-cards" container spacing={2}>
       <Grid
@@ -29,22 +26,15 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            component="img"
-            image={Maldives}
-            alt="Maldives"
-          />
+        <StyledCard>
+          <CardMedia component="img" image={Maldives} alt="Maldives" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {details[0].title}
             </Typography>
-            <Typography variant="body2" color="secondary.main">
-              {details[0].description}
-            </Typography>
+            <Typography variant="body2">{details[0].description}</Typography>
           </CardContent>
-        </Card>
+        </StyledCard>
       </Grid>
       <Grid
         item
@@ -52,22 +42,15 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            component="img"
-            image={Lightbulb}
-            alt="green iguana"
-          />
+        <StyledCard>
+          <CardMedia component="img" image={Lightbulb} alt="green iguana" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {details[1].title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {details[1].description}
-            </Typography>
+            <Typography variant="body2">{details[1].description}</Typography>
           </CardContent>
-        </Card>
+        </StyledCard>
       </Grid>{" "}
       <Grid
         item
@@ -75,9 +58,8 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
+        <StyledCard>
           <CardMedia
-            className={classes.media}
             component="img"
             image={Collaborate}
             alt="people pointing at a laptop screen together"
@@ -90,7 +72,7 @@ export default function HomeCards() {
               {details[2].description}
             </Typography>
           </CardContent>
-        </Card>
+        </StyledCard>
       </Grid>
       <Grid
         item
@@ -98,13 +80,8 @@ export default function HomeCards() {
         md={6}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            component="img"
-            image={Meal}
-            alt="prepared meals"
-          />
+        <StyledCard>
+          <CardMedia component="img" image={Meal} alt="prepared meals" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {details[3].title}
@@ -113,7 +90,7 @@ export default function HomeCards() {
               {details[3].description}
             </Typography>
           </CardContent>
-        </Card>
+        </StyledCard>
       </Grid>
     </Grid>
   );

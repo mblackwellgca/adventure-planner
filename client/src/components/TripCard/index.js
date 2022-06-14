@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
 import "../../assets/css/Dashboard.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
   List,
   Card,
@@ -47,6 +48,13 @@ export default function TripCard() {
     detailNameRef.current.value = null;
   }
 
+  function handleDeleteDetail(id) {
+    const filtered = details.filter((detail) => {
+      return detail.id != id;
+    });
+    setDetails(filtered);
+  }
+
   return (
     <CardStyled className="gradient-card trip-card">
       <CardContent>
@@ -80,7 +88,13 @@ export default function TripCard() {
           className="scroll-box"
         >
           {details.map((detail) => {
-            return <TripDetails key={uuidv4()} detail={detail.detail} />;
+            return (
+              <TripDetails
+                key={uuidv4()}
+                handleDelete={handleDeleteDetail}
+                detail={detail.detail}
+              />
+            );
           })}
         </List>
 
@@ -92,6 +106,9 @@ export default function TripCard() {
           }}
         >
           <AddIcon />
+        </Fab>
+        <Fab color="secondary" aria-label="add">
+          <DeleteIcon />
         </Fab>
       </CardContent>
     </CardStyled>
