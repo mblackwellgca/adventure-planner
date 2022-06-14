@@ -23,13 +23,14 @@ const CardStyled = styled(Card)({
 });
 
 export default function TripCard() {
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(
+    JSON.parse(localStorage.getItem("details"))
+  );
   const detailNameRef = useRef();
   useEffect(() => {
     console.log(details);
-    if (details.length > 0) {
-      localStorage.setItem("details", JSON.stringify(details));
-    }
+
+    localStorage.setItem("details", JSON.stringify(details));
   }, [details]);
   useEffect(() => {
     const storedDetails = JSON.parse(localStorage.getItem("details"));
@@ -46,13 +47,6 @@ export default function TripCard() {
       return [...prevDetails, { id: uuidv4(), detail: detail }];
     });
     detailNameRef.current.value = null;
-  }
-
-  function handleDeleteDetail(id) {
-    const filtered = details.filter((detail) => {
-      return detail.id != id;
-    });
-    setDetails(filtered);
   }
 
   return (
@@ -88,10 +82,13 @@ export default function TripCard() {
           className="scroll-box"
         >
           {details.map((detail) => {
+            console.log(detail.id);
             return (
               <TripDetails
-                key={uuidv4()}
-                handleDelete={handleDeleteDetail}
+                key={detail.id}
+                id={detail.id}
+                setDetails={setDetails}
+                details={details}
                 detail={detail.detail}
               />
             );
@@ -107,7 +104,7 @@ export default function TripCard() {
         >
           <AddIcon />
         </Fab>
-        <Fab color="secondary" aria-label="add">
+        <Fab color="secondary" aria-label="delete">
           <DeleteIcon />
         </Fab>
       </CardContent>
