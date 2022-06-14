@@ -1,49 +1,61 @@
-# Never-Wavering-Wayfaring-Wanderlust-Adventure-Planner
+# Group It - The Group Adventure Travel Planner
 Planning a getaway with family or friends and looking for a trip planner app to help you figure out the logistics? 
+There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
 
 ## Table Of Contents
 
-- [description](#description)
-- [usage](#usage)
-- [technologies used](#technologies-used)
-- [application](#application-deployed-url)
-- [license](#license)
+- [Description](#description)
+- [Usage](#usage)
+- [Technologies used](#technologies-used)
+- [Application](#application-deployed-url)
+- [License](#license)
 
 ## Description
-
-Planning a getaway with family or friends and looking for a trip planner app to help you figure out the logistics? 
-There are endless details that go into planning a group trip. Coordinating flights, arranging transportation, planning for meals, scheduling activities and figuring out accommodation can feel like impossible tasks when a lot of people are involved.
 
 The Group It - Group Adventure Travel Planner makes group travel easy! An intuitively designed app that allows group travel planners to seamlessly coordinate, plan, and book group trips all in one place. From voting on the destination, to sharing flight bookings!
 Bachelor parties, girls trips, family reunions, couples’ getaways… you-name-it. It doesn’t matter whether you’re flying, driving, or walking to your destination. The Group It planner is designed to help with the logistics, no matter how big or small.
 
 
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/AP-Home.png)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-dashboard.gif "Group It Dashboard")
 
 
 ## Usage
 
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/login.png)
-![Screenshot](../../CourseWork/adventure-planner/client/src/assets/images/signup.png)
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-signin.gif "Group It Signin")
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-mealplan.gif "Group It Meal Planner")
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-discussions.gif "Group It Discussions")
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-profile-settings.gif "Group It Settings")
+![Screenshot](../adventure-planner/client/src/assets/images/group-it-destinations.gif "Group It Destinations")
 
 
 ## Technologies Used
 
-- HTML
+- api
+- apollo
 - CSS
-- JavaScript
-- React.js
-- Spotify API
+- date-fns
+- emotion
+- express.js
+- graphql
+- javaScript
+- jwt
+- material ui
+- mongodb
+- mongooseodm
+- node.js
+- react.js
+- roadgoat
+
 
 ## Application Deployed Url
 
 Below is link for application deployed using Heroku
 
-[Group It - The Group Adventure Travel Planner]()
+[Group It - The Group Adventure Travel Planner](https://group-it-travel-planner.herokuapp.com/)
 
 Scan the QR code to view the live web site
 
-![Group It - The Group Adventure Travel Planner QR]()
+![Group It - The Group Adventure Travel Planner QR](../adventure-planner/client/src/assets/images/qrcode_group-it-travel-planner.herokuapp.com.png)
 
 ## License
 
