@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS } from "../../utils/queries";
@@ -25,11 +25,9 @@ const weekDays = [
   "Sunday",
 ];
 
-const MealList = ({ meals }) => {
+const MealList = () => {
   const { loading, data } = useQuery(QUERY_MEALS);
   const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
-  const [mealList, setMealList] = useState();
-  // const [mealList, setMealList] = useState(data.meals);
   const handleRemoveMeal = async (mealId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
@@ -42,10 +40,6 @@ const MealList = ({ meals }) => {
 
       removeMeal(mealId);
       console.log(data);
-      // const updatedMealList = [...mealList].filter(
-      //   (item) => item._id !== mealId
-      // );
-      // setMealList(updatedMealList);
     } catch (err) {
       console.error(err);
     }
@@ -84,7 +78,10 @@ const MealList = ({ meals }) => {
                           <p>{meal.username}</p>
                           <button
                             style={{ cursor: "pointer" }}
-                            onClick={() => handleRemoveMeal(meal._id)}
+                            onClick={() =>
+                              handleRemoveMeal(meal._id) +
+                              window.location.reload(false)
+                            }
                           >
                             {" "}
                             🗑️
