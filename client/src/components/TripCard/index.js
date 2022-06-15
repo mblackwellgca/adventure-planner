@@ -24,7 +24,11 @@ const CardStyled = styled(Card)({
 
 export default function TripCard() {
   const [details, setDetails] = useState(
-    JSON.parse(localStorage.getItem("details"))
+    JSON.parse(
+      localStorage.getItem("details") == null
+        ? "[]"
+        : localStorage.getItem("details")
+    )
   );
 
   const detailNameRef = useRef();

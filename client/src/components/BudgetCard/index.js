@@ -32,8 +32,10 @@ export default function BudgetCard() {
   }, [budget]);
   useEffect(() => {
     const storedbudget = JSON.parse(localStorage.getItem("budget"));
-    if (storedbudget) {
+    if (storedbudget.length > 0) {
       setBudget(storedbudget);
+    } else {
+      setBudget([]);
     }
   }, []);
 
