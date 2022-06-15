@@ -11,7 +11,10 @@ const Footer = () => {
       align="center"
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link
+        color="inherit"
+        href="https://group-it-travel-planner.herokuapp.com/"
+      >
         Group It Travel
       </Link>{" "}
       {2022}
