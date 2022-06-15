@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TripDetails from "../TripDetails";
 import "../../assets/css/Dashboard.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
   List,
   Card,
@@ -22,13 +23,15 @@ const CardStyled = styled(Card)({
 });
 
 export default function TripCard() {
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(
+    JSON.parse(localStorage.getItem("details"))
+  );
+
   const detailNameRef = useRef();
   useEffect(() => {
     console.log(details);
-    if (details.length > 0) {
-      localStorage.setItem("details", JSON.stringify(details));
-    }
+
+    localStorage.setItem("details", JSON.stringify(details));
   }, [details]);
   useEffect(() => {
     const storedDetails = JSON.parse(localStorage.getItem("details"));
@@ -41,9 +44,13 @@ export default function TripCard() {
     const detail = detailNameRef.current.value;
     if (detail === "") return;
     console.log(detail);
-    setDetails((prevDetails) => {
-      return [...prevDetails, { id: uuidv4(), detail: detail }];
-    });
+    if (details !== null) {
+      setDetails((prevDetails) => {
+        return [...prevDetails, { id: uuidv4(), detail: detail }];
+      });
+    } else {
+      setDetails({ id: uuidv4(), detail: detail });
+    }
     detailNameRef.current.value = null;
   }
 
@@ -80,7 +87,16 @@ export default function TripCard() {
           className="scroll-box"
         >
           {details.map((detail) => {
-            return <TripDetails key={uuidv4()} detail={detail.detail} />;
+            console.log(detail.id);
+            return (
+              <TripDetails
+                key={detail.id}
+                id={detail.id}
+                setDetails={setDetails}
+                details={details}
+                detail={detail.detail}
+              />
+            );
           })}
         </List>
 
@@ -92,6 +108,15 @@ export default function TripCard() {
           }}
         >
           <AddIcon />
+        </Fab>
+        <Fab
+          color="secondary"
+          aria-label="delete"
+          onClick={() => {
+            setDetails([]);
+          }}
+        >
+          <DeleteIcon />
         </Fab>
       </CardContent>
     </CardStyled>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
 import { Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 const api = {
-  key: "d0ec0bc12a2d2e358f70d304e2a267fd",
+  key: process.env.REACT_APP_KEY,
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
