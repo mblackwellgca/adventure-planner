@@ -26,16 +26,14 @@ export default function BudgetCard() {
   const budgetNameRef = useRef();
   useEffect(() => {
     console.log(budget);
-    if (budget.length > 0) {
+    if (budget) {
       localStorage.setItem("budget", JSON.stringify(budget));
     }
   }, [budget]);
   useEffect(() => {
     const storedbudget = JSON.parse(localStorage.getItem("budget"));
-    if (storedbudget.length > 0) {
+    if (storedbudget) {
       setBudget(storedbudget);
-    } else {
-      setBudget([]);
     }
   }, []);
 
@@ -91,7 +89,7 @@ export default function BudgetCard() {
           color="secondary"
           aria-label="delete"
           onClick={() => {
-            setBudget([]);
+            setBudget("");
           }}
         >
           <DeleteIcon />
